@@ -31,6 +31,7 @@ export const getAssignments = async (req: AuthRequest, res: Response) => {
 export const getAssignment = async (req: AuthRequest, res: Response) => {
   try {
     const id = typeof req.params.id === 'string' ? req.params.id : req.params.id[0];
+    console.log('[getAssignment] Fetching assignment:', id);
 
     const assignment = await prisma.assignment.findUnique({
       where: { id },
@@ -49,15 +50,17 @@ export const getAssignment = async (req: AuthRequest, res: Response) => {
     });
 
     if (!assignment) {
+      console.log('[getAssignment] Assignment not found');
       return res.status(404).json({
         error: 'Tarea no encontrada',
         message: 'La tarea no existe',
       });
     }
 
+    console.log('[getAssignment] Assignment found');
     res.json({ assignment });
   } catch (error) {
-    console.error('Get assignment error:', error);
+    console.error('[getAssignment] Error:', error);
     res.status(500).json({
       error: 'Error del servidor',
       message: 'Error al obtener tarea',

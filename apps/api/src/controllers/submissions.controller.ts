@@ -325,7 +325,7 @@ export const uploadFile = async (req: AuthRequest, res: Response) => {
       });
     }
 
-    const submissionId = typeof req.params.submissionId === "string" ? req.params.submissionId : req.params.submissionId[0];
+    const submissionId = typeof req.params.id === "string" ? req.params.id : req.params.id[0];
 
     // Get submission
     const submission = await prisma.submission.findUnique({

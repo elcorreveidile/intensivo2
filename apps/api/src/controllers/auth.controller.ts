@@ -250,3 +250,150 @@ export const logout = async (req: AuthRequest, res: Response) => {
     });
   }
 };
+
+// Create student (professor only)
+export const createStudent = async (req: AuthRequest, res: Response) => {
+  try {
+    // Only professors can create students
+    if (req.user?.role !== 'profesor') {
+      return res.status(403).json({
+        error: 'No autorizado',
+        message: 'Solo profesores pueden crear estudiantes',
+      });
+    }
+
+    const { email, password, firstName, lastName } = req.body;
+
+    // Validation
+    if (!email || !password || !firstName || !lastName) {
+      return res.status(400).json({
+        error: 'Datos inválidos',
+        message: 'Todos los campos son requeridos',
+      });
+    }
+
+    if (password.length < 6) {
+      return res.status(400).json({
+        error: 'Contraseña débil',
+        message: 'La contraseña debe tener al menos 6 caracteres',
+      });
+    }
+
+    // Check if user already exists
+    const existingUser = await prisma.user.findUnique({
+      where: { email },
+    });
+
+    if (existingUser) {
+      return res.status(409).json({
+        error: 'Usuario ya existe',
+        message: 'Ya existe un usuario con este email',
+      });
+    }
+
+    // Hash password
+    const passwordHash = await bcrypt.hash(password, 10);
+
+    // Get professor's course to enroll student
+    const professorCourse = await prisma.course.findFirst({
+      where: { professorId: req.user.id },
+    });
+
+    // Create student
+    const student = await prisma.user.create({
+      data: {
+        email,
+        passwordHash,
+        firstName,
+        lastName,
+        role: 'estudiante',
+        nativeLanguage: 'English',
+        proficiencyLevel: 'C1',
+        isActive: true,
+      },
+      select: {
+        id: true,
+        email: true,
+        firstName: true,
+        lastName: true,
+        role: true,
+        createdAt: true,
+      },
+    });
+
+    // Enroll student in professor's course if exists
+    if (professorCourse) {
+      await prisma.enrollment.create({
+        data: {
+          courseId: professorCourse.id,
+          userId: student.id,
+          enrolledAt: new Date(),
+        },
+      });
+    }
+
+    res.status(201).json({
+      message: 'Estudiante creado exitosamente',
+      student,
+    });
+  } catch (error) {
+    console.error('Create student error:', error);
+    res.status(500).json({
+      error: 'Error del servidor',
+      message: 'Error al crear estudiante',
+    });
+  }
+};
+
+// Get all students (professor only)
+export const getStudents = async (req: AuthRequest, res: Response) => {
+  try {
+    // Only professors can view students
+    if (req.user?.role !== 'profesor') {
+      return res.status(403).json({
+        error: 'No autorizado',
+        message: 'Solo profesores pueden ver estudiantes',
+      });
+    }
+
+    // Get professor's course
+    const professorCourse = await prisma.course.findFirst({
+      where: { professorId: req.user.id },
+      include: {
+        enrollments: {
+          include: {
+            user: {
+              select: {
+                id: true,
+                email: true,
+                firstName: true,
+                lastName: true,
+                createdAt: true,
+                lastLogin: true,
+              },
+            },
+          },
+        },
+      },
+    });
+
+    if (!professorCourse) {
+      return res.json({ students: [] });
+    }
+
+    const students = professorCourse.enrollments
+      .filter((e: any) => e.user.role === 'estudiante')
+      .map((e: any) => ({
+        ...e.user,
+        enrolledAt: e.enrolledAt,
+      }));
+
+    res.json({ students });
+  } catch (error) {
+    console.error('Get students error:', error);
+    res.status(500).json({
+      error: 'Error del servidor',
+      message: 'Error al obtener estudiantes',
+    });
+  }
+};

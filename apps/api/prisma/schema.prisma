@@ -1,0 +1,275 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================
+// USERS & AUTHENTICATION
+// ============================================
+
+enum UserRole {
+  profesor
+  estudiante
+}
+
+model User {
+  id                String    @id @default(uuid())
+  email             String    @unique
+  passwordHash      String    @map("password_hash")
+  role              UserRole
+  firstName         String    @map("first_name")
+  lastName          String    @map("last_name")
+  profilePictureUrl String?   @map("profile_picture_url")
+  nativeLanguage    String?   @map("native_language")
+  proficiencyLevel  String?   @map("proficiency_level")
+  isActive          Boolean   @default(true) @map("is_active")
+  lastLogin         DateTime? @map("last_login")
+  createdAt         DateTime  @default(now()) @map("created_at")
+  updatedAt         DateTime  @updatedAt @map("updated_at")
+
+  // Relations
+  coursesTeaching   Course[]       @relation("CourseProfessor")
+  enrollments       Enrollment[]
+  submissions       Submission[]
+  feedbackGiven     Feedback[]     @relation("FeedbackTeacher")
+  notifications     Notification[]
+
+  @@map("users")
+}
+
+// ============================================
+// COURSES & ENROLLMENTS
+// ============================================
+
+model Course {
+  id           String   @id @default(uuid())
+  name         String
+  code         String   @unique
+  description  String?
+  professorId  String   @map("professor_id")
+  startDate    DateTime @map("start_date")
+  endDate      DateTime @map("end_date")
+  maxStudents  Int      @default(30) @map("max_students")
+  isActive     Boolean  @default(true) @map("is_active")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  professor    User         @relation("CourseProfessor", fields: [professorId], references: [id], onDelete: Cascade)
+  enrollments  Enrollment[]
+  assignments  Assignment[]
+  resources    Resource[]
+
+  @@map("courses")
+}
+
+model Enrollment {
+  id          String   @id @default(uuid())
+  userId      String   @map("user_id")
+  courseId    String   @map("course_id")
+  enrolledAt  DateTime @default(now()) @map("enrolled_at")
+
+  // Relations
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId])
+  @@map("enrollments")
+}
+
+// ============================================
+// ASSIGNMENTS
+// ============================================
+
+model Assignment {
+  id                   String    @id @default(uuid())
+  courseId             String    @map("course_id")
+  title                String
+  description          String
+  instructions         String?
+  dueDate              DateTime  @map("due_date")
+  maxScore             Int       @default(100) @map("max_score")
+  allowedFileTypes     Json      @default("[\"pdf\",\"docx\",\"mp3\",\"mp4\"]") @map("allowed_file_types")
+  maxFileSizeMb        Int       @default(100) @map("max_file_size_mb")
+  allowLateSubmission  Boolean   @default(false) @map("allow_late_submission")
+  rubric               Json?
+  attachments          Json?
+  orderIndex           Int       @default(0) @map("order_index")
+  publishedAt          DateTime  @default(now()) @map("published_at")
+  createdAt            DateTime  @default(now()) @map("created_at")
+  updatedAt            DateTime  @updatedAt @map("updated_at")
+
+  // Relations
+  course               Course       @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  submissions          Submission[]
+
+  @@map("assignments")
+}
+
+// ============================================
+// SUBMISSIONS
+// ============================================
+
+enum SubmissionStatus {
+  draft
+  submitted
+  graded
+  late
+}
+
+model Submission {
+  id               String            @id @default(uuid())
+  assignmentId     String            @map("assignment_id")
+  studentId        String            @map("student_id")
+  status           SubmissionStatus  @default(draft)
+  submittedAt      DateTime?         @map("submitted_at")
+  isLate           Boolean           @default(false) @map("is_late")
+  studentComments  String?           @map("student_comments")
+  createdAt        DateTime          @default(now()) @map("created_at")
+  updatedAt        DateTime          @updatedAt @map("updated_at")
+
+  // Relations
+  assignment       Assignment        @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  student          User              @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  files            SubmissionFile[]
+  feedback         Feedback?
+
+  @@unique([assignmentId, studentId])
+  @@map("submissions")
+}
+
+model SubmissionFile {
+  id               String   @id @default(uuid())
+  submissionId     String   @map("submission_id")
+  fileName         String   @map("file_name")
+  filePath         String   @map("file_path")
+  fileType         String   @map("file_type")
+  fileSizeBytes    Int      @map("file_size_bytes")
+  mimeType         String   @map("mime_type")
+  durationSeconds  Int?     @map("duration_seconds")
+  uploadedAt       DateTime @default(now()) @map("uploaded_at")
+
+  // Relations
+  submission       Submission               @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  annotations      FeedbackAnnotation[]
+
+  @@map("submission_files")
+}
+
+// ============================================
+// FEEDBACK
+// ============================================
+
+model Feedback {
+  id               String   @id @default(uuid())
+  submissionId     String   @unique @map("submission_id")
+  teacherId        String   @map("teacher_id")
+  overallScore     Int?     @map("overall_score")
+  overallComments  String?  @map("overall_comments")
+  rubricScores     Json?    @map("rubric_scores")
+  createdAt        DateTime @default(now()) @map("created_at")
+  updatedAt        DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  submission       Submission          @relation(fields: [submissionId], references: [id], onDelete: Cascade)
+  teacher          User                @relation("FeedbackTeacher", fields: [teacherId], references: [id], onDelete: Cascade)
+  files            FeedbackFile[]
+  annotations      FeedbackAnnotation[]
+
+  @@map("feedback")
+}
+
+model FeedbackFile {
+  id              String  @id @default(uuid())
+  feedbackId      String  @map("feedback_id")
+  fileType        String  @map("file_type")
+  fileUrl         String  @map("file_url")
+  fileName        String  @map("file_name")
+  durationSeconds Int?    @map("duration_seconds")
+  uploadedAt      DateTime @default(now()) @map("uploaded_at")
+
+  // Relations
+  feedback        Feedback @relation(fields: [feedbackId], references: [id], onDelete: Cascade)
+
+  @@map("feedback_files")
+}
+
+enum AnnotationType {
+  text
+  highlight
+  drawing
+}
+
+model FeedbackAnnotation {
+  id              String         @id @default(uuid())
+  feedbackId      String         @map("feedback_id")
+  submissionFileId String        @map("submission_file_id")
+  annotationType  AnnotationType @map("annotation_type")
+  content         String
+  positionData    Json           @map("position_data")
+  createdAt       DateTime       @default(now()) @map("created_at")
+
+  // Relations
+  feedback        Feedback       @relation(fields: [feedbackId], references: [id], onDelete: Cascade)
+  submissionFile  SubmissionFile @relation(fields: [submissionFileId], references: [id], onDelete: Cascade)
+
+  @@map("feedback_annotations")
+}
+
+// ============================================
+// RESOURCES
+// ============================================
+
+enum ResourceType {
+  reading
+  video
+  audio
+  document
+  link
+}
+
+model Resource {
+  id            String        @id @default(uuid())
+  courseId      String        @map("course_id")
+  sessionNumber Int           @map("session_number")
+  title         String
+  description   String?
+  resourceType  ResourceType  @map("resource_type")
+  fileUrl       String?       @map("file_url")
+  fileName      String?       @map("file_name")
+  orderIndex    Int           @default(0) @map("order_index")
+  createdAt     DateTime      @default(now()) @map("created_at")
+
+  // Relations
+  course        Course        @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@map("resources")
+}
+
+// ============================================
+// NOTIFICATIONS
+// ============================================
+
+model Notification {
+  id          String   @id @default(uuid())
+  userId      String   @map("user_id")
+  type        String
+  title       String
+  message     String
+  actionUrl   String?  @map("action_url")
+  isRead      Boolean  @default(false) @map("is_read")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  // Relations
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, isRead])
+  @@map("notifications")
+}

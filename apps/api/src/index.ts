@@ -9,6 +9,7 @@ import assignmentsRoutes from './routes/assignments.routes';
 import submissionsRoutes from './routes/submissions.routes';
 import feedbackRoutes from './routes/feedback.routes';
 import coursesRoutes from './routes/courses.routes';
+import assignmentAttachmentsRoutes from './routes/assignment-attachments.routes';
 
 dotenv.config();
 
@@ -16,7 +17,9 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 // Middleware
-app.use(helmet());
+app.use(helmet({
+  crossOriginResourcePolicy: { policy: "cross-origin" }
+}));
 app.use(cors({
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps, curl, postman)
@@ -37,8 +40,11 @@ app.use(cors({
   },
   credentials: true
 }));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
+// Body parser with limits for JSON and URL-encoded data
+// Note: Don't parse multipart/form-data here - multer handles that
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cookieParser());
 
 // Health check
@@ -52,6 +58,7 @@ app.use('/api/courses', coursesRoutes);
 app.use('/api', assignmentsRoutes);
 app.use('/api', submissionsRoutes);
 app.use('/api', feedbackRoutes);
+app.use('/api', assignmentAttachmentsRoutes);
 
 // Serve uploaded files statically
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));

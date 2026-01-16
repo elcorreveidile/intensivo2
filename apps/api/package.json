@@ -1,7 +1,7 @@
 {
   "name": "@aula-virtual/api",
   "version": "1.0.0",
-  "description": "Backend API para Aula Virtual CLMABROAD",
+  "description": "Aula Virtual CLMABROAD API",
   "main": "dist/index.js",
   "scripts": {
     "dev": "nodemon src/index.ts",
@@ -10,19 +10,19 @@
     "lint": "eslint src --ext .ts",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
-    "prisma:seed": "ts-node ../../prisma/seed.ts",
+    "prisma:seed": "tsx ../../prisma/seed.ts",
     "prisma:studio": "prisma studio"
   },
   "dependencies": {
     "@prisma/client": "^6.2.0",
-    "bcryptjs": "^3.0.3",
+    "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
-    "dotenv": "^17.2.3",
-    "express": "^5.2.1",
-    "helmet": "^8.1.0",
-    "jsonwebtoken": "^9.0.3",
-    "multer": "^1.4.5-lts.1"
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.2"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
@@ -30,14 +30,13 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
-    "@types/multer": "^1.4.12",
     "@types/node": "^25.0.8",
     "nodemon": "^3.1.11",
     "prisma": "^6.2.0",
-    "ts-node": "^10.9.2",
+    "ts-node": "^1.7.1",
     "typescript": "^5.9.3"
   },
   "prisma": {
-    "seed": "ts-node ../../prisma/seed.ts"
+    "seed": "tsx ../../prisma/seed.ts"
   }
 }

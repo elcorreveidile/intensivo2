@@ -12,4 +12,8 @@ router.post('/login', authController.login);
 router.get('/me', authenticate, authController.getMe);
 router.post('/logout', authenticate, authController.logout);
 
+// Professor routes
+router.post('/create-student', authenticate, authController.createStudent);
+router.get('/students', authenticate, authController.getStudents);
+
 export default router;
