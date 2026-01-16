@@ -2,48 +2,99 @@
 
 Plataforma LMS (Learning Management System) para el curso intensivo de español del Centro de Lenguas Modernas de la Universidad de Granada.
 
-## Características
+## Estado del Proyecto
 
-- ✅ Sistema de autenticación (registro, login, logout)
-- ✅ Roles de usuario (Profesor y Estudiante)
-- ✅ Dashboards personalizados por rol
-- ✅ Gestión completa de tareas (CRUD)
-- ✅ Lista de tareas para estudiantes y profesores
-- ✅ Formulario de creación de tareas con todas las configuraciones
-- ✅ Página de detalle de tareas con rúbricas
-- 🚧 Sistema de entregas de archivos (próximamente)
-- 🚧 Feedback detallado con rúbricas (próximamente)
-- 🚧 Notificaciones (próximamente)
+✅ **Versión Estable 1.0** - Funcionalidad completa implementada y probada
+
+## Características Implementadas
+
+### ✅ Sistema de Autenticación
+- Registro e inicio de sesión de usuarios
+- Autenticación JWT con tokens seguros
+- Roles de usuario (Profesor y Estudiante)
+- Protección de rutas por rol
+- Gestión de sesiones
+
+### ✅ Panel del Profesor
+- Dashboard con estadísticas en tiempo real
+- Contador de tareas activas y entregas pendientes
+- Vista de entregas por corregir
+- Gestión completa de estudiantes (crear, listar)
+- CRUD completo de tareas académicas
+- Formulario de creación con todas las configuraciones
+- Edición y eliminación de tareas
+
+### ✅ Panel del Estudiante
+- Dashboard personalizado con progreso
+- Barra de progreso visual de tareas completadas
+- Lista de tareas con estado de entrega
+- Vista detallada de cada tarea
+- Sistema de entregas de archivos
+- Subida de múltiples formatos (PDF, DOCX, MP3, MP4)
+- Estado de entrega (pendiente, enviada, calificada)
+
+### ✅ Sistema de Tareas
+- Creación de tareas con:
+  - Título y descripción
+  - Instrucciones detalladas
+  - Fecha y hora límite
+  - Puntuación máxima
+  - Tipos de archivo aceptados
+  - Tamaño máximo de archivos
+  - Configuración de entregas tardías
+  - Rúbricas de evaluación
+- Lista de tareas para estudiantes y profesores
+- Página de detalles completa
+- Seguimiento de estado de entregas
+
+### ✅ Sistema de Entregas
+- Subida de archivos por estudiantes
+- Soporte para múltiples archivos
+- Validación de tipos de archivo
+- Control de tamaño máximo
+- Estados: borrador, enviada, tardía, calificada
+- Historial de entregas
+
+### ✅ Sistema de Feedback y Calificación
+- Calificación de entregas por parte del profesor
+- Puntuación sobre nota máxima
+- Comentarios generales
+- Evaluación por rúbricas
+- Notificación visual de calificación al estudiante
 
 ## Tech Stack
 
 ### Frontend
-- Next.js 14+ (App Router)
-- TypeScript
-- TailwindCSS
-- React Context API para estado global
+- **Next.js 16.1.1** (App Router con Turbopack)
+- **TypeScript** para tipado estático
+- **TailwindCSS** para estilos
+- **React Context API** para gestión de estado global
 
 ### Backend
-- Node.js con Express
-- TypeScript
-- Prisma ORM
-- JWT para autenticación
+- **Node.js 25.2.0** con Express
+- **TypeScript**
+- **Prisma ORM** con SQLite
+- **JWT** para autenticación
+- **Multer** para subida de archivos
 
 ### Base de Datos
-- PostgreSQL
+- **SQLite** (almacenamiento local)
+- Prisma como ORM
 
 ## Requisitos Previos
 
 - Node.js >= 18.0.0
 - npm >= 9.0.0
-- PostgreSQL (local con Docker o en la nube)
+
+No requiere base de datos externa - usa SQLite local
 
 ## Instalación
 
 ### 1. Clonar el repositorio
 
 ```bash
-cd /path/to/project
+git clone https://github.com/elcorreveidile/intensivo2.git
+cd intensivo2
 ```
 
 ### 2. Instalar dependencias
@@ -54,238 +105,269 @@ npm install
 
 Esto instalará las dependencias de todos los paquetes del monorepo.
 
-### 3. Configurar la base de datos
-
-#### Opción A: Usar Docker (recomendado para desarrollo)
+### 3. Iniciar los servidores de desarrollo
 
 ```bash
-docker compose up -d
-```
-
-Esto iniciará un contenedor de PostgreSQL en `localhost:5432`.
-
-#### Opción B: Base de datos en la nube
-
-Usa Supabase, Railway, o cualquier servicio de PostgreSQL. Actualiza la URL en el archivo `.env`:
-
-```env
-DATABASE_URL="postgresql://usuario:password@host:puerto/database?schema=public"
-```
-
-### 4. Configurar variables de entorno
-
-Copia el archivo de ejemplo y actualízalo con tus credenciales:
-
-```bash
-cp apps/api/.env.example apps/api/.env
-```
-
-El archivo `.env` debe contener:
-
-```env
-NODE_ENV=development
-PORT=4000
-FRONTEND_URL=http://localhost:3000
-
-DATABASE_URL="postgresql://postgres:password@localhost:5432/aula_virtual?schema=public"
-
-JWT_SECRET=your-secret-key-change-this-in-production
-JWT_REFRESH_SECRET=your-refresh-secret-key-change-this-in-production
-JWT_EXPIRES_IN=1h
-REFRESH_TOKEN_EXPIRES_IN=7d
-
-UPLOAD_DIR=./uploads
-MAX_FILE_SIZE=104857600
-```
-
-### 5. Ejecutar migraciones de Prisma
-
-```bash
-npm run db:migrate
-```
-
-### 6. Poblar la base de datos con datos de prueba (opcional)
-
-```bash
-npm run db:seed
-```
-
-Esto creará:
-- 1 usuario profesor (profesor@test.com / password123)
-- 7 usuarios estudiantes (estudiante1@test.com / password123)
-- 1 curso (CLMABROAD-2025)
-- 3 tareas de ejemplo
-- 3 recursos de ejemplo
-
-## Desarrollo
-
-### Iniciar ambos servidores (frontend y backend)
-
-```bash
+# Desde la raíz del proyecto
 npm run dev
 ```
 
-Esto iniciará:
+Esto iniciará automáticamente:
 - Frontend (Next.js) en http://localhost:3000
 - Backend (Express) en http://localhost:4000
 
-### Iniciar solo el frontend
+### Iniciar servidores individualmente
 
 ```bash
-npm run dev:web
-```
+# Solo frontend
+cd apps/web
+npm run dev
 
-### Iniciar solo el backend
-
-```bash
-npm run dev:api
-```
-
-## Estructura del Proyecto
-
-```
-aula-virtual-clmabroad/
-├── apps/
-│   ├── web/                 # Frontend Next.js
-│   │   ├── app/             # App Router
-│   │   │   ├── login/       # Página de login
-│   │   │   ├── register/    # Página de registro
-│   │   │   └── dashboard/   # Dashboards por rol
-│   │   ├── components/      # Componentes React
-│   │   └── lib/             # Utilidades y hooks
-│   └── api/                 # Backend Express
-│       ├── src/
-│       │   ├── routes/      # Rutas de la API
-│       │   ├── controllers/ # Controladores
-│       │   ├── middleware/  # Middleware
-│       │   └── lib/         # Utilidades
-│       └── prisma/          # Configuración de Prisma
-├── prisma/
-│   ├── schema.prisma        # Esquema de base de datos
-│   └── seed.ts              # Script de seed
-├── docker-compose.yml       # PostgreSQL local
-└── package.json             # Workspace configuration
+# Solo backend
+cd apps/api
+npm run dev
 ```
 
 ## Credenciales de Prueba
 
-Después de ejecutar el seed, puedes usar estas credenciales:
+El sistema viene con datos de prueba precargados:
 
 **Profesor:**
 - Email: `profesor@test.com`
-- Contraseña: `password123`
+- Contraseña: `profesor123`
 
 **Estudiantes:**
-- Email: `sarah.j@test.com` (y 6 más)
-- Contraseña: `password123`
+- Sarah: `sarah.j@test.com` / `password123`
+- Michael: `michael.c@test.com` / `password123`
+- Emma: `emma.d@test.com` / `password123`
+- (Y 4 estudiantes más)
+
+**Cuenta de Producción:**
+- Email: `informa@blablaele.com`
+- Contraseña: `profesor123`
+
+## Estructura del Proyecto
+
+```
+intensivo2/
+├── apps/
+│   ├── web/                      # Frontend Next.js
+│   │   ├── app/                  # App Router páginas
+│   │   │   ├── login/           # Página de login
+│   │   │   ├── register/        # Página de registro
+│   │   │   ├── dashboard/       # Dashboards
+│   │   │   │   ├── profesor/    # Dashboard profesor
+│   │   │   │   └── estudiante/  # Dashboard estudiante
+│   │   │   ├── tareas/          # Gestión de tareas
+│   │   │   │   ├── [id]/        # Detalle de tarea
+│   │   │   │   ├── crear/       # Crear tarea
+│   │   │   │   └── [id]/editar/ # Editar tarea
+│   │   │   ├── entregas/        # Gestión de entregas
+│   │   │   └── estudiantes/     # Gestión estudiantes
+│   │   ├── components/          # Componentes React reutilizables
+│   │   └── lib/                 # Utilidades y API client
+│   └── api/                     # Backend Express
+│       ├── src/
+│       │   ├── routes/          # Rutas API
+│       │   ├── controllers/     # Lógica de negocio
+│       │   ├── middleware/      # Middleware (auth, etc)
+│       │   └── prisma/          # Config Prisma
+│       ├── uploads/             # Archivos subidos
+│       └── dev.db               # Base de datos SQLite
+├── prisma/
+│   ├── schema.prisma           # Esquema de base de datos
+│   └── seed.ts                 # Script de seed
+└── package.json                # Workspace config
+```
+
+## Guía de Uso
+
+### Como Profesor
+
+1. **Inicia sesión** con tu cuenta de profesor
+2. **Dashboard** - Ve las estadísticas del curso
+3. **Crear Tarea** - Crea nuevas tareas con configuración completa
+4. **Ver Entregas** - Revisa las entregas de estudiantes
+5. **Calificar** - Califica las entregas y da feedback
+6. **Gestionar Estudiantes** - Crea nuevos estudiantes
+
+### Como Estudiante
+
+1. **Inicia sesión** con tu cuenta de estudiante
+2. **Dashboard** - Ve tu progreso general
+3. **Ver Tareas** - Lista de todas las tareas del curso
+4. **Subir Entrega** - Envía tus tareas antes de la fecha límite
+5. **Ver Calificación** - Revisa tus notas y feedback
 
 ## Comandos Útiles
-
-### Base de datos
-
-```bash
-# Ejecutar migraciones
-npm run db:migrate
-
-# Poblar datos de prueba
-npm run db:seed
-
-# Abrir Prisma Studio (interfaz visual)
-npm run db:studio
-
-# Generar Prisma Client
-npm run db:generate
-```
 
 ### Desarrollo
 
 ```bash
-# Instalar nuevas dependencias
-npm install <paquete> --workspace=apps/web
-npm install <paquete> --workspace=apps/api
+# Iniciar ambos servidores
+npm run dev
 
-# Compilar TypeScript
+# Iniciar solo frontend
+cd apps/web && npm run dev
+
+# Iniciar solo backend
+cd apps/api && npm run dev
+
+# Construir para producción
 npm run build
 
 # Iniciar producción
 npm run start
 ```
 
-## Funcionalidades Implementadas
+### Base de Datos
 
-### ✅ Sistema de Autenticación
-- Registro de usuarios (solo desarrollo)
-- Login con JWT
-- Logout
-- Middleware de autenticación
-- Protección de rutas
+```bash
+# Generar Prisma Client
+cd apps/api
+npx prisma generate
 
-### ✅ Dashboards
-- Dashboard del profesor con estadísticas
-- Dashboard del estudiante con progreso
-- Redirección automática según rol
+# Ejecutar migraciones
+npx prisma migrate dev
 
-### 🚧 Próximas Funcionalidades
-- CRUD de tareas
-- Sistema de entregas con subida de archivos
-- Feedback con rúbricas
-- Notificaciones
-- Recursos del curso
+# Abrir Prisma Studio (interfaz visual)
+npx prisma studio
+
+# Poblar datos de prueba
+npm run seed
+```
 
 ## Troubleshooting
 
-### Error: "Cannot connect to database"
-
-Asegúrate de que:
-1. PostgreSQL esté corriendo (`docker compose ps`)
-2. La URL de conexión en `.env` sea correcta
-3. Las migraciones se hayan ejecutado (`npm run db:migrate`)
-
-### Error: "JWT_SECRET is not defined"
-
-Asegúrate de crear el archivo `.env` desde `.env.example`:
+### Error: "Port 3000/4000 already in use"
 
 ```bash
-cp apps/api/.env.example apps/api/.env
+# Matar procesos en puertos
+lsof -ti:3000 | xargs kill -9  # Frontend
+lsof -ti:4000 | xargs kill -9  # Backend
 ```
 
-### Error: "Module not found"
-
-Borra `node_modules` y reinstala:
+### Error: "Cannot find module"
 
 ```bash
+# Reinstalar dependencias
 rm -rf node_modules apps/*/node_modules
 npm install
 ```
 
+### Error: Token inválido
+
+```bash
+# Limpiar localStorage del navegador
+# En consola del navegador:
+localStorage.clear()
+# Luego recargar y volver a iniciar sesión
+```
+
+### La base de datos no se actualiza
+
+```bash
+# Regenerar Prisma Client
+cd apps/api
+npx prisma generate
+```
+
+## Flujo de Trabajo
+
+### Crear una Nueva Tarea (Profesor)
+
+1. Inicia sesión como profesor
+2. Ve a "Tareas" en el menú
+3. Haz clic en "Crear Nueva Tarea"
+4. Completa el formulario:
+   - Información básica (título, descripción)
+   - Selecciona el curso
+   - Configura fecha límite y puntuación
+   - Define tipos de archivo aceptados
+   - Opcional: Añade rúbrica de evaluación
+5. Haz clic en "Crear Tarea"
+
+### Entregar una Tarea (Estudiante)
+
+1. Inicia sesión como estudiante
+2. Ve a "Tareas" en el menú
+3. Haz clic en "Ver Detalles" de la tarea
+4. Haz clic en "Subir Entrega"
+5. Arrastra o selecciona los archivos
+6. Haz clic en "Enviar Entrega"
+
+### Calificar una Entrega (Profesor)
+
+1. Ve a "Entregas Pendientes"
+2. Selecciona la entrega a calificar
+3. Revisa los archivos enviados
+4. Asigna puntuación y comentarios
+5. Haz clic en "Guardar Calificación"
+
+## Características Técnicas
+
+### Seguridad
+- Autenticación JWT con expiración
+- Middleware de autenticación en rutas protegidas
+- Validación de tipos de archivo subidos
+- Control de tamaño máximo de archivos
+- Sanitización de inputs
+
+### Base de Datos
+- SQLite para desarrollo local
+- Prisma ORM con schema migrable
+- Relaciones con cascade delete
+- Índices optimizados
+
+### API REST
+- Endpoints bien estructurados
+- Manejo de errores consistente
+- Códigos de estado HTTP apropiados
+- Validación de datos de entrada
+
+### Frontend
+- Server Components de Next.js
+- Client Components para interactividad
+- Optimización de imágenes automáticas
+- Routing dinámico
+
 ## Roadmap
 
-### MVP (Actual)
-- [x] Autenticación de usuarios
-- [x] Dashboards básicos
-- [ ] CRUD de tareas
-- [ ] Sistema de entregas
-- [ ] Feedback básico
+### ✅ Versión 1.0 (Actual - ESTABLE)
+- [x] Sistema de autenticación completo
+- [x] Dashboards por rol
+- [x] CRUD de tareas
+- [x] Sistema de entregas
+- [x] Sistema de calificaciones
+- [x] Gestión de estudiantes
 
-### Fase 2
-- [ ] Feedback enriquecido (anotaciones PDF, audio)
-- [ ] Integración con S3 para archivos
-- [ ] Recursos del curso
+### 🚧 Versión 1.1 (Próximamente)
+- [ ] Archivos adjuntos en tareas
+- [ ] Notificaciones de nuevas tareas
+- [ ] Historial de cambios en tareas
+- [ ] Exportar calificaciones a CSV
+- [ ] Vista de calendario de tareas
+
+### 📋 Versión 2.0 (Futuro)
+- [ ] Feedback enriquecido (anotaciones en PDF)
 - [ ] Foro de discusión
-
-### Fase 3
-- [ ] Notificaciones en tiempo real
+- [ ] Chat en tiempo real
+- [ ] Integración con servicios de almacenamiento (S3)
+- [ ] Sistema de notificaciones push
+- [ ] Modo offline con PWA
 - [ ] Testing automatizado
-- [ ] Optimizaciones de performance
+- [ ] Analytics y reportes
+
+## Contribuir
+
+Este proyecto es mantenido por el Centro de Lenguas Modernas de la Universidad de Granada.
 
 ## Licencia
 
-Este proyecto fue desarrollado para el Centro de Lenguas Modernas de la Universidad de Granada.
-
-## Contacto
-
-Para preguntas o sugerencias, contacta al equipo de desarrollo.
+Este proyecto fue desarrollado para uso educativo en el Centro de Lenguas Modernas de la Universidad de Granada.
 
 ---
 
-**Estado del proyecto:** MVP en desarrollo 🚧
+**Versión:** 1.0.0 (Estable)
+**Última actualización:** Enero 2026
+**Estado:** ✅ Producción
