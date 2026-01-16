@@ -318,7 +318,7 @@ export const submitAssignment = async (req: AuthRequest, res: Response) => {
 // Upload file to submission
 export const uploadFile = async (req: AuthRequest, res: Response) => {
   try {
-    if (!req.file) {
+    if (!req.file && !req.firebaseUrl) {
       return res.status(400).json({
         error: 'No se proporcionó archivo',
         message: 'Debes subir al menos un archivo',
@@ -358,15 +358,18 @@ export const uploadFile = async (req: AuthRequest, res: Response) => {
       });
     }
 
+    // Use Firebase URL if available (production), otherwise use local file (development)
+    const filePath = req.firebaseUrl || `/uploads/${req.file?.filename}`;
+
     // Store file info in database
     const file = await prisma.submissionFile.create({
       data: {
         submissionId,
-        fileName: req.file.originalname,
-        filePath: `/uploads/${req.file.filename}`,
-        fileType: req.file.mimetype.split('/')[1],
-        fileSizeBytes: req.file.size,
-        mimeType: req.file.mimetype,
+        fileName: req.file?.originalname || 'archivo',
+        filePath,
+        fileType: req.file?.mimetype.split('/')[1] || 'file',
+        fileSizeBytes: req.file?.size || 0,
+        mimeType: req.file?.mimetype || 'application/octet-stream',
       },
     });
 

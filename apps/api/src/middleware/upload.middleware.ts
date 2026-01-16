@@ -1,7 +1,7 @@
 import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
-import { Request } from 'express';
+import { Request, Response, NextFunction } from 'express';
 
 // Ensure uploads directory exists
 const uploadsDir = path.join(process.cwd(), 'uploads');
@@ -53,4 +53,6 @@ export const upload = multer({
 export const uploadMultiple = upload.array('files', 10); // Max 10 files
 
 // Middleware to handle single file
-export const uploadSingle = upload.single('file');
+export const uploadSingle = (req: Request, res: Response, next: NextFunction) => {
+  upload.single('file')(req, res, next);
+};

@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import * as assignmentAttachmentsController from '../controllers/assignment-attachments.controller';
 import { authenticate, authorize } from '../middleware/auth.middleware';
-import { uploadSingle } from '../middleware/upload.middleware';
+import { getUploadSingleMiddleware } from '../lib/upload-helper';
 
 const router = Router();
 
@@ -12,7 +12,7 @@ router.use(authenticate);
 router.post(
   '/assignments/:assignmentId/attachments',
   authorize('profesor'),
-  uploadSingle,
+  getUploadSingleMiddleware('attachments'),
   assignmentAttachmentsController.uploadAttachment
 );
 

@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import * as submissionsController from '../controllers/submissions.controller';
 import { authenticate, authorize } from '../middleware/auth.middleware';
-import { uploadSingle } from '../middleware/upload.middleware';
+import { getUploadSingleMiddleware } from '../lib/upload-helper';
 
 const router = Router();
 
@@ -42,7 +42,7 @@ router.put(
 // Upload file to submission
 router.post(
   '/submissions/:id/files',
-  uploadSingle,
+  getUploadSingleMiddleware('submissions'),
   submissionsController.uploadFile
 );
 

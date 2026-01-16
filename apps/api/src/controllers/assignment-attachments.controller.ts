@@ -16,7 +16,7 @@ export const uploadAttachment = async (req: AuthRequest, res: Response) => {
       });
     }
 
-    if (!req.file) {
+    if (!req.file && !req.firebaseUrl) {
       console.log('[uploadAttachment] No file in request');
       return res.status(400).json({
         error: 'No se proporcionó archivo',
@@ -44,14 +44,17 @@ export const uploadAttachment = async (req: AuthRequest, res: Response) => {
       });
     }
 
+    // Use Firebase URL if available (production), otherwise use local file (development)
+    const filePath = req.firebaseUrl || `/uploads/${req.file?.filename}`;
+
     // Store file info in database
     const attachment = await prisma.assignmentAttachment.create({
       data: {
         assignmentId,
-        fileName: req.file.originalname,
-        filePath: `/uploads/${req.file.filename}`,
-        fileSizeBytes: req.file.size,
-        mimeType: req.file.mimetype,
+        fileName: req.file?.originalname || 'archivo',
+        filePath,
+        fileSizeBytes: req.file?.size || 0,
+        mimeType: req.file?.mimetype || 'application/octet-stream',
       },
     });
 

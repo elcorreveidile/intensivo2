@@ -2,12 +2,23 @@ import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { prisma } from '../prisma';
 
+// Multer file interface
+export interface UploadedFile {
+  filename: string;
+  originalname: string;
+  mimetype: string;
+  size: number;
+  buffer?: Buffer;
+}
+
 export interface AuthRequest extends Request {
   user?: {
     id: string;
     email: string;
     role: string;
   };
+  file?: Express.Multer.File & UploadedFile;
+  firebaseUrl?: string;
 }
 
 export const authenticate = async (
