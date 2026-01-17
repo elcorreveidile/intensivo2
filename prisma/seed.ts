@@ -146,6 +146,16 @@ async function main() {
     },
   ];
 
+  // Delete existing sample assignments for this course to avoid duplicates
+  const existingTitles = assignmentsData.map(a => a.title);
+  await prisma.assignment.deleteMany({
+    where: {
+      courseId: course.id,
+      title: { in: existingTitles },
+    },
+  });
+  console.log('🧹 Cleaned up existing sample assignments');
+
   for (const [index, assignmentData] of assignmentsData.entries()) {
     await prisma.assignment.create({
       data: {

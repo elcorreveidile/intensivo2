@@ -1,7 +1,21 @@
 node_modules/
 .env
+.env.local
+.env.production
 dist/
 build/
 .next/
 *.log
 .DS_Store
+
+# Local file uploads (development)
+apps/api/uploads/
+
+# Prisma
+apps/api/prisma/migrations/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo

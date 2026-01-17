@@ -6,7 +6,7 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -107,10 +107,30 @@ model Assignment {
   updatedAt            DateTime  @updatedAt @map("updated_at")
 
   // Relations
-  course               Course       @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  course               Course                @relation(fields: [courseId], references: [id], onDelete: Cascade)
   submissions          Submission[]
+  attachmentFiles      AssignmentAttachment[]
 
   @@map("assignments")
+}
+
+// ============================================
+// ASSIGNMENT ATTACHMENTS
+// ============================================
+
+model AssignmentAttachment {
+  id               String   @id @default(uuid())
+  assignmentId     String   @map("assignment_id")
+  fileName         String   @map("file_name")
+  filePath         String   @map("file_path")
+  fileSizeBytes    Int      @map("file_size_bytes")
+  mimeType         String   @map("mime_type")
+  uploadedAt       DateTime @default(now()) @map("uploaded_at")
+
+  // Relations
+  assignment       Assignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+
+  @@map("assignment_attachments")
 }
 
 // ============================================
