@@ -1,4 +1,18 @@
 {
-  "buildCommand": "npm run build && npx prisma generate",
-  "outputDirectory": "dist"
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "dest": "/api/index.js"
+    }
+  ]
 }
