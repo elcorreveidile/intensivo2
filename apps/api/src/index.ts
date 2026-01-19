@@ -20,6 +20,14 @@ const PORT = process.env.PORT || 4000;
 app.use(helmet({
   crossOriginResourcePolicy: { policy: "cross-origin" }
 }));
+
+// CORS configuration
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://127.0.0.1:3000',
+  process.env.FRONTEND_URL || 'https://aula-virtual-web.vercel.app'
+].filter(Boolean);
+
 app.use(cors({
   origin: function (origin, callback) {
     // Allow requests with no origin (like mobile apps, curl, postman)
@@ -30,12 +38,13 @@ app.use(cors({
       return callback(null, true);
     }
 
-    // Allow specific frontend URL from env
-    const allowedOrigins = process.env.FRONTEND_URL ? [process.env.FRONTEND_URL] : [];
+    // Check if origin is in allowed list
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
 
+    console.log('CORS blocked origin:', origin);
+    console.log('Allowed origins:', allowedOrigins);
     callback(new Error('Not allowed by CORS'));
   },
   credentials: true
