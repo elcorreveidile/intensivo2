@@ -1,25 +1,33 @@
 import admin from 'firebase-admin';
 
-const firebaseConfig = {
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-};
+let storage: admin.storage.Storage | null = null;
 
-// Initialize Firebase Admin
-if (!admin.apps.length) {
-  const serviceAccount = {
-    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-    clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-    privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
-  };
+// Initialize Firebase Admin (lazy initialization)
+function initializeFirebase() {
+  if (!admin.apps.length) {
+    try {
+      const serviceAccount = {
+        projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+        privateKey: process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, '\n'),
+      };
 
-  admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount as any),
-    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  });
+      admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount as any),
+        storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+      });
+    } catch (error) {
+      console.error('Error initializing Firebase:', error);
+      throw error;
+    }
+  }
+
+  if (!storage) {
+    storage = admin.storage();
+  }
+
+  return storage;
 }
-
-const storage = admin.storage();
 
 /**
  * Upload a file to Firebase Storage
@@ -34,6 +42,8 @@ export async function uploadFileToFirebase(
   folder: string
 ): Promise<string> {
   try {
+    const storage = initializeFirebase();
+
     // Create a unique filename with timestamp
     const timestamp = Date.now();
     const uniqueFileName = `${timestamp}-${fileName}`;
@@ -69,6 +79,8 @@ export async function uploadFileToFirebase(
  */
 export async function deleteFileFromFirebase(fileURL: string): Promise<void> {
   try {
+    const storage = initializeFirebase();
+
     // Extract path from URL
     // URL format: https://storage.googleapis.com/bucket-name/folder/file
     const url = new URL(fileURL);
@@ -92,5 +104,3 @@ export async function deleteFileFromFirebase(fileURL: string): Promise<void> {
     throw new Error('Error al eliminar archivo de Firebase Storage');
   }
 }
-
-export { storage };
