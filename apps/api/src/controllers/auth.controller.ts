@@ -9,8 +9,11 @@ export const register = async (req: AuthRequest, res: Response) => {
   try {
     const { email, password, firstName, lastName, role } = req.body;
 
+    console.log('Register request received:', { email, firstName, lastName, role });
+
     // Validation
     if (!email || !password || !firstName || !lastName || !role) {
+      console.log('Validation failed: missing fields');
       return res.status(400).json({
         error: 'Datos inválidos',
         message: 'Todos los campos son requeridos',
@@ -18,6 +21,7 @@ export const register = async (req: AuthRequest, res: Response) => {
     }
 
     if (!['profesor', 'estudiante'].includes(role)) {
+      console.log('Validation failed: invalid role', role);
       return res.status(400).json({
         error: 'Rol inválido',
         message: 'El rol debe ser "profesor" o "estudiante"',
@@ -25,6 +29,7 @@ export const register = async (req: AuthRequest, res: Response) => {
     }
 
     if (password.length < 6) {
+      console.log('Validation failed: password too short');
       return res.status(400).json({
         error: 'Contraseña débil',
         message: 'La contraseña debe tener al menos 6 caracteres',
@@ -32,11 +37,13 @@ export const register = async (req: AuthRequest, res: Response) => {
     }
 
     // Check if user already exists
+    console.log('Checking if user exists:', email);
     const existingUser = await prisma.user.findUnique({
       where: { email },
     });
 
     if (existingUser) {
+      console.log('User already exists:', email);
       return res.status(409).json({
         error: 'Usuario ya existe',
         message: 'Ya existe un usuario con este email',
@@ -44,9 +51,11 @@ export const register = async (req: AuthRequest, res: Response) => {
     }
 
     // Hash password
+    console.log('Hashing password');
     const passwordHash = await bcrypt.hash(password, 10);
 
     // Create user
+    console.log('Creating user in database');
     const user = await prisma.user.create({
       data: {
         email,
@@ -66,6 +75,8 @@ export const register = async (req: AuthRequest, res: Response) => {
         role: true,
       },
     });
+
+    console.log('User created successfully:', user.id);
 
     // Generate tokens
     const token = jwt.sign(
@@ -88,6 +99,7 @@ export const register = async (req: AuthRequest, res: Response) => {
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
+    console.log('User registered successfully');
     res.status(201).json({
       message: 'Usuario registrado exitosamente',
       user,
@@ -95,9 +107,12 @@ export const register = async (req: AuthRequest, res: Response) => {
     });
   } catch (error) {
     console.error('Register error:', error);
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack');
+    console.error('Error message:', error instanceof Error ? error.message : 'Unknown error');
     res.status(500).json({
       error: 'Error del servidor',
       message: 'Error al registrar usuario',
+      details: process.env.NODE_ENV === 'development' && error instanceof Error ? error.message : undefined,
     });
   }
 };
