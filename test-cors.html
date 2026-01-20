@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test CORS - Aula Virtual API</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #1e1e1e;
+            color: #d4d4d4;
+        }
+        .container {
+            background: #252526;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        h1 { color: #4ec9b0; }
+        h2 { color: #569cd6; }
+        button {
+            background: #0e639c;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #1177bb;
+        }
+        .error { color: #f48771; }
+        .success { color: #4ec9b0; }
+        .warning { color: #ce9178; }
+        pre {
+            background: #1e1e1e;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            border-left: 4px solid #0e639c;
+        }
+        input, select {
+            background: #3c3c3c;
+            color: #d4d4d4;
+            border: 1px solid #555;
+            padding: 8px;
+            margin: 5px;
+            border-radius: 4px;
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔬 Test CORS - Aula Virtual API</h1>
+
+    <div class="container">
+        <h2>Configuración</h2>
+        <label>
+            API URL:
+            <input type="text" id="apiUrl" value="https://api-ashen-eight-44.vercel.app" />
+        </label>
+        <br>
+        <label>
+            Endpoint:
+            <select id="endpoint">
+                <option value="/health">GET /health</option>
+                <option value="/api/auth/register" selected>OPTIONS /api/auth/register</option>
+                <option value="/api/auth/login">OPTIONS /api/auth/login</option>
+            </select>
+        </label>
+    </div>
+
+    <div class="container">
+        <h2>Pruebas</h2>
+        <button onclick="testOptions()">🔍 Test OPTIONS (Preflight)</button>
+        <button onclick="testPost()">📤 Test POST Register</button>
+        <button onclick="testGet()">📥 Test GET Health</button>
+        <button onclick="clearLogs()">🗑️ Limpiar Logs</button>
+    </div>
+
+    <div class="container">
+        <h2>Resultados</h2>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        const resultsDiv = document.getElementById('results');
+
+        function log(message, type = 'info') {
+            const colors = {
+                info: '#d4d4d4',
+                error: '#f48771',
+                success: '#4ec9b0',
+                warning: '#ce9178'
+            };
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.style.color = colors[type];
+            logEntry.style.marginBottom = '10px';
+            logEntry.innerHTML = `<strong>[${timestamp}]</strong> ${message}`;
+            resultsDiv.appendChild(logEntry);
+            resultsDiv.scrollTop = resultsDiv.scrollHeight;
+        }
+
+        function logObject(obj, title) {
+            const pre = document.createElement('pre');
+            pre.textContent = `${title}\n${JSON.stringify(obj, null, 2)}`;
+            resultsDiv.appendChild(pre);
+        }
+
+        function clearLogs() {
+            resultsDiv.innerHTML = '';
+            log('Logs cleared', 'info');
+        }
+
+        async function testOptions() {
+            const apiUrl = document.getElementById('apiUrl').value;
+            const endpoint = document.getElementById('endpoint').value;
+            const fullUrl = apiUrl + endpoint;
+
+            log(`Testing OPTIONS preflight to ${fullUrl}`, 'info');
+
+            try {
+                const response = await fetch(fullUrl, {
+                    method: 'OPTIONS',
+                    headers: {
+                        'Origin': window.location.origin,
+                        'Access-Control-Request-Method': 'POST',
+                        'Access-Control-Request-Headers': 'Content-Type, Authorization'
+                    }
+                });
+
+                log(`✅ OPTIONS Response Status: ${response.status} ${response.statusText}`,
+                    response.status === 204 || response.status === 200 ? 'success' : 'error');
+
+                const headers = {};
+                response.headers.forEach((value, key) => {
+                    headers[key] = value;
+                });
+
+                logObject(headers, '📋 Response Headers:');
+
+                if (response.status !== 204 && response.status !== 200) {
+                    const text = await response.text();
+                    log(`Response Body: ${text}`, 'warning');
+                }
+
+            } catch (error) {
+                log(`❌ ERROR: ${error.message}`, 'error');
+                logObject(error, '🔴 Error Details:');
+            }
+        }
+
+        async function testPost() {
+            const apiUrl = document.getElementById('apiUrl').value;
+            const fullUrl = apiUrl + '/api/auth/register';
+
+            log(`Testing POST to ${fullUrl}`, 'info');
+
+            const testData = {
+                email: `test-${Date.now()}@example.com`,
+                password: 'Test123456',
+                firstName: 'Test',
+                lastName: 'User',
+                role: 'estudiante'
+            };
+
+            logObject(testData, '📤 Request Body:');
+
+            try {
+                const response = await fetch(fullUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(testData)
+                });
+
+                log(`Response Status: ${response.status} ${response.statusText}`,
+                    response.ok ? 'success' : 'error');
+
+                const data = await response.json();
+                logObject(data, '📥 Response Body:');
+
+            } catch (error) {
+                log(`❌ ERROR: ${error.message}`, 'error');
+                logObject(error, '🔴 Error Details:');
+            }
+        }
+
+        async function testGet() {
+            const apiUrl = document.getElementById('apiUrl').value;
+            const fullUrl = apiUrl + '/health';
+
+            log(`Testing GET to ${fullUrl}`, 'info');
+
+            try {
+                const response = await fetch(fullUrl);
+
+                log(`Response Status: ${response.status} ${response.statusText}`,
+                    response.ok ? 'success' : 'error');
+
+                const data = await response.json();
+                logObject(data, '📥 Response Body:');
+
+            } catch (error) {
+                log(`❌ ERROR: ${error.message}`, 'error');
+                logObject(error, '🔴 Error Details:');
+            }
+        }
+
+        // Auto-test on load
+        window.addEventListener('load', () => {
+            log('🚀 Test page loaded', 'success');
+            log('Origen actual: ' + window.location.origin, 'info');
+            log('Haz clic en "Test OPTIONS" para verificar el preflight CORS', 'warning');
+        });
+    </script>
+</body>
+</html>

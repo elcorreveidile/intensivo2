@@ -1,3 +1,8 @@
+/**
+ * Aula Virtual CLMABROAD API
+ * CORS-enabled Express server with custom middleware
+ * Last updated: 2026-01-20
+ */
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
@@ -16,12 +21,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 4000;
 
-// Middleware
-app.use(helmet({
-  crossOriginResourcePolicy: { policy: "cross-origin" }
-}));
-
-// CORS configuration
+// CORS configuration - MUST BE FIRST, BEFORE ANY OTHER MIDDLEWARE
 const allowedOrigins = [
   'http://localhost:3000',
   'http://127.0.0.1:3000',
@@ -38,43 +38,37 @@ const isOriginAllowed = (origin: string | undefined): boolean => {
   return false;
 };
 
-// Handle OPTIONS preflight requests explicitly
-app.options('*', (req: Request, res: Response) => {
+// CRITICAL: Handle ALL requests with CORS headers first
+app.use((req: Request, res: Response, next: any) => {
   const origin = req.headers.origin;
 
-  console.log('OPTIONS preflight request from:', origin);
+  console.log(`[CORS] ${req.method} ${req.path} from origin:`, origin);
 
   if (isOriginAllowed(origin)) {
-    console.log('Origin allowed:', origin);
     res.header('Access-Control-Allow-Origin', origin || '*');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Max-Age', '600');
-    return res.status(204).send();
-  } else {
-    console.log('Origin blocked:', origin);
-    return res.status(403).json({ error: 'Origin not allowed' });
+
+    // Handle OPTIONS preflight immediately
+    if (req.method === 'OPTIONS') {
+      console.log('[CORS] Responding to OPTIONS preflight with 204');
+      return res.status(204).end();
+    }
+  } else if (origin) {
+    console.log('[CORS] Origin blocked:', origin);
+    if (req.method === 'OPTIONS') {
+      return res.status(403).json({ error: 'Origin not allowed' });
+    }
   }
+
+  next();
 });
 
-app.use(cors({
-  origin: function (origin, callback) {
-    if (isOriginAllowed(origin)) {
-      console.log('CORS middleware allowed origin:', origin);
-      return callback(null, true);
-    }
-
-    console.log('CORS middleware blocked origin:', origin);
-    console.log('Allowed origins:', allowedOrigins);
-    // Don't throw error - just deny the request
-    callback(null, false);
-  },
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
-  exposedHeaders: ['Content-Range', 'X-Content-Range'],
-  maxAge: 600 // Cache preflight for 10 minutes
+// Other middleware
+app.use(helmet({
+  crossOriginResourcePolicy: { policy: "cross-origin" }
 }));
 
 // Body parser with limits for JSON and URL-encoded data

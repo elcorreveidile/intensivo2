@@ -1,16 +1,12 @@
-console.log('[API] Loading entry point...');
+// ENTRY POINT FOR VERCEL - ULTRA SIMPLE VERSION
+// Using the simplest possible CORS implementation to fix the 500 error
+console.log('[VERCEL ENTRY] Loading...');
+
 try {
-  console.log('[API] Requiring dist/index.js...');
-  const app = require('../dist/index').default;
-  console.log('[API] App loaded successfully:', typeof app);
+  const app = require('./index-direct');
+  console.log('[VERCEL ENTRY] ✅ Direct app loaded');
   module.exports = app;
 } catch (error) {
-  console.error('[API] Error loading app:', error);
-  module.exports = (req, res) => {
-    res.status(500).json({ 
-      error: 'Failed to load app',
-      message: error.message,
-      stack: error.stack 
-    });
-  };
+  console.error('[VERCEL ENTRY] ❌ Failed to load:', error);
+  throw error;
 }
