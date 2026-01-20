@@ -1,14 +1,15 @@
-// Simple CORS-enabled Express server for Vercel
-// This file doesn't require TypeScript compilation
-console.log('[SIMPLE API] Starting...');
+// Standalone CORS-enabled Express server for Vercel
+// This file is completely self-contained and doesn't require TypeScript compilation
+console.log('[SIMPLE API] Starting standalone server...');
 
 const express = require('express');
 const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
+require('dotenv').config();
 
 const app = express();
 
-console.log('[SIMPLE API] Configuring CORS...');
+console.log('[SIMPLE API] Environment:', process.env.NODE_ENV || 'production');
 
 // Helper function to check if origin is allowed
 const isOriginAllowed = (origin) => {
@@ -20,11 +21,11 @@ const isOriginAllowed = (origin) => {
   return false;
 };
 
-// CRITICAL: CORS middleware FIRST
+// CRITICAL: CORS middleware FIRST - before everything else
 app.use((req, res, next) => {
   const origin = req.headers.origin;
 
-  console.log(`[CORS] ${req.method} ${req.path} from origin: ${origin}`);
+  console.log(`[SIMPLE API] ${req.method} ${req.path} from origin: ${origin || 'no-origin'}`);
 
   if (isOriginAllowed(origin)) {
     res.header('Access-Control-Allow-Origin', origin || '*');
@@ -35,11 +36,11 @@ app.use((req, res, next) => {
 
     // Handle OPTIONS preflight immediately
     if (req.method === 'OPTIONS') {
-      console.log('[CORS] Responding to OPTIONS with 204');
+      console.log('[SIMPLE API] ✅ Responding to OPTIONS with 204');
       return res.status(204).end();
     }
   } else if (origin) {
-    console.log('[CORS] Origin blocked:', origin);
+    console.log('[SIMPLE API] ❌ Origin blocked:', origin);
     if (req.method === 'OPTIONS') {
       return res.status(403).json({ error: 'Origin not allowed' });
     }
@@ -57,40 +58,90 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cookieParser());
 
-// Try to load the compiled app, fallback to simple endpoints
-let compiledApp;
+console.log('[SIMPLE API] Middleware configured');
+
+// Try to load compiled routes, but continue if it fails
+let routesLoaded = false;
 try {
-  compiledApp = require('../dist/index').default;
-  console.log('[SIMPLE API] Compiled app loaded, delegating requests');
+  console.log('[SIMPLE API] Attempting to load compiled routes...');
+  const authRoutes = require('../dist/routes/auth.routes').default;
+  const coursesRoutes = require('../dist/routes/courses.routes').default;
+  const assignmentsRoutes = require('../dist/routes/assignments.routes').default;
+  const submissionsRoutes = require('../dist/routes/submissions.routes').default;
+  const feedbackRoutes = require('../dist/routes/feedback.routes').default;
 
-  // Delegate all routes to compiled app
-  app.use((req, res, next) => {
-    compiledApp(req, res, next);
-  });
+  app.use('/api/auth', authRoutes);
+  app.use('/api/courses', coursesRoutes);
+  app.use('/api', assignmentsRoutes);
+  app.use('/api', submissionsRoutes);
+  app.use('/api', feedbackRoutes);
+
+  routesLoaded = true;
+  console.log('[SIMPLE API] ✅ Compiled routes loaded successfully');
 } catch (error) {
-  console.error('[SIMPLE API] Could not load compiled app:', error.message);
-  console.error('[SIMPLE API] Using fallback routes');
+  console.error('[SIMPLE API] ⚠️  Could not load compiled routes:', error.message);
+  console.error('[SIMPLE API] Will use fallback routes');
+}
 
-  // Fallback routes
-  app.get('/health', (req, res) => {
-    res.json({
-      status: 'ok',
-      message: 'Aula Virtual API (Fallback Mode)',
-      timestamp: new Date().toISOString()
-    });
+// Fallback/info routes
+app.get('/health', (req, res) => {
+  res.json({
+    status: 'ok',
+    message: 'Aula Virtual API',
+    mode: routesLoaded ? 'full' : 'fallback',
+    timestamp: new Date().toISOString(),
+    environment: process.env.NODE_ENV || 'production'
   });
+});
 
-  app.all('*', (req, res) => {
+app.get('/api', (req, res) => {
+  res.json({
+    message: 'Aula Virtual CLMABROAD API',
+    version: '1.0.0',
+    mode: routesLoaded ? 'full' : 'fallback',
+    endpoints: {
+      auth: '/api/auth',
+      courses: '/api/courses',
+      assignments: '/api/assignments',
+      submissions: '/api/submissions',
+      feedback: '/api/feedback'
+    }
+  });
+});
+
+// If routes didn't load, show helpful message
+if (!routesLoaded) {
+  app.all('/api/*', (req, res) => {
     res.status(503).json({
       error: 'Service temporarily unavailable',
-      message: 'TypeScript compilation failed. Please check build logs.',
-      hint: 'This is the fallback server with CORS enabled.',
+      message: 'TypeScript compilation failed. API routes are not available.',
+      hint: 'Check Vercel build logs. CORS is working correctly though.',
       method: req.method,
       path: req.path
     });
   });
 }
 
-console.log('[SIMPLE API] Server configured and ready');
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({
+    error: 'Not found',
+    path: req.path,
+    method: req.method
+  });
+});
+
+// Error handler
+app.use((err, req, res, next) => {
+  console.error('[SIMPLE API] Error:', err);
+  res.status(500).json({
+    error: 'Internal server error',
+    message: err.message,
+    path: req.path
+  });
+});
+
+console.log('[SIMPLE API] ✅ Server configured and ready');
 
 module.exports = app;
+
