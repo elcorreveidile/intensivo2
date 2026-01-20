@@ -1,3 +1,8 @@
+/**
+ * Aula Virtual CLMABROAD API
+ * CORS-enabled Express server with custom middleware
+ * Last updated: 2026-01-20
+ */
 import express, { Request, Response } from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
