@@ -28,38 +28,46 @@ const allowedOrigins = [
   process.env.FRONTEND_URL || 'https://aula-virtual-web.vercel.app'
 ].filter(Boolean);
 
+// Helper function to check if origin is allowed
+const isOriginAllowed = (origin: string | undefined): boolean => {
+  if (!origin) return true;
+  if (origin.startsWith('http://localhost:') || origin.startsWith('http://127.0.0.1:')) return true;
+  if (origin.includes('aula-virtual') && origin.includes('vercel.app')) return true;
+  if (origin.includes('intensivo2') && origin.includes('vercel.app')) return true;
+  if (allowedOrigins.includes(origin)) return true;
+  return false;
+};
+
+// Handle OPTIONS preflight requests explicitly
+app.options('*', (req: Request, res: Response) => {
+  const origin = req.headers.origin;
+
+  console.log('OPTIONS preflight request from:', origin);
+
+  if (isOriginAllowed(origin)) {
+    console.log('Origin allowed:', origin);
+    res.header('Access-Control-Allow-Origin', origin || '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Max-Age', '600');
+    return res.status(204).send();
+  } else {
+    console.log('Origin blocked:', origin);
+    return res.status(403).json({ error: 'Origin not allowed' });
+  }
+});
+
 app.use(cors({
   origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps, curl, postman)
-    if (!origin) return callback(null, true);
-
-    // Allow localhost on any port
-    if (origin.startsWith('http://localhost:') || origin.startsWith('http://127.0.0.1:')) {
+    if (isOriginAllowed(origin)) {
+      console.log('CORS middleware allowed origin:', origin);
       return callback(null, true);
     }
 
-    // Allow all Vercel preview and production deployments for this project
-    if (origin.includes('aula-virtual') && origin.includes('vercel.app')) {
-      console.log('CORS allowed Vercel deployment:', origin);
-      return callback(null, true);
-    }
-
-    // Allow intensivo2 deployments
-    if (origin.includes('intensivo2') && origin.includes('vercel.app')) {
-      console.log('CORS allowed Vercel deployment:', origin);
-      return callback(null, true);
-    }
-
-    // Check if origin is in allowed list
-    if (allowedOrigins.includes(origin)) {
-      console.log('CORS allowed origin from list:', origin);
-      return callback(null, true);
-    }
-
-    console.log('CORS blocked origin:', origin);
+    console.log('CORS middleware blocked origin:', origin);
     console.log('Allowed origins:', allowedOrigins);
     // Don't throw error - just deny the request
-    // This prevents the error from being caught by global error handler
     callback(null, false);
   },
   credentials: true,
