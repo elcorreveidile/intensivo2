@@ -38,16 +38,35 @@ app.use(cors({
       return callback(null, true);
     }
 
+    // Allow all Vercel preview and production deployments for this project
+    if (origin.includes('aula-virtual') && origin.includes('vercel.app')) {
+      console.log('CORS allowed Vercel deployment:', origin);
+      return callback(null, true);
+    }
+
+    // Allow intensivo2 deployments
+    if (origin.includes('intensivo2') && origin.includes('vercel.app')) {
+      console.log('CORS allowed Vercel deployment:', origin);
+      return callback(null, true);
+    }
+
     // Check if origin is in allowed list
     if (allowedOrigins.includes(origin)) {
+      console.log('CORS allowed origin from list:', origin);
       return callback(null, true);
     }
 
     console.log('CORS blocked origin:', origin);
     console.log('Allowed origins:', allowedOrigins);
-    callback(new Error('Not allowed by CORS'));
+    // Don't throw error - just deny the request
+    // This prevents the error from being caught by global error handler
+    callback(null, false);
   },
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
+  exposedHeaders: ['Content-Range', 'X-Content-Range'],
+  maxAge: 600 // Cache preflight for 10 minutes
 }));
 
 // Body parser with limits for JSON and URL-encoded data
