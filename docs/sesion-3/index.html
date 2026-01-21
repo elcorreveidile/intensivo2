@@ -1,0 +1,902 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sesión 3 – Español Avanzado</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --text: #1f2a44;
+        --muted: #5b667a;
+        --accent: #10b981;
+        --border: #e3e7f2;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      header {
+        background: #ffffff;
+        border-bottom: 1px solid var(--border);
+        padding: 20px 24px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      header a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      main {
+        max-width: 960px;
+        margin: 24px auto 60px;
+        padding: 0 16px;
+      }
+      .hero {
+        background: linear-gradient(120deg, #10b981, #34d399);
+        color: #fff;
+        border-radius: 18px;
+        padding: 28px;
+        margin-bottom: 24px;
+      }
+      .hero h1 {
+        margin: 0 0 8px;
+      }
+      .hero p {
+        margin: 0;
+        opacity: 0.9;
+      }
+      .section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 18px;
+        box-shadow: 0 10px 24px rgba(25, 35, 70, 0.05);
+      }
+      h2 {
+        margin-top: 0;
+      }
+      h3 {
+        margin-top: 16px;
+      }
+      h4 {
+        margin-top: 12px;
+        margin-bottom: 8px;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      .tag {
+        display: inline-block;
+        background: #d1fae5;
+        color: #065f46;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px;
+        background: #fbfcff;
+      }
+      .note {
+        border-left: 4px solid var(--accent);
+        padding: 12px 16px;
+        background: #ecfdf5;
+        border-radius: 10px;
+        color: var(--muted);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+      }
+      th, td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid var(--border);
+      }
+      th {
+        background: #f5f7fb;
+        font-weight: 600;
+      }
+      details {
+        margin-top: 12px;
+        cursor: pointer;
+      }
+      summary {
+        cursor: pointer;
+        color: var(--accent);
+        font-weight: 600;
+        padding: 8px;
+        background: #f0fdf4;
+        border-radius: 6px;
+      }
+      .conditional-card {
+        border: 2px solid #10b981;
+        border-radius: 12px;
+        padding: 16px;
+        margin: 12px 0;
+        background: #f0fdf4;
+      }
+      .cause-box {
+        background: #fef3c7;
+        padding: 12px;
+        border-radius: 8px;
+        border-left: 4px solid #f59e0b;
+        margin: 8px 0;
+      }
+      .consequence-box {
+        background: #dbeafe;
+        padding: 12px;
+        border-radius: 8px;
+        border-left: 4px solid #3b82f6;
+        margin: 8px 0;
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+        padding: 16px;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="../index.html">← Volver al índice</a>
+    </header>
+
+    <main>
+      <div class="hero">
+        <h1>Sesión 3 – Condicionales + hipótesis y arrepentimiento</h1>
+        <p>Presencial en Granada · Domina las estructuras condicionales en pasado</p>
+      </div>
+
+      <!-- OBJETIVOS -->
+      <section class="section">
+        <h2>🎯 Objetivos de la sesión</h2>
+        <ul>
+          <li>Dominar condicionales en pasado (si + pluscuamperfecto / condicional compuesto).</li>
+          <li>Usar hipótesis para justificar causas en noticias y relatos.</li>
+          <li>Expresar arrepentimiento y situaciones irreales del pasado.</li>
+          <li>Aplicar condicionales en debates y argumentaciones.</li>
+        </ul>
+      </section>
+
+      <!-- ESTRUCTURA -->
+      <section class="section">
+        <h2>Estructura (4 horas)</h2>
+        <ol>
+          <li><strong>Warm-up (15 min)</strong>: "¿Qué habría pasado si…?" <a href="#warmup">↓ Ver actividad</a></li>
+          <li><strong>Miniweb 4 – Condicionales en acción (60 min)</strong>: Causas y consecuencias. <a href="#miniweb4">↓ Ver actividad</a></li>
+          <li><strong>Gramática focal (50 min)</strong>: Condicionales reales, potenciales e irreales. <a href="#gramatica">↓ Ver actividad</a></li>
+          <li><strong>Ejercicios interactivos (45 min)</strong>: Transformaciones tipo examen. <a href="#ejercicios">↓ Ver actividad</a></li>
+          <li><strong>Role-play (35 min)</strong>: Debate sobre decisiones pasadas. <a href="#roleplay">↓ Ver actividad</a></li>
+          <li><strong>Cierre (15 min)</strong>: repaso + tareas. <a href="#cierre">↓ Ver actividad</a></li>
+        </ol>
+      </section>
+
+      <!-- ===== WARM-UP ===== -->
+      <section class="section" id="warmup">
+        <span class="tag">15 minutos</span>
+        <h2>🔥 Warm-up: "¿Qué habría pasado si…?"</h2>
+
+        <div class="note">
+          <strong>Objetivo:</strong> Activar el uso espontáneo de condicionales irreales hablando de Granada, viajes y noticias.
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>Dinámica</h3>
+          <ol>
+            <li><strong>Presentación (3 min):</strong> El profesor presenta 3 situaciones hipotéticas sobre Granada.</li>
+            <li><strong>Trabajo en parejas (8 min):</strong> Discutid qué habría pasado en cada situación.</li>
+            <li><strong>Puesta en común (4 min):</strong> Compartid vuestras hipótesis más creativas.</li>
+          </ol>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#f0fdf4;">
+          <h3>💭 Situaciones hipotéticas</h3>
+
+          <div class="conditional-card">
+            <h4>Situación 1: Granada sin turismo</h4>
+            <p><strong>¿Qué habría pasado si Granada no hubiera desarrollado el turismo en el siglo XX?</strong></p>
+            <p style="font-size:0.9em; color:#666; margin-top:8px;">
+              <em>Piensa en: economía local, conservación de monumentos, vida cotidiana, población...</em>
+            </p>
+          </div>
+
+          <div class="conditional-card">
+            <h4>Situación 2: Viaje modificado</h4>
+            <p><strong>¿Qué habría sido diferente si hubieras llegado a Granada en otra época del año?</strong></p>
+            <p style="font-size:0.9em; color:#666; margin-top:8px;">
+              <em>Piensa en: clima, festivales, cantidad de turistas, experiencias disponibles...</em>
+            </p>
+          </div>
+
+          <div class="conditional-card">
+            <h4>Situación 3: Noticia reciente</h4>
+            <p><strong>Elige una noticia reciente. ¿Qué habría ocurrido si uno de los eventos clave hubiera sido diferente?</strong></p>
+            <p style="font-size:0.9em; color:#666; margin-top:8px;">
+              <em>Ejemplo: "Si el gobierno hubiera tomado otra decisión, ..."</em>
+            </p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#fff9e6;">
+          <h3>💡 Frases útiles para empezar</h3>
+          <ul>
+            <li>"Si [pluscuamperfecto], [condicional compuesto]..."</li>
+            <li>"De haber [participio], probablemente..."</li>
+            <li>"En el caso de que [pluscuamperfecto subjuntivo], ahora..."</li>
+            <li>"Habría sido diferente porque..."</li>
+            <li>"Seguramente no habría..."</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== MINIWEB 4 ===== -->
+      <section class="section" id="miniweb4">
+        <span class="tag">60 minutos</span>
+        <h2>🃏 Miniweb 4 – Condicionales en acción</h2>
+
+        <div class="note">
+          <strong>Objetivo:</strong> Practicar la construcción de oraciones condicionales emparejando causas con consecuencias.
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>📝 Instrucciones</h3>
+          <ol>
+            <li><strong>Fase 1 (20 min):</strong> Lee las tarjetas de causas y consecuencias.</li>
+            <li><strong>Fase 2 (20 min):</strong> Empareja cada causa con su consecuencia lógica.</li>
+            <li><strong>Fase 3 (20 min):</strong> Escribe la oración condicional completa y compara con las soluciones.</li>
+          </ol>
+        </div>
+
+        <!-- ACTIVIDAD DE EMPAREJAMIENTO -->
+        <div class="card" style="margin-top:16px;">
+          <h3>🎴 Tarjetas: Empareja causas y consecuencias</h3>
+
+          <h4 style="margin-top:16px;">Causas (situaciones hipotéticas del pasado)</h4>
+
+          <div class="cause-box">
+            <strong>A)</strong> No estudiar lo suficiente para el examen
+          </div>
+          <div class="cause-box">
+            <strong>B)</strong> Llegar tarde al aeropuerto
+          </div>
+          <div class="cause-box">
+            <strong>C)</strong> No reservar el hotel con antelación
+          </div>
+          <div class="cause-box">
+            <strong>D)</strong> Invertir en energías renovables hace 20 años
+          </div>
+          <div class="cause-box">
+            <strong>E)</strong> Aprender español desde niño
+          </div>
+          <div class="cause-box">
+            <strong>F)</strong> No llamar al médico cuando empezaron los síntomas
+          </div>
+
+          <h4 style="margin-top:24px;">Consecuencias (resultados en el pasado)</h4>
+
+          <div class="consequence-box">
+            <strong>1)</strong> Ahora no tendría problemas para comunicarme en Granada
+          </div>
+          <div class="consequence-box">
+            <strong>2)</strong> La enfermedad se habría complicado
+          </div>
+          <div class="consequence-box">
+            <strong>3)</strong> Habría perdido el vuelo
+          </div>
+          <div class="consequence-box">
+            <strong>4)</strong> Habría tenido que dormir en un hostal de mala calidad
+          </div>
+          <div class="consequence-box">
+            <strong>5)</strong> El país habría reducido significativamente las emisiones de CO₂
+          </div>
+          <div class="consequence-box">
+            <strong>6)</strong> Habría suspendido y tendría que repetir el curso
+          </div>
+
+          <details style="margin-top:16px;">
+            <summary>📌 Ver emparejamientos correctos</summary>
+            <div style="margin-top:12px; padding:12px; background:#fff; border-radius:8px;">
+              <ul>
+                <li><strong>A → 6:</strong> Si no hubiera estudiado lo suficiente, habría suspendido y tendría que repetir el curso.</li>
+                <li><strong>B → 3:</strong> Si hubiera llegado tarde al aeropuerto, habría perdido el vuelo.</li>
+                <li><strong>C → 4:</strong> Si no hubiera reservado el hotel con antelación, habría tenido que dormir en un hostal de mala calidad.</li>
+                <li><strong>D → 5:</strong> Si el país hubiera invertido en energías renovables hace 20 años, habría reducido significativamente las emisiones de CO₂.</li>
+                <li><strong>E → 1:</strong> Si hubiera aprendido español desde niño, ahora no tendría problemas para comunicarme en Granada.</li>
+                <li><strong>F → 2:</strong> Si no hubiera llamado al médico cuando empezaron los síntomas, la enfermedad se habría complicado.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
+        <!-- ACTIVIDAD DE REESCRITURA -->
+        <div class="card" style="margin-top:16px; background:#f0f9ff;">
+          <h3>✍️ Reescritura guiada</h3>
+          <p><strong>Instrucciones:</strong> Transforma las siguientes afirmaciones en oraciones condicionales irreales.</p>
+
+          <div style="background:#fff; padding:16px; border-radius:8px; border-left:4px solid #10b981; margin-top:12px;">
+            <ol>
+              <li><strong>Afirmación:</strong> "No llevé paraguas y me mojé."<br>
+                  <strong>Condicional:</strong> _______________</li>
+
+              <li><strong>Afirmación:</strong> "No practiqué lo suficiente y no aprobé el examen oral."<br>
+                  <strong>Condicional:</strong> _______________</li>
+
+              <li><strong>Afirmación:</strong> "Salimos tarde y perdimos el tren."<br>
+                  <strong>Condicional:</strong> _______________</li>
+
+              <li><strong>Afirmación:</strong> "No leí las instrucciones y cometí muchos errores."<br>
+                  <strong>Condicional:</strong> _______________</li>
+
+              <li><strong>Afirmación:</strong> "Ella no aceptó el trabajo y ahora lo lamenta."<br>
+                  <strong>Condicional:</strong> _______________</li>
+            </ol>
+          </div>
+
+          <details style="margin-top:16px;">
+            <summary>📌 Ver soluciones</summary>
+            <div style="margin-top:12px; padding:12px; background:#fff; border-radius:8px;">
+              <ol>
+                <li>Si <strong>hubiera llevado</strong> paraguas, no <strong>me habría mojado</strong>.</li>
+                <li>Si <strong>hubiera practicado</strong> lo suficiente, <strong>habría aprobado</strong> el examen oral.</li>
+                <li>Si <strong>hubiéramos salido</strong> antes, no <strong>habríamos perdido</strong> el tren.</li>
+                <li>Si <strong>hubiera leído</strong> las instrucciones, no <strong>habría cometido</strong> tantos errores.</li>
+                <li>Si ella <strong>hubiera aceptado</strong> el trabajo, ahora no lo <strong>lamentaría</strong>.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <div class="note" style="margin-top:16px;">
+          <strong>💡 Recuerda:</strong> Los condicionales irreales expresan situaciones que no ocurrieron. La estructura básica es: <strong>Si + pluscuamperfecto de subjuntivo, condicional compuesto</strong>.
+        </div>
+      </section>
+
+      <!-- ===== GRAMÁTICA FOCAL ===== -->
+      <section class="section" id="gramatica">
+        <span class="tag">50 minutos</span>
+        <h2>📚 Gramática focal – Los tres tipos de condicionales</h2>
+
+        <div class="note">
+          <strong>Objetivo:</strong> Consolidar el conocimiento de los tres tipos de condicionales: reales, potenciales e irreales.
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>📋 Tabla resumen de condicionales</h3>
+          <table>
+            <tr>
+              <th>Tipo</th>
+              <th>Estructura</th>
+              <th>Uso</th>
+              <th>Ejemplo</th>
+            </tr>
+            <tr>
+              <td><strong>Tipo 1: Real</strong><br>(presente/futuro)</td>
+              <td>Si + presente, presente/futuro/imperativo</td>
+              <td>Situaciones posibles o probables</td>
+              <td>Si <strong>llueve</strong>, <strong>me quedaré</strong> en casa.</td>
+            </tr>
+            <tr>
+              <td><strong>Tipo 2: Potencial</strong><br>(hipotético presente)</td>
+              <td>Si + imperfecto subjuntivo, condicional simple</td>
+              <td>Situaciones improbables en el presente/futuro</td>
+              <td>Si <strong>tuviera</strong> dinero, <strong>viajaría</strong> por el mundo.</td>
+            </tr>
+            <tr>
+              <td><strong>Tipo 3: Irreal</strong><br>(pasado)</td>
+              <td>Si + pluscuamperfecto subjuntivo, condicional compuesto</td>
+              <td>Situaciones imposibles (no ocurrieron)</td>
+              <td>Si <strong>hubiera estudiado</strong>, <strong>habría aprobado</strong>.</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- CONDICIONAL TIPO 1 -->
+        <div class="card" style="margin-top:16px; background:#f0fff4;">
+          <h3>Tipo 1: Condicionales reales (presente/futuro)</h3>
+          <p><strong>Estructura:</strong> Si + presente de indicativo, presente/futuro/imperativo</p>
+          <p><strong>Uso:</strong> Expresar situaciones posibles o probables en el presente o futuro.</p>
+
+          <h4 style="margin-top:12px;">Ejemplos:</h4>
+          <ul>
+            <li>Si <strong>hace</strong> buen tiempo, <strong>iremos</strong> a la playa.</li>
+            <li>Si <strong>tienes</strong> hambre, <strong>come</strong> algo.</li>
+            <li>Si no <strong>entiendes</strong>, <strong>pregunta</strong>.</li>
+            <li>Si <strong>llegas</strong> temprano, <strong>podemos</strong> tomar café.</li>
+          </ul>
+
+          <p style="margin-top:12px;"><strong>⚠️ Nota:</strong> Después de "si" NUNCA se usa futuro. Decimos "Si llueve mañana" (no "Si lloverá").</p>
+        </div>
+
+        <!-- CONDICIONAL TIPO 2 -->
+        <div class="card" style="margin-top:16px; background:#fff9e6;">
+          <h3>Tipo 2: Condicionales potenciales (hipotético presente)</h3>
+          <p><strong>Estructura:</strong> Si + imperfecto de subjuntivo, condicional simple</p>
+          <p><strong>Uso:</strong> Expresar situaciones improbables o imaginarias en el presente o futuro.</p>
+
+          <h4 style="margin-top:12px;">Ejemplos:</h4>
+          <ul>
+            <li>Si <strong>tuviera</strong> tiempo, <strong>aprendería</strong> a tocar la guitarra.</li>
+            <li>Si <strong>fuera</strong> rico, <strong>compraría</strong> una casa en Granada.</li>
+            <li>Si <strong>hablara</strong> chino, <strong>buscaría</strong> trabajo en Asia.</li>
+            <li>Si me <strong>tocara</strong> la lotería, <strong>viajaría</strong> por el mundo.</li>
+          </ul>
+
+          <p style="margin-top:12px;"><strong>💭 Contexto:</strong> Este tipo se usa para hablar de situaciones poco probables o contrarias a la realidad actual. "Si tuviera tiempo" implica que NO tengo tiempo ahora.</p>
+        </div>
+
+        <!-- CONDICIONAL TIPO 3 -->
+        <div class="card" style="margin-top:16px; background:#f0f9ff;">
+          <h3>Tipo 3: Condicionales irreales (pasado imposible)</h3>
+          <p><strong>Estructura:</strong> Si + pluscuamperfecto de subjuntivo, condicional compuesto</p>
+          <p><strong>Uso:</strong> Expresar situaciones que NO ocurrieron en el pasado y sus consecuencias imaginarias.</p>
+
+          <h4 style="margin-top:12px;">Ejemplos:</h4>
+          <ul>
+            <li>Si <strong>hubiera estudiado</strong>, <strong>habría aprobado</strong> el examen.</li>
+            <li>Si <strong>hubiéramos llegado</strong> antes, <strong>habríamos visto</strong> el principio de la película.</li>
+            <li>Si me <strong>hubieras llamado</strong>, <strong>habría ido</strong> contigo.</li>
+            <li>Si <strong>hubiera sabido</strong> que venías, <strong>habría preparado</strong> algo especial.</li>
+          </ul>
+
+          <p style="margin-top:12px;"><strong>💭 Contexto:</strong> Este tipo expresa arrepentimiento, crítica o imaginación sobre el pasado. "Si hubiera estudiado" implica que NO estudié y ahora me arrepiento.</p>
+        </div>
+
+        <!-- CONDICIONAL MIXTO -->
+        <div class="card" style="margin-top:16px; background:#fff0f6;">
+          <h3>⭐ Condicionales mixtos</h3>
+          <p>A veces se combinan tiempos de diferentes tipos para expresar una condición pasada con consecuencia presente:</p>
+
+          <h4 style="margin-top:12px;">Estructura: Si + pluscuamperfecto subjuntivo, condicional simple</h4>
+          <ul>
+            <li>Si <strong>hubiera estudiado</strong> medicina, ahora <strong>sería</strong> médico.</li>
+            <li>Si <strong>hubiéramos invertido</strong> en esa empresa, ahora <strong>seríamos</strong> ricos.</li>
+            <li>Si te <strong>hubieras levantado</strong> temprano, ahora no <strong>tendrías</strong> tanta prisa.</li>
+          </ul>
+
+          <p style="margin-top:12px;"><strong>💡 Uso:</strong> La condición no se cumplió en el pasado, pero la consecuencia afecta al presente.</p>
+        </div>
+
+        <!-- FORMAS ALTERNATIVAS -->
+        <div class="card" style="margin-top:16px;">
+          <h3>🔄 Formas alternativas (registro formal)</h3>
+          <p>En lugar de "si + pluscuamperfecto subjuntivo", se puede usar:</p>
+
+          <table>
+            <tr>
+              <th>Forma estándar</th>
+              <th>Forma alternativa</th>
+            </tr>
+            <tr>
+              <td>Si hubiera sabido...</td>
+              <td><strong>De haber sabido...</strong></td>
+            </tr>
+            <tr>
+              <td>Si hubieras venido...</td>
+              <td><strong>De haber venido...</strong></td>
+            </tr>
+            <tr>
+              <td>Si hubiera llovido...</td>
+              <td><strong>De haber llovido...</strong></td>
+            </tr>
+          </table>
+
+          <p style="margin-top:12px;"><strong>Ejemplo completo:</strong></p>
+          <ul>
+            <li><strong>Forma estándar:</strong> Si hubiera sabido que venías, habría preparado la cena.</li>
+            <li><strong>Forma alternativa:</strong> De haber sabido que venías, habría preparado la cena.</li>
+          </ul>
+        </div>
+
+        <div class="note" style="margin-top:16px;">
+          <strong>⚠️ Errores comunes:</strong>
+          <ul style="margin-top:8px;">
+            <li>❌ "Si tendría tiempo..." → ✅ "Si tuviera tiempo..."</li>
+            <li>❌ "Si habría estudiado..." → ✅ "Si hubiera estudiado..."</li>
+            <li>❌ "Si llueve, iría..." → ✅ "Si llueve, iré..." o "Si lloviera, iría..."</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== EJERCICIOS ===== -->
+      <section class="section" id="ejercicios">
+        <span class="tag">45 minutos</span>
+        <h2>✍️ Ejercicios interactivos – Transformaciones tipo examen</h2>
+
+        <div class="note">
+          <strong>Objetivo:</strong> Practicar transformaciones de frases siguiendo el formato del examen de nivel 7.
+        </div>
+
+        <!-- Ejercicio 1 -->
+        <div class="card" style="margin-top:16px; background:#f0fff4;">
+          <h3>Ejercicio 1: Identificar el tipo de condicional</h3>
+          <p><strong>Instrucciones:</strong> Lee cada frase e identifica si es condicional tipo 1, 2 o 3.</p>
+
+          <div style="background:#fff; padding:16px; border-radius:8px; border-left:4px solid #10b981; margin-top:12px;">
+            <ol>
+              <li>"Si hace sol mañana, iremos a la playa." → Tipo: ___</li>
+              <li>"Si tuviera más dinero, compraría un coche nuevo." → Tipo: ___</li>
+              <li>"Si hubieras estudiado, habrías aprobado." → Tipo: ___</li>
+              <li>"Si vienes a Granada, te enseñaré la Alhambra." → Tipo: ___</li>
+              <li>"Si hubiera sabido tu dirección, te habría enviado una postal." → Tipo: ___</li>
+              <li>"Si fuera presidente, cambiaría muchas cosas." → Tipo: ___</li>
+            </ol>
+          </div>
+
+          <details style="margin-top:16px;">
+            <summary>📌 Ver respuestas</summary>
+            <div style="margin-top:12px; padding:12px; background:#fff; border-radius:8px;">
+              <ol>
+                <li><strong>Tipo 1</strong> (real presente/futuro)</li>
+                <li><strong>Tipo 2</strong> (potencial presente)</li>
+                <li><strong>Tipo 3</strong> (irreal pasado)</li>
+                <li><strong>Tipo 1</strong> (real presente/futuro)</li>
+                <li><strong>Tipo 3</strong> (irreal pasado)</li>
+                <li><strong>Tipo 2</strong> (potencial presente)</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <!-- Ejercicio 2 -->
+        <div class="card" style="margin-top:16px; background:#fff9e6;">
+          <h3>Ejercicio 2: Completar con el verbo correcto</h3>
+          <p><strong>Instrucciones:</strong> Completa las frases con la forma verbal adecuada.</p>
+
+          <div style="background:#fff; padding:16px; border-radius:8px; border-left:4px solid #f59e0b; margin-top:12px;">
+            <ol>
+              <li>Si yo __________ (saber) cocinar, prepararía una paella.</li>
+              <li>Si __________ (llover) mañana, nos quedaremos en casa.</li>
+              <li>Si ellos __________ (llegar) a tiempo, habrían visto el espectáculo.</li>
+              <li>Si tú me __________ (llamar), iré a recogerte.</li>
+              <li>Si nosotros __________ (tener) más tiempo, habríamos visitado más museos.</li>
+              <li>Si ella __________ (estudiar) más, aprobaría el examen.</li>
+              <li>Si __________ (hacer) buen tiempo el fin de semana, iremos de excursión.</li>
+              <li>Si yo __________ (ser) tú, aceptaría esa oferta.</li>
+            </ol>
+          </div>
+
+          <details style="margin-top:16px;">
+            <summary>📌 Ver respuestas</summary>
+            <div style="margin-top:12px; padding:12px; background:#fff; border-radius:8px;">
+              <ol>
+                <li><strong>supiera</strong> (tipo 2)</li>
+                <li><strong>llueve</strong> (tipo 1)</li>
+                <li><strong>hubieran llegado</strong> (tipo 3)</li>
+                <li><strong>llamas</strong> (tipo 1)</li>
+                <li><strong>hubiéramos tenido</strong> (tipo 3)</li>
+                <li><strong>estudiara</strong> (tipo 2)</li>
+                <li><strong>hace</strong> (tipo 1)</li>
+                <li><strong>fuera</strong> (tipo 2)</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <!-- Ejercicio 3 -->
+        <div class="card" style="margin-top:16px; background:#f0f9ff;">
+          <h3>Ejercicio 3: Transformar a condicional tipo 3</h3>
+          <p><strong>Instrucciones:</strong> Transforma las siguientes situaciones reales del pasado en condicionales irreales.</p>
+
+          <div style="background:#fff; padding:16px; border-radius:8px; border-left:4px solid #3b82f6; margin-top:12px;">
+            <ol>
+              <li><strong>Situación:</strong> No llevé el mapa y me perdí.<br>
+                  <strong>Condicional:</strong> _______________</li>
+
+              <li><strong>Situación:</strong> Ella no reservó con tiempo y no encontró habitación.<br>
+                  <strong>Condicional:</strong> _______________</li>
+
+              <li><strong>Situación:</strong> No me avisaste y no fui a la fiesta.<br>
+                  <strong>Condicional:</strong> _______________</li>
+
+              <li><strong>Situación:</strong> Llovió mucho y se canceló el concierto.<br>
+                  <strong>Condicional:</strong> _______________</li>
+
+              <li><strong>Situación:</strong> Compramos las entradas tarde y no conseguimos buenos asientos.<br>
+                  <strong>Condicional:</strong> _______________</li>
+            </ol>
+          </div>
+
+          <details style="margin-top:16px;">
+            <summary>📌 Ver soluciones</summary>
+            <div style="margin-top:12px; padding:12px; background:#fff; border-radius:8px;">
+              <ol>
+                <li>Si <strong>hubiera llevado</strong> el mapa, no <strong>me habría perdido</strong>.</li>
+                <li>Si ella <strong>hubiera reservado</strong> con tiempo, <strong>habría encontrado</strong> habitación.</li>
+                <li>Si me <strong>hubieras avisado</strong>, <strong>habría ido</strong> a la fiesta.</li>
+                <li>Si no <strong>hubiera llovido</strong> tanto, no se <strong>habría cancelado</strong> el concierto.</li>
+                <li>Si <strong>hubiéramos comprado</strong> las entradas antes, <strong>habríamos conseguido</strong> buenos asientos.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <!-- Ejercicio 4 -->
+        <div class="card" style="margin-top:16px; background:#fff0f6;">
+          <h3>Ejercicio 4: Crear condicionales mixtos</h3>
+          <p><strong>Instrucciones:</strong> Crea frases con condicionales mixtos (condición pasada + consecuencia presente).</p>
+
+          <div style="background:#fff; padding:16px; border-radius:8px; border-left:4px solid #e91e63; margin-top:12px;">
+            <ol>
+              <li><strong>Contexto:</strong> No estudié español de niño.<br>
+                  <strong>Ahora:</strong> Tengo problemas para comunicarme.<br>
+                  <strong>Condicional mixto:</strong> _______________</li>
+
+              <li><strong>Contexto:</strong> No hicimos ejercicio durante años.<br>
+                  <strong>Ahora:</strong> Estamos en mala forma física.<br>
+                  <strong>Condicional mixto:</strong> _______________</li>
+
+              <li><strong>Contexto:</strong> Ella no aceptó ese trabajo.<br>
+                  <strong>Ahora:</strong> No vive en Barcelona.<br>
+                  <strong>Condicional mixto:</strong> _______________</li>
+
+              <li><strong>Contexto:</strong> No compramos acciones de esa empresa.<br>
+                  <strong>Ahora:</strong> No somos ricos.<br>
+                  <strong>Condicional mixto:</strong> _______________</li>
+            </ol>
+          </div>
+
+          <details style="margin-top:16px;">
+            <summary>📌 Ver soluciones</summary>
+            <div style="margin-top:12px; padding:12px; background:#fff; border-radius:8px;">
+              <ol>
+                <li>Si <strong>hubiera estudiado</strong> español de niño, ahora no <strong>tendría</strong> problemas para comunicarme.</li>
+                <li>Si <strong>hubiéramos hecho</strong> ejercicio durante años, ahora <strong>estaríamos</strong> en mejor forma física.</li>
+                <li>Si ella <strong>hubiera aceptado</strong> ese trabajo, ahora <strong>viviría</strong> en Barcelona.</li>
+                <li>Si <strong>hubiéramos comprado</strong> acciones de esa empresa, ahora <strong>seríamos</strong> ricos.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <!-- Ejercicio 5 -->
+        <div class="card" style="margin-top:16px;">
+          <h3>Ejercicio 5: Detectar y corregir errores</h3>
+          <p><strong>Instrucciones:</strong> Encuentra y corrige el error en cada frase.</p>
+
+          <div style="background:#fff; padding:16px; border-radius:8px; border-left:4px solid #dc2626; margin-top:12px;">
+            <ol>
+              <li>"Si tendría dinero, viajaría más."</li>
+              <li>"Si habrías venido, te habría visto."</li>
+              <li>"Si lloverá mañana, nos quedamos en casa."</li>
+              <li>"Si hubiera sabido, te habría dicho."</li>
+              <li>"Si sería rico, compraría una mansión."</li>
+              <li>"Si hubo tiempo, iríamos al museo."</li>
+            </ol>
+          </div>
+
+          <details style="margin-top:16px;">
+            <summary>📌 Ver correcciones</summary>
+            <div style="margin-top:12px; padding:12px; background:#fff; border-radius:8px;">
+              <ol>
+                <li><strong>Error:</strong> "tendría" después de "si".<br>
+                    <strong>Corrección:</strong> "Si <strong>tuviera</strong> dinero, viajaría más."</li>
+
+                <li><strong>Error:</strong> "habrías" después de "si".<br>
+                    <strong>Corrección:</strong> "Si <strong>hubieras</strong> venido, te habría visto."</li>
+
+                <li><strong>Error:</strong> "lloverá" (futuro) después de "si".<br>
+                    <strong>Corrección:</strong> "Si <strong>llueve</strong> mañana, nos quedaremos en casa."</li>
+
+                <li><strong>Correcto:</strong> Esta frase no tiene errores.</li>
+
+                <li><strong>Error:</strong> "sería" después de "si".<br>
+                    <strong>Corrección:</strong> "Si <strong>fuera</strong> rico, compraría una mansión."</li>
+
+                <li><strong>Error:</strong> "hubo" (pretérito indefinido) no se usa en condicionales.<br>
+                    <strong>Corrección:</strong> "Si <strong>hubiera</strong> tiempo, iríamos al museo." o "Si <strong>hay</strong> tiempo, iremos al museo."</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <div class="note" style="margin-top:16px;">
+          <strong>💡 Recuerda:</strong> Después de "si" condicional NUNCA se usa condicional ni futuro. Solo presente, imperfecto subjuntivo o pluscuamperfecto subjuntivo.
+        </div>
+      </section>
+
+      <!-- ===== ROLE-PLAY ===== -->
+      <section class="section" id="roleplay">
+        <span class="tag">35 minutos</span>
+        <h2>🎭 Role-play: Debate sobre decisiones pasadas</h2>
+
+        <div class="note">
+          <strong>Objetivo:</strong> Aplicar condicionales en un contexto comunicativo real, defendiendo o criticando decisiones históricas o personales.
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>📝 Estructura del debate (estilo TED)</h3>
+          <ol>
+            <li><strong>Preparación (10 min):</strong> En grupos de 3-4, elegid un tema y preparad argumentos.</li>
+            <li><strong>Presentaciones (20 min):</strong> Cada grupo presenta su postura (3-4 minutos).</li>
+            <li><strong>Feedback (5 min):</strong> Reflexión sobre el uso de condicionales.</li>
+          </ol>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#f0fdf4;">
+          <h3>🗣️ Temas para el debate</h3>
+
+          <div class="conditional-card">
+            <h4>Tema 1: Decisiones urbanísticas</h4>
+            <p><strong>Pregunta:</strong> ¿Qué habría pasado si Granada hubiera permitido construir edificios altos cerca de la Alhambra?</p>
+            <p style="font-size:0.9em; color:#666; margin-top:8px;">
+              <strong>Aspectos a considerar:</strong> turismo, economía, preservación cultural, identidad de la ciudad, calidad de vida.
+            </p>
+          </div>
+
+          <div class="conditional-card">
+            <h4>Tema 2: Educación y tecnología</h4>
+            <p><strong>Pregunta:</strong> ¿Qué habría sido diferente si hubiéramos integrado la tecnología en las aulas desde los años 80?</p>
+            <p style="font-size:0.9em; color:#666; margin-top:8px;">
+              <strong>Aspectos a considerar:</strong> alfabetización digital, métodos de enseñanza, acceso a información, desarrollo de habilidades.
+            </p>
+          </div>
+
+          <div class="conditional-card">
+            <h4>Tema 3: Cambio climático</h4>
+            <p><strong>Pregunta:</strong> ¿Cómo sería el mundo hoy si los gobiernos hubieran actuado contra el cambio climático en los años 90?</p>
+            <p style="font-size:0.9em; color:#666; margin-top:8px;">
+              <strong>Aspectos a considerar:</strong> emisiones, energías renovables, biodiversidad, economía, eventos extremos.
+            </p>
+          </div>
+
+          <div class="conditional-card">
+            <h4>Tema 4: Decisión personal importante</h4>
+            <p><strong>Pregunta:</strong> Piensa en una decisión importante que tomaste (o no tomaste). ¿Cómo habría sido diferente tu vida?</p>
+            <p style="font-size:0.9em; color:#666; margin-top:8px;">
+              <strong>Aspectos a considerar:</strong> carrera, relaciones, lugar de residencia, oportunidades, experiencias.
+            </p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#fff9e6;">
+          <h3>💬 Estructura de la presentación</h3>
+          <ol>
+            <li><strong>Introducción (30 segundos):</strong> Presenta el tema y tu tesis.
+              <ul>
+                <li><em>Ejemplo:</em> "Si Granada hubiera permitido construcciones altas, la ciudad habría perdido su identidad única."</li>
+              </ul>
+            </li>
+            <li><strong>Argumentos (2 minutos):</strong> Desarrolla 2-3 argumentos usando condicionales.
+              <ul>
+                <li><em>Ejemplo:</em> "En primer lugar, si se hubieran construido rascacielos, el perfil de la ciudad habría cambiado drásticamente..."</li>
+              </ul>
+            </li>
+            <li><strong>Conclusión (30 segundos):</strong> Resume tu postura.
+              <ul>
+                <li><em>Ejemplo:</em> "En conclusión, si esa decisión se hubiera tomado, Granada no sería el destino turístico que es hoy."</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#f0f9ff;">
+          <h3>✅ Rúbrica de evaluación</h3>
+          <table>
+            <tr>
+              <th>Criterio</th>
+              <th>Descripción</th>
+            </tr>
+            <tr>
+              <td><strong>Uso de condicionales</strong></td>
+              <td>Usa correctamente al menos 3 condicionales tipo 3 (irreales pasados).</td>
+            </tr>
+            <tr>
+              <td><strong>Coherencia</strong></td>
+              <td>Los argumentos están bien conectados y tienen lógica.</td>
+            </tr>
+            <tr>
+              <td><strong>Fluidez</strong></td>
+              <td>Habla con naturalidad, sin pausas excesivas.</td>
+            </tr>
+            <tr>
+              <td><strong>Vocabulario</strong></td>
+              <td>Usa vocabulario variado y preciso relacionado con el tema.</td>
+            </tr>
+            <tr>
+              <td><strong>Pronunciación</strong></td>
+              <td>Se entiende claramente, con buena entonación.</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="note" style="margin-top:16px;">
+          <strong>💡 Tip:</strong> Graba tu presentación para revisarla después. Identifica qué condicionales usaste y si hay errores que corregir.
+        </div>
+      </section>
+
+      <!-- ===== CIERRE Y TAREAS ===== -->
+      <section class="section" id="cierre">
+        <span class="tag">15 minutos</span>
+        <h2>🎯 Cierre – Repaso y tareas</h2>
+
+        <div class="card" style="margin-top:16px; background:#f0fff4;">
+          <h3>📌 Repaso rápido</h3>
+          <p><strong>Conceptos clave de hoy:</strong></p>
+          <ul>
+            <li>✅ Tres tipos de condicionales: reales, potenciales e irreales</li>
+            <li>✅ Condicional tipo 3: Si + pluscuamperfecto subjuntivo, condicional compuesto</li>
+            <li>✅ Condicionales mixtos: condición pasada + consecuencia presente</li>
+            <li>✅ Formas alternativas: "De haber + participio..."</li>
+            <li>✅ Aplicación práctica en debates y argumentación</li>
+            <li>✅ Nunca usar condicional o futuro después de "si"</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#fff9e6;">
+          <h3>📚 Tarea para casa (40-60 minutos)</h3>
+
+          <h4 style="margin-top:12px;">1. Transformaciones escritas (30 minutos)</h4>
+          <ul>
+            <li>Completa <strong>12 transformaciones condicionales</strong> tipo examen</li>
+            <li>Incluye al menos:
+              <ul>
+                <li>4 condicionales tipo 1 (reales)</li>
+                <li>4 condicionales tipo 2 (potenciales)</li>
+                <li>4 condicionales tipo 3 (irreales)</li>
+              </ul>
+            </li>
+          </ul>
+
+          <h4 style="margin-top:16px;">2. Microensayo (20-30 minutos)</h4>
+          <ul>
+            <li>Escribe un texto de <strong>120-150 palabras</strong> con el título:<br>
+                <em>"Si la ciudad hubiera invertido en..."</em></li>
+            <li>Elige un tema: transporte público, espacios verdes, infraestructura cultural, energías renovables, etc.</li>
+            <li>Usa al menos <strong>3 condicionales tipo 3</strong></li>
+            <li>Estructura: introducción + 2 argumentos + conclusión</li>
+          </ul>
+
+          <h4 style="margin-top:16px;">3. Reflexión personal (10 minutos)</h4>
+          <ul>
+            <li>Piensa en 3 decisiones importantes de tu vida</li>
+            <li>Escribe 3 frases en condicional mixto sobre cómo sería diferente tu vida si hubieras tomado otra decisión</li>
+            <li><em>Ejemplo:</em> "Si hubiera estudiado ingeniería, ahora trabajaría en una empresa tecnológica."</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#f0f9ff;">
+          <h3>🔜 Próxima sesión</h3>
+          <p><strong>Tema:</strong> Colocaciones, léxico ambiental y matices (Sesión 4)</p>
+          <p><strong>Prepara:</strong> Tu microensayo y las transformaciones. Piensa en colocaciones comunes sobre medio ambiente.</p>
+        </div>
+
+        <div class="note" style="margin-top:16px;">
+          <strong>❓ Dudas o preguntas:</strong> Envía un correo antes de la próxima sesión. ¡Excelente trabajo hoy en Granada!
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      Aula Virtual CLMABROAD · Sesión 3 · Granada
+    </footer>
+  </body>
+</html>
