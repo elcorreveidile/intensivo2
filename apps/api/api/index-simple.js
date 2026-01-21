@@ -65,11 +65,13 @@ console.log('[SIMPLE API] Middleware configured');
 let routesLoaded = false;
 try {
   console.log('[SIMPLE API] Attempting to load compiled routes...');
-  const authRoutes = require('../dist/routes/auth.routes').default;
-  const coursesRoutes = require('../dist/routes/courses.routes').default;
-  const assignmentsRoutes = require('../dist/routes/assignments.routes').default;
-  const submissionsRoutes = require('../dist/routes/submissions.routes').default;
-  const feedbackRoutes = require('../dist/routes/feedback.routes').default;
+
+  // Try loading from dist (relative to api/ folder)
+  const authRoutes = require('../../dist/routes/auth.routes').default;
+  const coursesRoutes = require('../../dist/routes/courses.routes').default;
+  const assignmentsRoutes = require('../../dist/routes/assignments.routes').default;
+  const submissionsRoutes = require('../../dist/routes/submissions.routes').default;
+  const feedbackRoutes = require('../../dist/routes/feedback.routes').default;
 
   app.use('/api/auth', authRoutes);
   app.use('/api/courses', coursesRoutes);
