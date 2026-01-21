@@ -1,0 +1,1017 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Repaso Gramatical Completo – Español Avanzado</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --text: #1f2a44;
+        --muted: #5b667a;
+        --accent: #059669;
+        --border: #e3e7f2;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      header {
+        background: #ffffff;
+        border-bottom: 1px solid var(--border);
+        padding: 20px 24px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      }
+      header a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      main {
+        max-width: 1200px;
+        margin: 24px auto 60px;
+        padding: 0 16px;
+      }
+      .hero {
+        background: linear-gradient(120deg, #059669, #10b981);
+        color: #fff;
+        border-radius: 18px;
+        padding: 36px;
+        margin-bottom: 24px;
+        box-shadow: 0 20px 40px rgba(5, 150, 105, 0.2);
+      }
+      .hero h1 {
+        margin: 0 0 12px;
+        font-size: 2.5rem;
+      }
+      .hero p {
+        margin: 0;
+        opacity: 0.95;
+        font-size: 1.15rem;
+      }
+      .section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 28px;
+        margin-bottom: 20px;
+        box-shadow: 0 10px 24px rgba(25, 35, 70, 0.05);
+      }
+      h2 {
+        margin-top: 0;
+        color: var(--accent);
+        font-size: 1.8rem;
+        border-bottom: 3px solid #d1fae5;
+        padding-bottom: 12px;
+      }
+      h3 {
+        margin-top: 20px;
+        color: var(--text);
+        font-size: 1.3rem;
+      }
+      h4 {
+        margin-top: 16px;
+        margin-bottom: 8px;
+        color: var(--muted);
+      }
+      ul, ol {
+        padding-left: 24px;
+        line-height: 1.8;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+      .card {
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        padding: 20px;
+        background: #fbfcff;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+      }
+      .note {
+        border-left: 5px solid var(--accent);
+        padding: 16px 20px;
+        background: #d1fae5;
+        border-radius: 10px;
+        color: var(--text);
+        font-weight: 500;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 16px;
+        font-size: 0.95rem;
+      }
+      th, td {
+        padding: 14px;
+        text-align: left;
+        border: 1px solid var(--border);
+      }
+      th {
+        background: #f0fdf4;
+        font-weight: 600;
+        color: var(--accent);
+      }
+      tr:hover {
+        background: #fafbfc;
+      }
+      details {
+        margin-top: 16px;
+        cursor: pointer;
+        border: 2px solid #d1fae5;
+        border-radius: 8px;
+        padding: 4px;
+      }
+      summary {
+        cursor: pointer;
+        color: var(--accent);
+        font-weight: 600;
+        padding: 12px;
+        background: #ecfdf5;
+        border-radius: 6px;
+        user-select: none;
+      }
+      summary:hover {
+        background: #d1fae5;
+      }
+      .example-box {
+        background: #f0f9ff;
+        padding: 16px;
+        border-radius: 10px;
+        border-left: 4px solid #3b82f6;
+        margin: 16px 0;
+        font-size: 0.95rem;
+      }
+      .formula-box {
+        background: #fef3c7;
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px dashed #f59e0b;
+        margin: 16px 0;
+        font-family: "Courier New", monospace;
+        font-size: 1.05rem;
+        text-align: center;
+        font-weight: 600;
+      }
+      .warning-box {
+        background: #fef2f2;
+        padding: 16px 20px;
+        border-radius: 10px;
+        border-left: 5px solid #dc2626;
+        margin: 16px 0;
+      }
+      .tip-box {
+        background: #fff7ed;
+        padding: 16px 20px;
+        border-radius: 10px;
+        border-left: 5px solid #f97316;
+        margin: 16px 0;
+      }
+      .success-box {
+        background: #f0fdf4;
+        padding: 16px 20px;
+        border-radius: 10px;
+        border-left: 5px solid #059669;
+        margin: 16px 0;
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.95rem;
+        padding: 24px;
+        border-top: 2px solid var(--border);
+        margin-top: 40px;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 500;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .toc {
+        background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%);
+        padding: 28px;
+        border-radius: 16px;
+        border: 2px solid #a7f3d0;
+      }
+      .toc h3 {
+        margin-top: 0;
+        color: var(--accent);
+      }
+      .toc ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .toc li {
+        padding: 10px 0;
+        border-bottom: 1px solid #d1fae5;
+      }
+      .toc li:last-child {
+        border-bottom: none;
+      }
+      .toc a {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1.05rem;
+      }
+      .toc a:before {
+        content: "▸";
+        color: var(--accent);
+        font-weight: bold;
+      }
+      .badge {
+        display: inline-block;
+        background: var(--accent);
+        color: white;
+        padding: 3px 10px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      .sesion-badge {
+        display: inline-block;
+        background: #3b82f6;
+        color: white;
+        padding: 4px 8px;
+        border-radius: 8px;
+        font-size: 0.7rem;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="../index.html">← Volver al índice</a>
+    </header>
+
+    <main>
+      <div class="hero">
+        <h1>📖 Repaso Gramatical Completo</h1>
+        <p>Todos los puntos clave del curso en un solo lugar · Preparación para el examen</p>
+      </div>
+
+      <div class="note" style="margin-bottom:24px;">
+        <strong>📌 Sobre este recurso:</strong> Esta guía recopila TODA la gramática esencial de las 5 sesiones del curso. Úsala para repasar antes del examen o cuando necesites consultar un punto específico.
+      </div>
+
+      <!-- TABLA DE CONTENIDOS -->
+      <section class="section">
+        <div class="toc">
+          <h3>📑 Contenidos del repaso</h3>
+          <ul>
+            <li><a href="#estilo-indirecto">1. Estilo indirecto <span class="sesion-badge">Sesión 1</span></a></li>
+            <li><a href="#conectores">2. Conectores de contraste y concesión <span class="sesion-badge">Sesión 2</span></a></li>
+            <li><a href="#condicionales">3. Oraciones condicionales (tipos 1, 2 y 3) <span class="sesion-badge">Sesión 3</span></a></li>
+            <li><a href="#verbos-actitud">4. Verbos de habla y actitud <span class="sesion-badge">Sesión 4</span></a></li>
+            <li><a href="#colocaciones">5. Colocaciones medioambientales <span class="sesion-badge">Sesión 4</span></a></li>
+            <li><a href="#ejercicios">6. Ejercicios integrados de repaso</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ESTILO INDIRECTO -->
+      <section class="section" id="estilo-indirecto">
+        <h2>1. Estilo indirecto <span class="sesion-badge">Sesión 1</span></h2>
+
+        <div class="note">
+          <strong>Concepto:</strong> Transmitir las palabras de otra persona sin usar comillas, incorporándolas en nuestra narración.
+        </div>
+
+        <h3>Cambios principales cuando el verbo introductor está en pasado:</h3>
+
+        <div class="grid">
+          <div class="card">
+            <h4>A) Tiempos verbales</h4>
+            <table style="font-size:0.85rem;">
+              <tr><th>Directo</th><th>Indirecto</th></tr>
+              <tr><td>Presente</td><td><strong>Imperfecto</strong></td></tr>
+              <tr><td>Pret. perfecto</td><td><strong>Pluscuamperfecto</strong></td></tr>
+              <tr><td>Pret. indefinido</td><td><strong>Pluscuamperfecto</strong></td></tr>
+              <tr><td>Futuro</td><td><strong>Condicional</strong></td></tr>
+              <tr><td>Imperativo</td><td><strong>Imperfecto subjuntivo</strong></td></tr>
+            </table>
+          </div>
+
+          <div class="card">
+            <h4>B) Deícticos temporales</h4>
+            <table style="font-size:0.85rem;">
+              <tr><th>Directo</th><th>Indirecto</th></tr>
+              <tr><td>hoy</td><td><strong>aquel día</strong></td></tr>
+              <tr><td>ayer</td><td><strong>el día anterior</strong></td></tr>
+              <tr><td>mañana</td><td><strong>al día siguiente</strong></td></tr>
+              <tr><td>ahora</td><td><strong>entonces</strong></td></tr>
+              <tr><td>esta semana</td><td><strong>aquella semana</strong></td></tr>
+            </table>
+          </div>
+
+          <div class="card">
+            <h4>C) Deícticos espaciales</h4>
+            <table style="font-size:0.85rem;">
+              <tr><th>Directo</th><th>Indirecto</th></tr>
+              <tr><td>aquí</td><td><strong>allí / allá</strong></td></tr>
+              <tr><td>este/esta</td><td><strong>ese/esa / aquel/aquella</strong></td></tr>
+              <tr><td>venir</td><td><strong>ir</strong></td></tr>
+              <tr><td>traer</td><td><strong>llevar</strong></td></tr>
+            </table>
+          </div>
+        </div>
+
+        <h3 style="margin-top:24px;">Estructuras según el tipo de frase:</h3>
+
+        <div class="card">
+          <h4>1. Afirmaciones</h4>
+          <div class="formula-box">Verbo introductor + QUE + frase transformada</div>
+          <div class="example-box">
+            <strong>Directo:</strong> "Estoy cansado"<br>
+            <strong>Indirecto:</strong> Dijo <strong>que estaba</strong> cansado
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h4>2. Preguntas cerradas (sí/no)</h4>
+          <div class="formula-box">Verbo introductor + SI + frase transformada</div>
+          <div class="example-box">
+            <strong>Directo:</strong> "¿Has visto la película?"<br>
+            <strong>Indirecto:</strong> Preguntó <strong>si había visto</strong> la película
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h4>3. Preguntas abiertas (con interrogativo)</h4>
+          <div class="formula-box">Verbo introductor + (QUE) + INTERROGATIVO + frase</div>
+          <div class="example-box">
+            <strong>Directo:</strong> "¿Dónde vives?"<br>
+            <strong>Indirecto:</strong> Preguntó <strong>(que) dónde vivía</strong>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h4>4. Órdenes/Peticiones</h4>
+          <div class="formula-box">Verbo (pedir/ordenar) + QUE + imperfecto subjuntivo</div>
+          <div class="example-box">
+            <strong>Directo:</strong> "Cierra la ventana"<br>
+            <strong>Indirecto:</strong> Pidió <strong>que cerrara</strong> la ventana
+          </div>
+        </div>
+
+        <div class="warning-box">
+          <strong>⚠️ IMPORTANTE:</strong> Si el verbo introductor está en <strong>presente</strong>, NO hay cambios:<br>
+          • Juan <strong>dice</strong>: "Estoy cansado" → Juan <strong>dice</strong> que está cansado (NO cambia)
+        </div>
+
+        <div class="tip-box">
+          <strong>💡 Para más detalles:</strong> Consulta el <a href="estilo-indirecto.html">Taller Completo de Estilo Indirecto</a> con 50+ ejercicios.
+        </div>
+      </section>
+
+      <!-- CONECTORES -->
+      <section class="section" id="conectores">
+        <h2>2. Conectores de contraste y concesión <span class="sesion-badge">Sesión 2</span></h2>
+
+        <div class="note">
+          <strong>Función:</strong> Estos conectores sirven para presentar ideas opuestas (contraste) o para expresar que un obstáculo no impide una acción (concesión).
+        </div>
+
+        <h3>A) Conectores de contraste</h3>
+        <p>Presentan dos ideas opuestas o diferentes:</p>
+
+        <div class="card">
+          <table>
+            <tr>
+              <th>Conector</th>
+              <th>Uso</th>
+              <th>Ejemplo</th>
+            </tr>
+            <tr>
+              <td><strong>Pero</strong></td>
+              <td>Contraste simple</td>
+              <td>Me gusta el arte, <strong>pero</strong> no entiendo de arquitectura.</td>
+            </tr>
+            <tr>
+              <td><strong>Sin embargo</strong></td>
+              <td>Contraste formal (+ coma antes)</td>
+              <td>Estudié mucho; <strong>sin embargo</strong>, suspendí.</td>
+            </tr>
+            <tr>
+              <td><strong>No obstante</strong></td>
+              <td>Contraste formal (+ coma antes)</td>
+              <td>Es difícil; <strong>no obstante</strong>, es posible.</td>
+            </tr>
+            <tr>
+              <td><strong>En cambio</strong></td>
+              <td>Contraste con alternativa</td>
+              <td>Juan estudia medicina; María, <strong>en cambio</strong>, estudia arte.</td>
+            </tr>
+            <tr>
+              <td><strong>Por el contrario</strong></td>
+              <td>Contraste fuerte/opuesto</td>
+              <td>No me gusta el frío; <strong>por el contrario</strong>, prefiero el calor.</td>
+            </tr>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">B) Conectores de concesión</h3>
+        <p>Presentan un obstáculo que no impide el cumplimiento de una acción:</p>
+
+        <div class="card">
+          <table>
+            <tr>
+              <th>Conector</th>
+              <th>Estructura</th>
+              <th>Ejemplo</th>
+            </tr>
+            <tr>
+              <td><strong>Aunque</strong></td>
+              <td>+ indicativo/subjuntivo</td>
+              <td><strong>Aunque</strong> llovía, salimos a pasear.</td>
+            </tr>
+            <tr>
+              <td><strong>A pesar de que</strong></td>
+              <td>+ indicativo</td>
+              <td><strong>A pesar de que</strong> es difícil, lo intentaré.</td>
+            </tr>
+            <tr>
+              <td><strong>Pese a que</strong></td>
+              <td>+ indicativo</td>
+              <td><strong>Pese a que</strong> no tenía tiempo, ayudó.</td>
+            </tr>
+            <tr>
+              <td><strong>A pesar de</strong></td>
+              <td>+ sustantivo/infinitivo</td>
+              <td><strong>A pesar de</strong> la lluvia, salimos.</td>
+            </tr>
+            <tr>
+              <td><strong>Pese a</strong></td>
+              <td>+ sustantivo/infinitivo</td>
+              <td><strong>Pese a</strong> no saber nada, aprobó.</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="example-box">
+          <h4>Ejemplo comparativo:</h4>
+          <p><strong>Contraste:</strong> Estudié mucho; <u>sin embargo</u>, suspendí. (Dos ideas independientes opuestas)</p>
+          <p><strong>Concesión:</strong> <u>Aunque</u> estudié mucho, suspendí. (Un obstáculo no impide el resultado)</p>
+        </div>
+
+        <div class="warning-box">
+          <strong>⚠️ Errores comunes:</strong>
+          <ul>
+            <li>❌ "Aunque estudié, <strong>pero</strong> suspendí" → ✅ "Aunque estudié, suspendí" (NO usar "aunque" + "pero" juntos)</li>
+            <li>❌ "A pesar de que llover" → ✅ "A pesar de que llovió" / "A pesar de llover"</li>
+            <li>❌ "Me gustó sin embargo no lo compré" → ✅ "Me gustó; <strong>sin embargo</strong>, no lo compré" (comas importantes)</li>
+          </ul>
+        </div>
+
+        <div class="success-box">
+          <strong>✅ Consejo de uso:</strong> Varía los conectores en tus textos. No repitas siempre "pero" o "aunque". Usa sinónimos según el registro (formal/informal).
+        </div>
+      </section>
+
+      <!-- CONDICIONALES -->
+      <section class="section" id="condicionales">
+        <h2>3. Oraciones condicionales <span class="sesion-badge">Sesión 3</span></h2>
+
+        <div class="note">
+          <strong>Función:</strong> Expresar condiciones y sus consecuencias. Hay tres tipos principales según la probabilidad o realidad de la condición.
+        </div>
+
+        <div class="card">
+          <h3>📋 Tabla resumen de los tres tipos</h3>
+          <table>
+            <tr>
+              <th>Tipo</th>
+              <th>Estructura</th>
+              <th>Uso</th>
+              <th>Ejemplo</th>
+            </tr>
+            <tr>
+              <td><strong>Tipo 1<br>Real</strong></td>
+              <td>Si + presente,<br>presente/futuro</td>
+              <td>Situaciones posibles/probables</td>
+              <td>Si <strong>llueve</strong>, me <strong>quedaré</strong> en casa.</td>
+            </tr>
+            <tr>
+              <td><strong>Tipo 2<br>Potencial</strong></td>
+              <td>Si + imperfecto subj.,<br>condicional simple</td>
+              <td>Situaciones improbables<br>(presente/futuro)</td>
+              <td>Si <strong>tuviera</strong> dinero, <strong>viajaría</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>Tipo 3<br>Irreal</strong></td>
+              <td>Si + pluscuamp. subj.,<br>condicional compuesto</td>
+              <td>Situaciones imposibles<br>(pasado)</td>
+              <td>Si <strong>hubiera estudiado</strong>, <strong>habría aprobado</strong>.</td>
+            </tr>
+          </table>
+        </div>
+
+        <h3 style="margin-top:24px;">Detalles de cada tipo:</h3>
+
+        <div class="card">
+          <h4>TIPO 1: Condicionales reales (presente/futuro)</h4>
+          <div class="formula-box">Si + PRESENTE indicativo, presente/futuro/imperativo</div>
+          <p><strong>Uso:</strong> Situaciones posibles o probables en el presente o futuro.</p>
+          <div class="example-box">
+            • Si <strong>hace</strong> buen tiempo, <strong>iremos</strong> a la playa.<br>
+            • Si <strong>tienes</strong> hambre, <strong>come</strong> algo.<br>
+            • Si no <strong>entiendes</strong>, <strong>pregunta</strong>.
+          </div>
+          <div class="warning-box">
+            <strong>⚠️ NUNCA usar futuro después de "si":</strong> ❌ "Si lloverá..." → ✅ "Si llueve..."
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h4>TIPO 2: Condicionales potenciales (hipotético presente)</h4>
+          <div class="formula-box">Si + IMPERFECTO subjuntivo, CONDICIONAL simple</div>
+          <p><strong>Uso:</strong> Situaciones improbables o imaginarias en el presente o futuro.</p>
+          <div class="example-box">
+            • Si <strong>tuviera</strong> tiempo, <strong>aprendería</strong> a tocar la guitarra.<br>
+            • Si <strong>fuera</strong> rico, <strong>compraría</strong> una casa en Granada.<br>
+            • Si me <strong>tocara</strong> la lotería, <strong>viajaría</strong> por el mundo.
+          </div>
+          <p style="margin-top:12px; font-size:0.9em; color:#666;"><strong>Contexto:</strong> "Si tuviera tiempo" implica que NO tengo tiempo ahora (situación contraria a la realidad actual).</p>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h4>TIPO 3: Condicionales irreales (pasado imposible)</h4>
+          <div class="formula-box">Si + PLUSCUAMPERFECTO subjuntivo, CONDICIONAL compuesto</div>
+          <p><strong>Uso:</strong> Situaciones que NO ocurrieron en el pasado y sus consecuencias imaginarias (arrepentimiento, crítica, hipótesis).</p>
+          <div class="example-box">
+            • Si <strong>hubiera estudiado</strong>, <strong>habría aprobado</strong> el examen.<br>
+            • Si me <strong>hubieras llamado</strong>, <strong>habría ido</strong> contigo.<br>
+            • Si <strong>hubiéramos llegado</strong> antes, <strong>habríamos visto</strong> el principio.
+          </div>
+          <p style="margin-top:12px; font-size:0.9em; color:#666;"><strong>Contexto:</strong> "Si hubiera estudiado" implica que NO estudié y ahora me arrepiento.</p>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#fff7ed;">
+          <h4>⭐ CONDICIONALES MIXTOS (avanzado)</h4>
+          <div class="formula-box">Si + PLUSCUAMPERFECTO subjuntivo, CONDICIONAL simple</div>
+          <p><strong>Uso:</strong> Condición pasada con consecuencia en el presente.</p>
+          <div class="example-box">
+            • Si <strong>hubiera estudiado</strong> medicina, ahora <strong>sería</strong> médico.<br>
+            • Si te <strong>hubieras levantado</strong> temprano, ahora no <strong>tendrías</strong> tanta prisa.
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <strong>💡 Forma alternativa (formal):</strong> "Si + pluscuamperfecto subjuntivo" puede sustituirse por "De + haber + participio":<br>
+          • Si hubiera sabido → <strong>De haber sabido</strong><br>
+          • Si hubieras venido → <strong>De haber venido</strong>
+        </div>
+
+        <div class="warning-box">
+          <strong>⚠️ NUNCA usar condicional o futuro después de "si":</strong>
+          <ul>
+            <li>❌ "Si tendría tiempo..." → ✅ "Si tuviera tiempo..."</li>
+            <li>❌ "Si habría sabido..." → ✅ "Si hubiera sabido..."</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- VERBOS DE ACTITUD -->
+      <section class="section" id="verbos-actitud">
+        <h2>4. Verbos de habla y actitud <span class="sesion-badge">Sesión 4</span></h2>
+
+        <div class="note">
+          <strong>Función:</strong> Expresar diferentes actitudes al transmitir las palabras de otros. Enriquecen el discurso y evitan repetir constantemente "decir".
+        </div>
+
+        <div class="card">
+          <h3>📊 Tabla completa de verbos según actitud</h3>
+          <table>
+            <tr>
+              <th>Actitud</th>
+              <th>Verbos</th>
+              <th>Estructura</th>
+              <th>Ejemplo</th>
+            </tr>
+            <tr>
+              <td><strong>Afirmar</strong></td>
+              <td>afirmar, asegurar, sostener, declarar</td>
+              <td>+ que + <span style="color:#059669;">indicativo</span></td>
+              <td>Afirmó que <strong>era</strong> verdad.</td>
+            </tr>
+            <tr>
+              <td><strong>Negar</strong></td>
+              <td>negar, desmentir, rechazar</td>
+              <td>+ que + <span style="color:#dc2626;">subjuntivo</span></td>
+              <td>Negó que <strong>hubiera</strong> corrupción.</td>
+            </tr>
+            <tr>
+              <td><strong>Quejarse</strong></td>
+              <td>quejarse, lamentarse, protestar</td>
+              <td>+ de que + <span style="color:#dc2626;">subjuntivo</span></td>
+              <td>Se quejó de que no <strong>tomaran</strong> medidas.</td>
+            </tr>
+            <tr>
+              <td><strong>Disculparse</strong></td>
+              <td>disculparse, pedir perdón</td>
+              <td>+ por + infinitivo</td>
+              <td>Se disculpó <strong>por llegar</strong> tarde.</td>
+            </tr>
+            <tr>
+              <td><strong>Insistir</strong></td>
+              <td>insistir, recalcar, subrayar</td>
+              <td>+ en que + <span style="color:#059669;">indicativo</span></td>
+              <td>Insistió en que <strong>estudiáramos</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>Sugerir</strong></td>
+              <td>sugerir, proponer, recomendar</td>
+              <td>+ que + <span style="color:#dc2626;">subjuntivo</span></td>
+              <td>Sugirió que <strong>fuéramos</strong> al médico.</td>
+            </tr>
+            <tr>
+              <td><strong>Advertir</strong></td>
+              <td>advertir, avisar, prevenir</td>
+              <td>+ de que + <span style="color:#059669;">indicativo</span></td>
+              <td>Advirtió de que <strong>había</strong> peligro.</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="success-box">
+          <strong>✅ Regla de oro para subjuntivo/indicativo:</strong>
+          <ul>
+            <li><strong>INDICATIVO:</strong> afirmación, insistencia, advertencia (hechos)</li>
+            <li><strong>SUBJUNTIVO:</strong> negación, queja, sugerencia, duda (opiniones/deseos)</li>
+          </ul>
+        </div>
+
+        <div class="example-box">
+          <h4>Ejemplos comparativos:</h4>
+          <p><strong>Genérico:</strong> Juan <u>dijo</u> que era importante.</p>
+          <p><strong>Específico (afirmación):</strong> Juan <u>afirmó/sostuvo</u> que era importante.</p>
+          <p><strong>Específico (advertencia):</strong> Juan <u>advirtió de</u> que era importante.</p>
+          <p><strong>Específico (insistencia):</strong> Juan <u>insistió en</u> que era importante.</p>
+        </div>
+
+        <div class="tip-box">
+          <strong>💡 Consejo de estilo:</strong> Sustituir "dijo" por verbos más precisos demuestra dominio del idioma y hace tus textos más interesantes.
+        </div>
+      </section>
+
+      <!-- COLOCACIONES -->
+      <section class="section" id="colocaciones">
+        <h2>5. Colocaciones medioambientales <span class="sesion-badge">Sesión 4</span></h2>
+
+        <div class="note">
+          <strong>¿Qué son las colocaciones?</strong> Combinaciones naturales de palabras que los hablantes nativos usan habitualmente. Aprender colocaciones te hace sonar más natural y preciso.
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <h4>🌍 Energía y recursos</h4>
+            <ul style="font-size:0.9em;">
+              <li><strong>Fuentes</strong> renovables</li>
+              <li><strong>Energía</strong> solar/eólica</li>
+              <li><strong>Consumo</strong> energético</li>
+              <li><strong>Ahorrar</strong> energía</li>
+              <li><strong>Eficiencia</strong> energética</li>
+              <li><strong>Aprovechar</strong> recursos</li>
+              <li><strong>Gestionar</strong> recursos</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>🏭 Contaminación</h4>
+            <ul style="font-size:0.9em;">
+              <li><strong>Reducir</strong> emisiones</li>
+              <li><strong>Contaminar</strong> el aire/agua</li>
+              <li><strong>Emisiones</strong> de CO₂</li>
+              <li><strong>Vertidos</strong> tóxicos</li>
+              <li><strong>Residuos</strong> plásticos</li>
+              <li><strong>Desechos</strong> industriales</li>
+              <li><strong>Verter</strong> residuos</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>🌳 Protección ambiental</h4>
+            <ul style="font-size:0.9em;">
+              <li><strong>Preservar</strong> la biodiversidad</li>
+              <li><strong>Proteger</strong> ecosistemas</li>
+              <li><strong>Especies</strong> en peligro</li>
+              <li><strong>Áreas</strong> protegidas</li>
+              <li><strong>Conservar</strong> hábitats</li>
+              <li><strong>Cuidar</strong> el medio ambiente</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>📋 Políticas y acciones</h4>
+            <ul style="font-size:0.9em;">
+              <li><strong>Tomar</strong> medidas</li>
+              <li><strong>Implementar</strong> políticas</li>
+              <li><strong>Concienciar</strong> a la población</li>
+              <li><strong>Fomentar</strong> el reciclaje</li>
+              <li><strong>Combatir</strong> el cambio climático</li>
+              <li><strong>Promover</strong> energías limpias</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>🌡️ Cambio climático</h4>
+            <ul style="font-size:0.9em;">
+              <li><strong>Calentamiento</strong> global</li>
+              <li><strong>Efecto</strong> invernadero</li>
+              <li><strong>Aumentar</strong> la temperatura</li>
+              <li><strong>Agravar</strong> el problema</li>
+              <li><strong>Frenar</strong> el cambio climático</li>
+              <li><strong>Consecuencias</strong> devastadoras</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>♻️ Sostenibilidad</h4>
+            <ul style="font-size:0.9em;">
+              <li><strong>Desarrollo</strong> sostenible</li>
+              <li><strong>Economía</strong> circular</li>
+              <li><strong>Consumo</strong> responsable</li>
+              <li><strong>Huella</strong> ecológica</li>
+              <li><strong>Prácticas</strong> sostenibles</li>
+              <li><strong>Transición</strong> energética</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="warning-box">
+          <strong>⚠️ Errores comunes con colocaciones:</strong>
+          <ul>
+            <li>❌ "Hacer medidas" → ✅ <strong>Tomar</strong> medidas</li>
+            <li>❌ "Crear energía" → ✅ <strong>Generar</strong> energía</li>
+            <li>❌ "Cuidar biodiversidad" → ✅ <strong>Preservar</strong> la biodiversidad</li>
+            <li>❌ "Poner políticas" → ✅ <strong>Implementar</strong> políticas</li>
+          </ul>
+        </div>
+
+        <div class="success-box">
+          <strong>✅ Cómo aprender colocaciones:</strong>
+          <ol>
+            <li>Aprende las colocaciones como <strong>bloques</strong> (no palabras sueltas)</li>
+            <li>Crea <strong>flashcards</strong> con la colocación completa</li>
+            <li><strong>Úsalas activamente</strong> en tus producciones escritas y orales</li>
+            <li>Lee textos auténticos y <strong>subraya las colocaciones</strong> que encuentres</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- EJERCICIOS INTEGRADOS -->
+      <section class="section" id="ejercicios">
+        <h2>6. Ejercicios integrados de repaso</h2>
+
+        <div class="note">
+          Estos ejercicios combinan TODOS los puntos gramaticales del curso. Haz cada ejercicio antes de ver las soluciones.
+        </div>
+
+        <!-- Ejercicio 1 -->
+        <div class="card" style="border:3px solid var(--accent); background:#f0fdf4;">
+          <h3>📝 Ejercicio 1: Integración total (15 frases)</h3>
+          <p><strong>Instrucciones:</strong> Estas frases requieren aplicar diferentes puntos gramaticales. Identifica cuál y transfórmalas correctamente.</p>
+
+          <ol style="margin-top:16px;">
+            <li>María dijo: "Si tuviera tiempo, iría al gimnasio mañana". <em>(Estilo indirecto + condicional)</em></li>
+            <li>El profesor __________ (negar) que los estudiantes __________ (copiar) en el examen. <em>(Verbo de actitud)</em></li>
+            <li>Completa: "__________ estudié mucho, suspendí el examen". <em>(Conector de concesión)</em></li>
+            <li>Transforma: "Reduce las emisiones de CO₂" → El experto __________. <em>(Estilo indirecto + colocación)</em></li>
+            <li>Si __________ (estudiar, yo) más, ahora __________ (ser) médico. <em>(Condicional mixto)</em></li>
+            <li>Pedro preguntó: "¿Has visto esta película?". <em>(Estilo indirecto)</em></li>
+            <li>Es importante __________ (tomar) medidas contra el cambio climático. <em>(Colocación)</em></li>
+            <li>Juan __________ (insistir) en que nosotros __________ (llegar) puntuales. <em>(Verbo de actitud + subjuntivo)</em></li>
+            <li>Completa: "Me gusta el fútbol; __________, prefiero el baloncesto". <em>(Conector de contraste)</em></li>
+            <li>Si __________ (llover) mañana, no __________ (ir) a la playa. <em>(Condicional tipo 1)</em></li>
+            <li>Laura dijo: "Ayer compré estos zapatos aquí". <em>(Estilo indirecto con deícticos)</em></li>
+            <li>Los científicos __________ (advertir) de que el nivel del mar __________ (subir). <em>(Verbo de actitud)</em></li>
+            <li>Si __________ (saber, yo) tu dirección, te __________ (enviar) la invitación. <em>(Condicional tipo 3)</em></li>
+            <li>Es fundamental __________ (preservar) la biodiversidad. <em>(Colocación)</em></li>
+            <li>Completa: "__________ no tengo dinero, soy feliz". <em>(Conector de concesión)</em></li>
+          </ol>
+
+          <details>
+            <summary>📌 Ver todas las soluciones</summary>
+            <div style="margin-top:16px; padding:20px; background:#fff; border-radius:8px;">
+              <ol>
+                <li>María dijo que si <strong>tuviera</strong> tiempo, <strong>iría</strong> al gimnasio <strong>al día siguiente</strong>.</li>
+                <li>El profesor <strong>negó</strong> que los estudiantes <strong>hubieran copiado</strong> en el examen.</li>
+                <li><strong>Aunque</strong> estudié mucho, suspendí el examen.</li>
+                <li>El experto <strong>aconsejó/recomendó que se redujeran</strong> las emisiones de CO₂.</li>
+                <li>Si <strong>hubiera estudiado</strong> más, ahora <strong>sería</strong> médico.</li>
+                <li>Pedro preguntó <strong>si había visto aquella</strong> película.</li>
+                <li>Es importante <strong>tomar</strong> medidas contra el cambio climático.</li>
+                <li>Juan <strong>insistió</strong> en que nosotros <strong>llegáramos</strong> puntuales.</li>
+                <li>Me gusta el fútbol; <strong>sin embargo / no obstante</strong>, prefiero el baloncesto.</li>
+                <li>Si <strong>llueve</strong> mañana, no <strong>iremos / iré</strong> a la playa.</li>
+                <li>Laura dijo que <strong>el día anterior había comprado aquellos</strong> zapatos <strong>allí</strong>.</li>
+                <li>Los científicos <strong>advierten / advirtieron</strong> de que el nivel del mar <strong>está subiendo / estaba subiendo</strong>.</li>
+                <li>Si <strong>hubiera sabido</strong> tu dirección, te <strong>habría enviado</strong> la invitación.</li>
+                <li>Es fundamental <strong>preservar</strong> la biodiversidad.</li>
+                <li><strong>Aunque / Pese a que / A pesar de que</strong> no tengo dinero, soy feliz.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <!-- Ejercicio 2 -->
+        <div class="card" style="border:3px solid #3b82f6; background:#eff6ff; margin-top:20px;">
+          <h3>📝 Ejercicio 2: Texto completo para corregir</h3>
+          <p><strong>Instrucciones:</strong> Este texto contiene 10 errores gramaticales relacionados con los temas del curso. Encuéntralos y corrígelos.</p>
+
+          <div style="background:#fff; padding:20px; border-radius:8px; margin-top:16px; line-height:1.8;">
+            <p>
+              Ayer fui a una conferencia sobre cambio climático. El experto dijo que <u>si tomaremos medidas</u> ahora,
+              podríamos evitar consecuencias graves. Él <u>insistió que</u> todos los gobiernos <u>deben hacer</u> políticas más estrictas.
+              <u>Aunque</u> muchos países han progresado, <u>pero</u> todavía queda mucho por hacer.
+            </p>
+            <p style="margin-top:12px;">
+              Un asistente <u>preguntó que cuándo</u> sería demasiado tarde para actuar. El experto <u>respondió</u> que
+              <u>si habremos esperado</u> más, <u>será</u> imposible revertir los daños. También <u>advirtió</u> que es urgente
+              <u>reducir emisiones</u> de gases de efecto invernadero.
+            </p>
+          </div>
+
+          <details>
+            <summary>📌 Ver errores y correcciones</summary>
+            <div style="margin-top:16px; padding:20px; background:#fff; border-radius:8px;">
+              <ol>
+                <li><strong>Error:</strong> "si tomaremos" (futuro después de "si")<br>
+                    <strong>Corrección:</strong> si <u>tomamos</u> medidas ahora</li>
+
+                <li><strong>Error:</strong> "insistió que" (falta "en")<br>
+                    <strong>Corrección:</strong> insistió <u>en que</u></li>
+
+                <li><strong>Error:</strong> "deben hacer" (debería ser "implementar" o "tomar")<br>
+                    <strong>Corrección:</strong> deben <u>implementar</u> políticas / deben <u>tomar medidas</u></li>
+
+                <li><strong>Error:</strong> "Aunque... pero" (no se usan juntos)<br>
+                    <strong>Corrección:</strong> Aunque muchos países han progresado, todavía queda... (eliminar "pero")</li>
+
+                <li><strong>Error:</strong> "preguntó que cuándo" ("que" es opcional, pero si se usa va después del interrogativo)<br>
+                    <strong>Corrección:</strong> preguntó <u>cuándo</u> / preguntó <u>que cuándo</u> (ambas correctas, mejor sin "que")</li>
+
+                <li><strong>Error:</strong> "si habremos esperado" (futuro perfecto después de "si")<br>
+                    <strong>Corrección:</strong> si <u>hubiéramos esperado</u> más</li>
+
+                <li><strong>Error:</strong> "será imposible" (después de condicional tipo 3 debería ser condicional)<br>
+                    <strong>Corrección:</strong> <u>sería</u> imposible</li>
+
+                <li><strong>Error:</strong> "reducir emisiones" (colocación incompleta)<br>
+                    <strong>Corrección:</strong> reducir <u>las</u> emisiones</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <!-- Ejercicio 3 -->
+        <div class="card" style="border:3px solid #f59e0b; background:#fffbeb; margin-top:20px;">
+          <h3>📝 Ejercicio 3: Producción propia</h3>
+          <p><strong>Instrucciones:</strong> Escribe un texto de 120-150 palabras sobre el tema: <strong>"¿Qué habría pasado si los gobiernos hubieran actuado contra el cambio climático hace 30 años?"</strong></p>
+
+          <div class="success-box" style="margin-top:16px;">
+            <strong>✅ Tu texto debe incluir:</strong>
+            <ul>
+              <li>Al menos <strong>2 condicionales tipo 3</strong> (Si hubieran actuado...)</li>
+              <li>Al menos <strong>1 condicional mixto</strong> (condición pasada + consecuencia presente)</li>
+              <li>Al menos <strong>3 conectores</strong> diferentes (aunque, sin embargo, por ello, etc.)</li>
+              <li>Al menos <strong>5 colocaciones</strong> medioambientales</li>
+              <li>Al menos <strong>2 verbos de actitud</strong> diferentes</li>
+            </ul>
+          </div>
+
+          <details>
+            <summary>📌 Ver ejemplo de texto modelo</summary>
+            <div style="margin-top:16px; padding:20px; background:#fff; border-radius:8px; line-height:1.8;">
+              <p>
+                Si los gobiernos <strong>hubieran tomado medidas</strong> contra el cambio climático hace 30 años,
+                ahora <strong>viviríamos</strong> en un planeta más sano. Los expertos <strong>sostienen</strong> que
+                si <strong>hubiéramos reducido</strong> las emisiones de CO₂ en los años 90, la temperatura global
+                no <strong>habría aumentado</strong> tanto.
+              </p>
+              <p style="margin-top:12px;">
+                <strong>Aunque</strong> algunos países <strong>implementaron</strong> políticas ambientales, la mayoría
+                <strong>priorizó</strong> el crecimiento económico; <strong>sin embargo</strong>, ahora enfrentamos
+                consecuencias devastadoras. Si <strong>hubiéramos invertido</strong> en fuentes renovables,
+                <strong>habríamos preservado</strong> mejor la biodiversidad.
+              </p>
+              <p style="margin-top:12px;">
+                Los científicos <strong>advierten</strong> de que todavía podemos actuar, <strong>pese a</strong>
+                la gravedad de la situación. <strong>Por ello</strong>, es fundamental <strong>fomentar el consumo responsable</strong>
+                y <strong>promover la transición energética</strong>.
+              </p>
+              <p style="margin-top:16px; font-size:0.9em; color:#666;">
+                <strong>Análisis:</strong> Este texto incluye 2 condicionales tipo 3 (hubieran tomado/hubiéramos reducido),
+                1 condicional mixto (hubieran tomado → viviríamos), conectores variados (aunque, sin embargo, pese a, por ello),
+                7 colocaciones (tomar medidas, reducir emisiones, aumentar temperatura, implementar políticas, invertir en fuentes,
+                preservar biodiversidad, fomentar consumo, promover transición) y 3 verbos de actitud (sostienen, advierten, priorizó).
+              </p>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- RESUMEN FINAL -->
+      <section class="section" style="background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); border:3px solid var(--accent);">
+        <h2 style="border-bottom:none;">🎯 Checklist final para el examen</h2>
+
+        <div class="grid" style="margin-top:20px;">
+          <div class="card">
+            <h4>✅ Estilo indirecto</h4>
+            <ul style="font-size:0.9em;">
+              <li>Cambiar tiempos verbales</li>
+              <li>Cambiar deícticos (hoy→aquel día)</li>
+              <li>Preguntas con "si" o interrogativo</li>
+              <li>Órdenes con subjuntivo</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>✅ Conectores</h4>
+            <ul style="font-size:0.9em;">
+              <li>Contraste: pero, sin embargo</li>
+              <li>Concesión: aunque, a pesar de</li>
+              <li>NO mezclar "aunque + pero"</li>
+              <li>Comas con "sin embargo"</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>✅ Condicionales</h4>
+            <ul style="font-size:0.9em;">
+              <li>Tipo 1: si + presente, futuro</li>
+              <li>Tipo 2: si + imp. subj., cond.</li>
+              <li>Tipo 3: si + pluscuamp., cond. comp.</li>
+              <li>NUNCA futuro/cond. después de "si"</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>✅ Verbos de actitud</h4>
+            <ul style="font-size:0.9em;">
+              <li>Afirmar + indicativo</li>
+              <li>Negar + subjuntivo</li>
+              <li>Sugerir + subjuntivo</li>
+              <li>Variar "decir" por sinónimos</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>✅ Colocaciones</h4>
+            <ul style="font-size:0.9em;">
+              <li>Tomar medidas (no "hacer")</li>
+              <li>Reducir emisiones</li>
+              <li>Preservar biodiversidad</li>
+              <li>Implementar políticas</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h4>✅ Estrategia de examen</h4>
+            <ul style="font-size:0.9em;">
+              <li>Leer las preguntas antes</li>
+              <li>Gestionar bien el tiempo</li>
+              <li>Revisar gramática y ortografía</li>
+              <li>Usar vocabulario preciso</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="success-box" style="margin-top:24px; font-size:1.05rem;">
+          <strong>🌟 Mensaje final:</strong> Has trabajado todos estos puntos durante el curso. Confía en tu preparación.
+          Repasa este documento regularmente y haz los ejercicios varias veces. ¡Mucha suerte en el examen! 💪
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <p style="font-weight:600; font-size:1.1rem; margin-bottom:12px;">Aula Virtual CLMABROAD · Repaso Gramatical Completo</p>
+      <p><a href="../index.html">← Volver al índice principal</a> |
+         <a href="estilo-indirecto.html">Taller de Estilo Indirecto</a></p>
+      <p style="margin-top:16px; font-size:0.85rem; color:#888;">
+        Este material cubre todos los puntos gramaticales del curso intensivo (Sesiones 1-5)
+      </p>
+    </footer>
+  </body>
+</html>

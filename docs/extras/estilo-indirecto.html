@@ -1,0 +1,1236 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Taller de Estilo Indirecto – Español Avanzado</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --text: #1f2a44;
+        --muted: #5b667a;
+        --accent: #6366f1;
+        --border: #e3e7f2;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      header {
+        background: #ffffff;
+        border-bottom: 1px solid var(--border);
+        padding: 20px 24px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      header a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      main {
+        max-width: 1100px;
+        margin: 24px auto 60px;
+        padding: 0 16px;
+      }
+      .hero {
+        background: linear-gradient(120deg, #6366f1, #8b5cf6);
+        color: #fff;
+        border-radius: 18px;
+        padding: 32px;
+        margin-bottom: 24px;
+      }
+      .hero h1 {
+        margin: 0 0 8px;
+        font-size: 2.2rem;
+      }
+      .hero p {
+        margin: 0;
+        opacity: 0.9;
+        font-size: 1.1rem;
+      }
+      .section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 18px;
+        box-shadow: 0 10px 24px rgba(25, 35, 70, 0.05);
+      }
+      h2 {
+        margin-top: 0;
+        color: var(--accent);
+      }
+      h3 {
+        margin-top: 16px;
+        color: var(--text);
+      }
+      h4 {
+        margin-top: 12px;
+        margin-bottom: 8px;
+      }
+      ul, ol {
+        padding-left: 20px;
+      }
+      .tag {
+        display: inline-block;
+        background: #eef2ff;
+        color: var(--accent);
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px;
+        background: #fbfcff;
+      }
+      .note {
+        border-left: 4px solid var(--accent);
+        padding: 12px 16px;
+        background: #eef2ff;
+        border-radius: 10px;
+        color: var(--muted);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+      }
+      th, td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid var(--border);
+      }
+      th {
+        background: #f5f7fb;
+        font-weight: 600;
+      }
+      tr:hover {
+        background: #fafbfc;
+      }
+      details {
+        margin-top: 12px;
+        cursor: pointer;
+      }
+      summary {
+        cursor: pointer;
+        color: var(--accent);
+        font-weight: 600;
+        padding: 10px;
+        background: #eef2ff;
+        border-radius: 6px;
+        border: 1px solid #c7d2fe;
+      }
+      summary:hover {
+        background: #ddd6fe;
+      }
+      .example-box {
+        background: #f0fdf4;
+        padding: 16px;
+        border-radius: 8px;
+        border-left: 4px solid #10b981;
+        margin: 12px 0;
+      }
+      .direct-speech {
+        background: #fef3c7;
+        padding: 12px;
+        border-radius: 6px;
+        margin: 8px 0;
+        border-left: 3px solid #f59e0b;
+      }
+      .indirect-speech {
+        background: #dbeafe;
+        padding: 12px;
+        border-radius: 6px;
+        margin: 8px 0;
+        border-left: 3px solid #3b82f6;
+      }
+      .exercise-box {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        border: 2px solid var(--accent);
+        margin: 16px 0;
+      }
+      .warning-box {
+        background: #fef2f2;
+        padding: 12px 16px;
+        border-radius: 8px;
+        border-left: 4px solid #dc2626;
+        margin: 12px 0;
+      }
+      .tip-box {
+        background: #fff7ed;
+        padding: 12px 16px;
+        border-radius: 8px;
+        border-left: 4px solid #f97316;
+        margin: 12px 0;
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+        padding: 20px;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .toc {
+        background: #f8fafc;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+      }
+      .toc ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .toc li {
+        padding: 8px 0;
+      }
+      .toc a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .badge {
+        display: inline-block;
+        background: #10b981;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="../index.html">← Volver al índice</a>
+    </header>
+
+    <main>
+      <div class="hero">
+        <h1>📝 Taller Completo de Estilo Indirecto</h1>
+        <p>Guía exhaustiva con todos los cambios, reglas y excepciones + 50 ejercicios prácticos</p>
+      </div>
+
+      <!-- TABLA DE CONTENIDOS -->
+      <section class="section">
+        <h2>📑 Índice de contenidos</h2>
+        <div class="toc">
+          <ul>
+            <li><a href="#introduccion">1. Introducción al estilo indirecto</a></li>
+            <li><a href="#verbos-introductorios">2. Verbos introductorios</a></li>
+            <li><a href="#cambios-verbales">3. Cambios de tiempos verbales <span class="badge">ESENCIAL</span></a></li>
+            <li><a href="#cambios-deicticos">4. Cambios de deícticos (tiempo/lugar) <span class="badge">ESENCIAL</span></a></li>
+            <li><a href="#cambios-pronombres">5. Cambios de pronombres y posesivos</a></li>
+            <li><a href="#afirmaciones">6. Transformar afirmaciones</a></li>
+            <li><a href="#preguntas">7. Transformar preguntas</a></li>
+            <li><a href="#ordenes">8. Transformar órdenes y peticiones</a></li>
+            <li><a href="#exclamaciones">9. Transformar exclamaciones</a></li>
+            <li><a href="#casos-especiales">10. Casos especiales y excepciones</a></li>
+            <li><a href="#ejercicios">11. Batería de ejercicios (50 actividades)</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- INTRODUCCIÓN -->
+      <section class="section" id="introduccion">
+        <h2>1. Introducción al estilo indirecto</h2>
+
+        <div class="note">
+          <strong>¿Qué es el estilo indirecto?</strong><br>
+          Es la forma de transmitir las palabras de otra persona sin citarlas textualmente. En lugar de usar comillas, incorporamos las palabras en nuestra propia narración.
+        </div>
+
+        <div class="example-box" style="margin-top:16px;">
+          <h4>Comparación básica:</h4>
+          <div class="direct-speech">
+            <strong>ESTILO DIRECTO:</strong> Juan dijo: <em>"Estoy cansado"</em>.
+          </div>
+          <div class="indirect-speech">
+            <strong>ESTILO INDIRECTO:</strong> Juan dijo <strong>que estaba</strong> cansado.
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>🔄 Cambios generales que se producen</h3>
+          <p>Cuando pasamos del estilo directo al indirecto, debemos cambiar:</p>
+          <ol>
+            <li><strong>Tiempos verbales</strong> (presente → imperfecto, futuro → condicional, etc.)</li>
+            <li><strong>Deícticos temporales</strong> (hoy → aquel día, mañana → al día siguiente, etc.)</li>
+            <li><strong>Deícticos espaciales</strong> (aquí → allí, este → ese/aquel, etc.)</li>
+            <li><strong>Pronombres personales y posesivos</strong> según el contexto</li>
+            <li><strong>Estructura de preguntas</strong> (sin signos de interrogación, cambia el orden)</li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- VERBOS INTRODUCTORIOS -->
+      <section class="section" id="verbos-introductorios">
+        <h2>2. Verbos introductorios</h2>
+
+        <div class="note">
+          El verbo introductor es el que usamos para introducir las palabras de otra persona. El más común es <strong>"decir"</strong>, pero hay muchos más que añaden matices.
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>📊 Tabla de verbos introductorios según la función</h3>
+          <table>
+            <tr>
+              <th>Función</th>
+              <th>Verbos</th>
+              <th>Ejemplo</th>
+            </tr>
+            <tr>
+              <td><strong>Afirmar</strong></td>
+              <td>decir, afirmar, comentar, explicar, añadir, contestar, responder</td>
+              <td>Pedro <strong>afirmó</strong> que llegaría tarde.</td>
+            </tr>
+            <tr>
+              <td><strong>Preguntar</strong></td>
+              <td>preguntar, interrogar, querer saber</td>
+              <td>María <strong>preguntó</strong> si vendría.</td>
+            </tr>
+            <tr>
+              <td><strong>Ordenar/Pedir</strong></td>
+              <td>ordenar, mandar, pedir, rogar, suplicar</td>
+              <td>El jefe <strong>pidió</strong> que terminara el informe.</td>
+            </tr>
+            <tr>
+              <td><strong>Aconsejar</strong></td>
+              <td>aconsejar, recomendar, sugerir</td>
+              <td>El médico <strong>recomendó</strong> que descansara.</td>
+            </tr>
+            <tr>
+              <td><strong>Prometer</strong></td>
+              <td>prometer, asegurar, garantizar</td>
+              <td>Luis <strong>prometió</strong> que me ayudaría.</td>
+            </tr>
+            <tr>
+              <td><strong>Advertir</strong></td>
+              <td>advertir, avisar, prevenir</td>
+              <td>Nos <strong>advirtió</strong> que había peligro.</td>
+            </tr>
+            <tr>
+              <td><strong>Negar</strong></td>
+              <td>negar, desmentir</td>
+              <td>El acusado <strong>negó</strong> que hubiera estado allí.</td>
+            </tr>
+            <tr>
+              <td><strong>Exclamar</strong></td>
+              <td>exclamar, gritar</td>
+              <td>Ana <strong>exclamó</strong> que estaba muy feliz.</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="tip-box">
+          <strong>💡 Consejo:</strong> Varía los verbos introductorios en tus textos. En lugar de repetir "dijo" constantemente, usa sinónimos apropiados según el contexto.
+        </div>
+      </section>
+
+      <!-- CAMBIOS VERBALES -->
+      <section class="section" id="cambios-verbales">
+        <h2>3. Cambios de tiempos verbales</h2>
+
+        <div class="note">
+          <strong>⚠️ IMPORTANTE:</strong> Los cambios verbales solo se producen cuando el verbo introductor está en <strong>pasado</strong> (dijo, preguntó, afirmó, etc.). Si el verbo introductor está en presente (dice, pregunta), NO hay cambios.
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>📋 Tabla completa de cambios verbales</h3>
+          <table>
+            <tr>
+              <th>Estilo directo</th>
+              <th>Estilo indirecto (verbo introductor en pasado)</th>
+              <th>Ejemplo</th>
+            </tr>
+            <tr>
+              <td><strong>Presente</strong></td>
+              <td><strong>Imperfecto</strong></td>
+              <td>
+                <div class="direct-speech">"Estoy cansado"</div>
+                <div class="indirect-speech">Dijo que <u>estaba</u> cansado</div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Pretérito perfecto</strong></td>
+              <td><strong>Pluscuamperfecto</strong></td>
+              <td>
+                <div class="direct-speech">"He terminado el trabajo"</div>
+                <div class="indirect-speech">Dijo que <u>había terminado</u> el trabajo</div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Pretérito indefinido</strong></td>
+              <td><strong>Pluscuamperfecto</strong></td>
+              <td>
+                <div class="direct-speech">"Vi la película"</div>
+                <div class="indirect-speech">Dijo que <u>había visto</u> la película</div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Pretérito imperfecto</strong></td>
+              <td><strong>Imperfecto (se mantiene)</strong></td>
+              <td>
+                <div class="direct-speech">"Vivía en Madrid"</div>
+                <div class="indirect-speech">Dijo que <u>vivía</u> en Madrid</div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Pluscuamperfecto</strong></td>
+              <td><strong>Pluscuamperfecto (se mantiene)</strong></td>
+              <td>
+                <div class="direct-speech">"Había comido"</div>
+                <div class="indirect-speech">Dijo que <u>había comido</u></div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Futuro simple</strong></td>
+              <td><strong>Condicional simple</strong></td>
+              <td>
+                <div class="direct-speech">"Vendré mañana"</div>
+                <div class="indirect-speech">Dijo que <u>vendría</u> al día siguiente</div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Futuro compuesto</strong></td>
+              <td><strong>Condicional compuesto</strong></td>
+              <td>
+                <div class="direct-speech">"Habré terminado"</div>
+                <div class="indirect-speech">Dijo que <u>habría terminado</u></div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Condicional simple</strong></td>
+              <td><strong>Condicional (se mantiene)</strong></td>
+              <td>
+                <div class="direct-speech">"Me gustaría ir"</div>
+                <div class="indirect-speech">Dijo que le <u>gustaría</u> ir</div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Imperativo</strong></td>
+              <td><strong>Imperfecto subjuntivo / Infinitivo</strong></td>
+              <td>
+                <div class="direct-speech">"Ven aquí"</div>
+                <div class="indirect-speech">Me pidió que <u>fuera</u> allí / Me pidió <u>ir</u> allí</div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>Presente subjuntivo</strong></td>
+              <td><strong>Imperfecto subjuntivo</strong></td>
+              <td>
+                <div class="direct-speech">"Espero que vengas"</div>
+                <div class="indirect-speech">Dijo que esperaba que <u>viniera</u></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="example-box" style="margin-top:16px;">
+          <h4>🔍 Ejemplos detallados con análisis:</h4>
+
+          <h5 style="margin-top:12px;">1. Presente → Imperfecto</h5>
+          <p><strong>Directo:</strong> Juan dijo: <em>"<strong>Estoy</strong> muy ocupado"</em>.</p>
+          <p><strong>Indirecto:</strong> Juan dijo que <strong><u>estaba</u></strong> muy ocupado.</p>
+          <p style="color:#666; font-size:0.9em;">✓ "estoy" (presente) cambia a "estaba" (imperfecto)</p>
+
+          <h5 style="margin-top:16px;">2. Pretérito perfecto → Pluscuamperfecto</h5>
+          <p><strong>Directo:</strong> María comentó: <em>"<strong>He leído</strong> ese libro"</em>.</p>
+          <p><strong>Indirecto:</strong> María comentó que <strong><u>había leído</u></strong> ese libro.</p>
+          <p style="color:#666; font-size:0.9em;">✓ "he leído" (pretérito perfecto) cambia a "había leído" (pluscuamperfecto)</p>
+
+          <h5 style="margin-top:16px;">3. Futuro → Condicional</h5>
+          <p><strong>Directo:</strong> Laura prometió: <em>"Te <strong>llamaré</strong> mañana"</em>.</p>
+          <p><strong>Indirecto:</strong> Laura prometió que me <strong><u>llamaría</u></strong> al día siguiente.</p>
+          <p style="color:#666; font-size:0.9em;">✓ "llamaré" (futuro) cambia a "llamaría" (condicional)<br>✓ "mañana" cambia a "al día siguiente"</p>
+
+          <h5 style="margin-top:16px;">4. Imperativo → Subjuntivo</h5>
+          <p><strong>Directo:</strong> El profesor ordenó: <em>"<strong>Estudiad</strong> para el examen"</em>.</p>
+          <p><strong>Indirecto:</strong> El profesor ordenó que <strong><u>estudiáramos</u></strong> para el examen.</p>
+          <p style="color:#666; font-size:0.9em;">✓ "estudiad" (imperativo) cambia a "estudiáramos" (imperfecto subjuntivo)</p>
+        </div>
+
+        <div class="warning-box">
+          <strong>⚠️ CASO ESPECIAL:</strong> Si el verbo introductor está en <strong>presente</strong>, NO hay cambios:
+          <ul style="margin-top:8px;">
+            <li>Juan <strong>dice</strong>: "Estoy cansado" → Juan <strong>dice</strong> que <u>está</u> cansado. (NO cambia)</li>
+            <li>María <strong>comenta</strong>: "He terminado" → María <strong>comenta</strong> que <u>ha terminado</u>. (NO cambia)</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CAMBIOS DE DEÍCTICOS -->
+      <section class="section" id="cambios-deicticos">
+        <h2>4. Cambios de deícticos temporales y espaciales</h2>
+
+        <div class="note">
+          Los <strong>deícticos</strong> son palabras que sitúan algo en el tiempo o en el espacio. Cambian porque la perspectiva temporal y espacial es diferente entre el momento de hablar y el momento de transmitir la información.
+        </div>
+
+        <div class="grid" style="margin-top:16px;">
+          <div class="card">
+            <h3>🕐 Deícticos temporales</h3>
+            <table>
+              <tr>
+                <th>Directo</th>
+                <th>Indirecto</th>
+              </tr>
+              <tr><td>hoy</td><td>aquel día</td></tr>
+              <tr><td>ayer</td><td>el día anterior / la víspera</td></tr>
+              <tr><td>anteayer</td><td>dos días antes</td></tr>
+              <tr><td>mañana</td><td>al día siguiente</td></tr>
+              <tr><td>pasado mañana</td><td>dos días después</td></tr>
+              <tr><td>ahora</td><td>entonces / en aquel momento</td></tr>
+              <tr><td>esta semana</td><td>aquella semana</td></tr>
+              <tr><td>este mes/año</td><td>aquel mes/año</td></tr>
+              <tr><td>la semana pasada</td><td>la semana anterior</td></tr>
+              <tr><td>el mes/año pasado</td><td>el mes/año anterior</td></tr>
+              <tr><td>la semana que viene</td><td>la semana siguiente</td></tr>
+              <tr><td>el mes/año que viene</td><td>el mes/año siguiente</td></tr>
+              <tr><td>hace dos días</td><td>dos días antes</td></tr>
+              <tr><td>dentro de dos días</td><td>dos días después</td></tr>
+            </table>
+          </div>
+
+          <div class="card">
+            <h3>📍 Deícticos espaciales</h3>
+            <table>
+              <tr>
+                <th>Directo</th>
+                <th>Indirecto</th>
+              </tr>
+              <tr><td>aquí</td><td>allí / allá</td></tr>
+              <tr><td>acá</td><td>allá</td></tr>
+              <tr><td>este/esta/esto</td><td>ese/esa/eso / aquel/aquella/aquello</td></tr>
+              <tr><td>estos/estas</td><td>esos/esas / aquellos/aquellas</td></tr>
+              <tr><td>venir</td><td>ir</td></tr>
+              <tr><td>traer</td><td>llevar</td></tr>
+            </table>
+
+            <p style="margin-top:12px; font-size:0.9em;"><strong>Nota:</strong> La elección entre "ese/aquel" depende de la distancia temporal o espacial que queramos marcar.</p>
+          </div>
+        </div>
+
+        <div class="example-box" style="margin-top:16px;">
+          <h4>🔍 Ejemplos completos con múltiples cambios:</h4>
+
+          <h5 style="margin-top:12px;">Ejemplo 1:</h5>
+          <div class="direct-speech">
+            <strong>Directo:</strong> Pedro dijo: "Hoy he visto a Juan aquí en este café".
+          </div>
+          <div class="indirect-speech">
+            <strong>Indirecto:</strong> Pedro dijo que <u>aquel día había visto</u> a Juan <u>allí</u> en <u>aquel</u> café.
+          </div>
+          <p style="color:#666; font-size:0.9em; margin-top:8px;">
+            ✓ hoy → aquel día<br>
+            ✓ he visto → había visto<br>
+            ✓ aquí → allí<br>
+            ✓ este → aquel
+          </p>
+
+          <h5 style="margin-top:16px;">Ejemplo 2:</h5>
+          <div class="direct-speech">
+            <strong>Directo:</strong> Ana comentó: "Ayer compré estos libros y mañana los traeré".
+          </div>
+          <div class="indirect-speech">
+            <strong>Indirecto:</strong> Ana comentó que <u>el día anterior había comprado aquellos</u> libros y que <u>al día siguiente los llevaría</u>.
+          </div>
+          <p style="color:#666; font-size:0.9em; margin-top:8px;">
+            ✓ ayer → el día anterior<br>
+            ✓ compré → había comprado<br>
+            ✓ estos → aquellos<br>
+            ✓ mañana → al día siguiente<br>
+            ✓ traeré → llevaría
+          </p>
+
+          <h5 style="margin-top:16px;">Ejemplo 3:</h5>
+          <div class="direct-speech">
+            <strong>Directo:</strong> Luis dijo: "La semana pasada vine aquí y la semana que viene volveré".
+          </div>
+          <div class="indirect-speech">
+            <strong>Indirecto:</strong> Luis dijo que <u>la semana anterior había ido allí</u> y que <u>la semana siguiente volvería</u>.
+          </div>
+          <p style="color:#666; font-size:0.9em; margin-top:8px;">
+            ✓ la semana pasada → la semana anterior<br>
+            ✓ vine → había ido<br>
+            ✓ aquí → allí<br>
+            ✓ la semana que viene → la semana siguiente<br>
+            ✓ volveré → volvería
+          </p>
+        </div>
+      </section>
+
+      <!-- CAMBIOS DE PRONOMBRES -->
+      <section class="section" id="cambios-pronombres">
+        <h2>5. Cambios de pronombres y posesivos</h2>
+
+        <div class="note">
+          Los pronombres personales y posesivos cambian según <strong>quién transmite la información</strong> y <strong>a quién se refiere</strong>.
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>Tabla de cambios de pronombres</h3>
+          <table>
+            <tr>
+              <th>Situación</th>
+              <th>Directo</th>
+              <th>Indirecto</th>
+            </tr>
+            <tr>
+              <td>Yo hablo de otra persona</td>
+              <td>"<strong>Yo</strong> estoy cansado"</td>
+              <td>Juan dijo que <strong>él</strong> estaba cansado</td>
+            </tr>
+            <tr>
+              <td>Yo transmito algo que me dijeron</td>
+              <td>"<strong>Tú</strong> eres inteligente"</td>
+              <td>María me dijo que <strong>yo</strong> era inteligente</td>
+            </tr>
+            <tr>
+              <td>Posesivos (yo → él/ella)</td>
+              <td>"<strong>Mi</strong> libro"</td>
+              <td>Pedro dijo que <strong>su</strong> libro...</td>
+            </tr>
+            <tr>
+              <td>Posesivos (tú → yo)</td>
+              <td>"<strong>Tu</strong> casa"</td>
+              <td>Me dijo que <strong>mi</strong> casa...</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="example-box" style="margin-top:16px;">
+          <h4>🔍 Ejemplos prácticos:</h4>
+
+          <h5 style="margin-top:12px;">Situación 1: Yo transmito lo que Juan me dijo</h5>
+          <div class="direct-speech">
+            <strong>Directo:</strong> Juan me dijo: "<strong>Tu</strong> idea es excelente".
+          </div>
+          <div class="indirect-speech">
+            <strong>Indirecto:</strong> Juan me dijo que <strong>mi</strong> idea era excelente.
+          </div>
+
+          <h5 style="margin-top:16px;">Situación 2: Yo transmito lo que María dijo sobre ella</h5>
+          <div class="direct-speech">
+            <strong>Directo:</strong> María dijo: "<strong>Yo</strong> terminaré <strong>mi</strong> trabajo hoy".
+          </div>
+          <div class="indirect-speech">
+            <strong>Indirecto:</strong> María dijo que <strong>ella</strong> terminaría <strong>su</strong> trabajo aquel día.
+          </div>
+
+          <h5 style="margin-top:16px;">Situación 3: Pedro transmite lo que le dije yo</h5>
+          <div class="direct-speech">
+            <strong>Directo:</strong> Le dije a Pedro: "<strong>Yo</strong> iré a <strong>tu</strong> fiesta".
+          </div>
+          <div class="indirect-speech">
+            <strong>Indirecto (Pedro cuenta):</strong> Me dijo que <strong>él</strong> iría a <strong>mi</strong> fiesta.
+          </div>
+        </div>
+
+        <div class="tip-box">
+          <strong>💡 Consejo:</strong> Para no confundirte, pregúntate siempre: <strong>¿Quién habla ahora? ¿De quién estoy hablando?</strong> Ajusta los pronombres según la nueva perspectiva.
+        </div>
+      </section>
+
+      <!-- AFIRMACIONES -->
+      <section class="section" id="afirmaciones">
+        <h2>6. Transformar afirmaciones</h2>
+
+        <div class="note">
+          Las afirmaciones son las transformaciones más comunes. Se introduce con <strong>"que"</strong> y se aplican todos los cambios vistos anteriormente.
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>Estructura:</h3>
+          <p style="font-size:1.1em; padding:12px; background:#eef2ff; border-radius:6px; margin-top:8px;">
+            <strong>Sujeto + verbo introductor + QUE + (sujeto) + verbo transformado + resto</strong>
+          </p>
+        </div>
+
+        <div class="exercise-box">
+          <h3>📝 Ejercicio 1: Transformar afirmaciones simples</h3>
+          <p><strong>Instrucciones:</strong> Transforma las siguientes frases a estilo indirecto.</p>
+
+          <ol style="margin-top:12px;">
+            <li>María dijo: "Estoy muy contenta con mi trabajo".</li>
+            <li>Pedro comentó: "He visto esa película tres veces".</li>
+            <li>Laura afirmó: "Iré a la reunión mañana".</li>
+            <li>Juan explicó: "Vivía en Barcelona hace cinco años".</li>
+            <li>Ana añadió: "Mi hermano llegará la semana que viene".</li>
+          </ol>
+
+          <details>
+            <summary>📌 Ver soluciones</summary>
+            <div style="margin-top:12px; padding:16px; background:#f0fdf4; border-radius:6px;">
+              <ol>
+                <li>María dijo que <strong>estaba</strong> muy contenta con su trabajo.</li>
+                <li>Pedro comentó que <strong>había visto</strong> esa película tres veces.</li>
+                <li>Laura afirmó que <strong>iría</strong> a la reunión <strong>al día siguiente</strong>.</li>
+                <li>Juan explicó que <strong>vivía</strong> en Barcelona <strong>cinco años antes</strong>.</li>
+                <li>Ana añadió que su hermano <strong>llegaría la semana siguiente</strong>.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise-box">
+          <h3>📝 Ejercicio 2: Afirmaciones con múltiples cambios</h3>
+          <p><strong>Instrucciones:</strong> Transforma prestando atención a todos los cambios necesarios.</p>
+
+          <ol style="margin-top:12px;">
+            <li>Carlos dijo: "Hoy he comprado estos libros aquí y mañana los traeré a tu casa".</li>
+            <li>Sofía comentó: "Ayer vi a tu hermano en este restaurante y le di mi número de teléfono".</li>
+            <li>Luis afirmó: "La semana pasada terminé mi proyecto y la semana que viene empezaré uno nuevo".</li>
+          </ol>
+
+          <details>
+            <summary>📌 Ver soluciones</summary>
+            <div style="margin-top:12px; padding:16px; background:#f0fdf4; border-radius:6px;">
+              <ol>
+                <li>Carlos dijo que <strong>aquel día había comprado aquellos</strong> libros <strong>allí</strong> y que <strong>al día siguiente los llevaría</strong> a mi casa.</li>
+                <li>Sofía comentó que <strong>el día anterior había visto</strong> a mi hermano en <strong>aquel</strong> restaurante y le <strong>había dado</strong> su número de teléfono.</li>
+                <li>Luis afirmó que <strong>la semana anterior había terminado</strong> su proyecto y que <strong>la semana siguiente empezaría</strong> uno nuevo.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- PREGUNTAS -->
+      <section class="section" id="preguntas">
+        <h2>7. Transformar preguntas</h2>
+
+        <div class="note">
+          Las preguntas requieren cambios específicos: desaparecen los signos de interrogación y cambia el orden de las palabras.
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>Tipos de preguntas en estilo indirecto:</h3>
+
+          <h4 style="margin-top:12px;">A) Preguntas cerradas (sí/no)</h4>
+          <p><strong>Estructura:</strong> Sujeto + preguntar + <strong>SI</strong> + resto</p>
+          <div class="example-box">
+            <div class="direct-speech">"¿Has visto la película?"</div>
+            <div class="indirect-speech">Me preguntó <strong>si había visto</strong> la película.</div>
+          </div>
+
+          <h4 style="margin-top:16px;">B) Preguntas abiertas (con interrogativo)</h4>
+          <p><strong>Estructura:</strong> Sujeto + preguntar + <strong>(QUE) + INTERROGATIVO</strong> + resto</p>
+          <p style="font-size:0.9em; color:#666;"><em>Nota: "que" es opcional, especialmente en registro informal.</em></p>
+          <div class="example-box">
+            <div class="direct-speech">"¿Dónde vives?"</div>
+            <div class="indirect-speech">Me preguntó <strong>(que) dónde vivía</strong>.</div>
+          </div>
+
+          <h4 style="margin-top:16px;">Interrogativos comunes:</h4>
+          <ul>
+            <li><strong>Qué, cuál(es), quién(es)</strong></li>
+            <li><strong>Dónde, cuándo, cómo</strong></li>
+            <li><strong>Por qué, para qué</strong></li>
+            <li><strong>Cuánto/a/os/as</strong></li>
+          </ul>
+        </div>
+
+        <div class="exercise-box">
+          <h3>📝 Ejercicio 3: Transformar preguntas cerradas (sí/no)</h3>
+          <p><strong>Instrucciones:</strong> Transforma usando "si".</p>
+
+          <ol style="margin-top:12px;">
+            <li>Pedro preguntó: "¿Has terminado el informe?".</li>
+            <li>María quiso saber: "¿Vendrás a la fiesta?".</li>
+            <li>El profesor preguntó: "¿Habéis estudiado para el examen?".</li>
+            <li>Laura me preguntó: "¿Te gusta este restaurante?".</li>
+            <li>Carlos preguntó: "¿Había alguien en casa cuando llegaste?".</li>
+          </ol>
+
+          <details>
+            <summary>📌 Ver soluciones</summary>
+            <div style="margin-top:12px; padding:16px; background:#f0fdf4; border-radius:6px;">
+              <ol>
+                <li>Pedro preguntó <strong>si había terminado</strong> el informe.</li>
+                <li>María quiso saber <strong>si iría / vendría</strong> a la fiesta.</li>
+                <li>El profesor preguntó <strong>si habíamos estudiado</strong> para el examen.</li>
+                <li>Laura me preguntó <strong>si me gustaba aquel</strong> restaurante.</li>
+                <li>Carlos preguntó <strong>si había habido</strong> alguien en casa cuando <strong>había llegado</strong>.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise-box">
+          <h3>📝 Ejercicio 4: Transformar preguntas abiertas</h3>
+          <p><strong>Instrucciones:</strong> Transforma manteniendo el interrogativo.</p>
+
+          <ol style="margin-top:12px;">
+            <li>Ana preguntó: "¿Dónde vives?".</li>
+            <li>Juan quiso saber: "¿Cuándo terminará el proyecto?".</li>
+            <li>El jefe preguntó: "¿Quién ha hecho esto?".</li>
+            <li>Mi madre me preguntó: "¿Por qué llegaste tan tarde ayer?".</li>
+            <li>Pedro preguntó: "¿Cómo se llama tu hermano?".</li>
+            <li>Laura quiso saber: "¿Cuánto cuesta este libro?".</li>
+          </ol>
+
+          <details>
+            <summary>📌 Ver soluciones</summary>
+            <div style="margin-top:12px; padding:16px; background:#f0fdf4; border-radius:6px;">
+              <ol>
+                <li>Ana preguntó (que) <strong>dónde vivía</strong>.</li>
+                <li>Juan quiso saber (que) <strong>cuándo terminaría</strong> el proyecto.</li>
+                <li>El jefe preguntó (que) <strong>quién había hecho aquello</strong>.</li>
+                <li>Mi madre me preguntó (que) <strong>por qué había llegado</strong> tan tarde <strong>el día anterior</strong>.</li>
+                <li>Pedro preguntó (que) <strong>cómo se llamaba</strong> mi hermano.</li>
+                <li>Laura quiso saber (que) <strong>cuánto costaba aquel</strong> libro.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ÓRDENES -->
+      <section class="section" id="ordenes">
+        <h2>8. Transformar órdenes y peticiones</h2>
+
+        <div class="note">
+          El imperativo NO existe en estilo indirecto. Se transforma usando <strong>imperfecto de subjuntivo</strong> o <strong>infinitivo</strong>.
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>Dos estructuras posibles:</h3>
+
+          <h4 style="margin-top:12px;">A) Con subjuntivo (más común)</h4>
+          <p><strong>Estructura:</strong> Sujeto + verbo (pedir/ordenar/decir) + <strong>QUE + subjuntivo</strong></p>
+          <div class="example-box">
+            <div class="direct-speech">"Cierra la ventana"</div>
+            <div class="indirect-speech">Me pidió <strong>que cerrara</strong> la ventana.</div>
+          </div>
+
+          <h4 style="margin-top:16px;">B) Con infinitivo (menos común, más formal)</h4>
+          <p><strong>Estructura:</strong> Sujeto + verbo (pedir/ordenar) + <strong>INFINITIVO</strong></p>
+          <div class="example-box">
+            <div class="direct-speech">"Venir a mi oficina"</div>
+            <div class="indirect-speech">Me ordenó <strong>ir</strong> a su oficina.</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>Verbos típicos para órdenes/peticiones:</h3>
+          <ul>
+            <li><strong>Pedir</strong> (petición educada) → Me pidió que...</li>
+            <li><strong>Rogar, suplicar</strong> (petición insistente) → Le rogó que...</li>
+            <li><strong>Ordenar, mandar</strong> (orden autoritaria) → Nos ordenó que...</li>
+            <li><strong>Aconsejar, recomendar</strong> (consejo) → Me aconsejó que...</li>
+            <li><strong>Decir</strong> (neutral) → Me dijo que...</li>
+            <li><strong>Prohibir</strong> (prohibición) → Nos prohibió que...</li>
+          </ul>
+        </div>
+
+        <div class="exercise-box">
+          <h3>📝 Ejercicio 5: Transformar órdenes afirmativas</h3>
+          <p><strong>Instrucciones:</strong> Transforma usando el verbo más apropiado.</p>
+
+          <ol style="margin-top:12px;">
+            <li>El profesor dijo: "Estudiad para el examen".</li>
+            <li>Mi madre me dijo: "Come más verduras".</li>
+            <li>El médico me dijo: "Descansa más y haz ejercicio".</li>
+            <li>Mi jefe me ordenó: "Termina el informe hoy".</li>
+            <li>Juan me rogó: "Ayúdame con este problema".</li>
+          </ol>
+
+          <details>
+            <summary>📌 Ver soluciones</summary>
+            <div style="margin-top:12px; padding:16px; background:#f0fdf4; border-radius:6px;">
+              <ol>
+                <li>El profesor nos dijo/pidió <strong>que estudiáramos</strong> para el examen.</li>
+                <li>Mi madre me dijo/pidió <strong>que comiera</strong> más verduras.</li>
+                <li>El médico me aconsejó/dijo <strong>que descansara</strong> más y <strong>que hiciera</strong> ejercicio.</li>
+                <li>Mi jefe me ordenó <strong>que terminara</strong> el informe <strong>aquel día</strong>.</li>
+                <li>Juan me rogó <strong>que lo ayudara</strong> con <strong>aquel</strong> problema.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <div class="exercise-box">
+          <h3>📝 Ejercicio 6: Transformar órdenes negativas</h3>
+          <p><strong>Instrucciones:</strong> Las órdenes negativas también usan subjuntivo.</p>
+
+          <ol style="margin-top:12px;">
+            <li>María me dijo: "No llegues tarde".</li>
+            <li>El profesor nos advirtió: "No copiéis en el examen".</li>
+            <li>Mi padre me prohibió: "No salgas esta noche".</li>
+            <li>El médico me dijo: "No comas tanto dulce".</li>
+            <li>Laura me pidió: "No se lo digas a nadie".</li>
+          </ol>
+
+          <details>
+            <summary>📌 Ver soluciones</summary>
+            <div style="margin-top:12px; padding:16px; background:#f0fdf4; border-radius:6px;">
+              <ol>
+                <li>María me dijo/pidió <strong>que no llegara</strong> tarde.</li>
+                <li>El profesor nos advirtió <strong>que no copiáramos</strong> en el examen.</li>
+                <li>Mi padre me prohibió <strong>que saliera aquella</strong> noche.</li>
+                <li>El médico me dijo/aconsejó <strong>que no comiera</strong> tanto dulce.</li>
+                <li>Laura me pidió <strong>que no se lo dijera</strong> a nadie.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- EXCLAMACIONES -->
+      <section class="section" id="exclamaciones">
+        <h2>9. Transformar exclamaciones</h2>
+
+        <div class="note">
+          Las exclamaciones pierden los signos de exclamación y se transforman como afirmaciones, usando verbos como <strong>exclamar, gritar, comentar</strong> que reflejan la emoción.
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>Estructura:</h3>
+          <p style="font-size:1.1em; padding:12px; background:#eef2ff; border-radius:6px; margin-top:8px;">
+            <strong>Sujeto + exclamar/gritar + QUE + resto (con cambios normales)</strong>
+          </p>
+        </div>
+
+        <div class="example-box" style="margin-top:16px;">
+          <h4>Ejemplos:</h4>
+
+          <h5 style="margin-top:12px;">Exclamación de alegría:</h5>
+          <div class="direct-speech">"¡Qué feliz estoy!"</div>
+          <div class="indirect-speech">Exclamó <strong>que estaba</strong> muy feliz.</div>
+
+          <h5 style="margin-top:12px;">Exclamación de sorpresa:</h5>
+          <div class="direct-speech">"¡No puedo creerlo!"</div>
+          <div class="indirect-speech">Exclamó <strong>que no podía</strong> creerlo.</div>
+
+          <h5 style="margin-top:12px;">Exclamación de enfado:</h5>
+          <div class="direct-speech">"¡Estoy harto de esta situación!"</div>
+          <div class="indirect-speech">Gritó <strong>que estaba</strong> harto de aquella situación.</div>
+        </div>
+
+        <div class="exercise-box">
+          <h3>📝 Ejercicio 7: Transformar exclamaciones</h3>
+          <p><strong>Instrucciones:</strong> Transforma usando verbos apropiados (exclamar, gritar, comentar).</p>
+
+          <ol style="margin-top:12px;">
+            <li>María exclamó: "¡Qué bonito es este lugar!".</li>
+            <li>Juan gritó: "¡No quiero volver a verte!".</li>
+            <li>Ana comentó: "¡Qué difícil ha sido el examen!".</li>
+            <li>Pedro exclamó: "¡Estoy muy contento con mi nuevo trabajo!".</li>
+            <li>Laura gritó: "¡No puedo más con esta situación!".</li>
+          </ol>
+
+          <details>
+            <summary>📌 Ver soluciones</summary>
+            <div style="margin-top:12px; padding:16px; background:#f0fdf4; border-radius:6px;">
+              <ol>
+                <li>María exclamó <strong>que aquel</strong> lugar <strong>era</strong> muy bonito.</li>
+                <li>Juan gritó <strong>que no quería</strong> volver a verme/verlo.</li>
+                <li>Ana comentó <strong>que había sido</strong> muy difícil el examen.</li>
+                <li>Pedro exclamó <strong>que estaba</strong> muy contento con su nuevo trabajo.</li>
+                <li>Laura gritó <strong>que no podía</strong> más con aquella situación.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- CASOS ESPECIALES -->
+      <section class="section" id="casos-especiales">
+        <h2>10. Casos especiales y excepciones</h2>
+
+        <div class="card">
+          <h3>A) Verdades universales o hechos permanentes</h3>
+          <p>Pueden mantenerse en presente si siguen siendo verdad en el momento de hablar:</p>
+          <div class="example-box">
+            <div class="direct-speech">"La Tierra gira alrededor del Sol"</div>
+            <div class="indirect-speech">El profesor explicó que la Tierra <strong>gira</strong> (o <strong>giraba</strong>) alrededor del Sol.</div>
+          </div>
+          <p style="margin-top:8px; font-size:0.9em; color:#666;">✓ Ambas opciones son correctas. El presente enfatiza que sigue siendo verdad.</p>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>B) Imperfecto e indefinido</h3>
+          <p>A veces se mantienen iguales si el contexto lo permite:</p>
+          <div class="example-box">
+            <div class="direct-speech">"Vivía en París cuando ocurrió"</div>
+            <div class="indirect-speech">Dijo que <strong>vivía</strong> en París cuando <strong>ocurrió</strong>.</div>
+          </div>
+          <p style="margin-top:8px; font-size:0.9em; color:#666;">✓ El imperfecto se mantiene. El indefinido puede cambiar a pluscuamperfecto o mantenerse.</p>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>C) Condicional</h3>
+          <p>El condicional simple se mantiene igual:</p>
+          <div class="example-box">
+            <div class="direct-speech">"Me gustaría viajar a Japón"</div>
+            <div class="indirect-speech">Dijo que le <strong>gustaría</strong> viajar a Japón.</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>D) Subjuntivo</h3>
+          <p>El presente de subjuntivo cambia a imperfecto de subjuntivo:</p>
+          <div class="example-box">
+            <div class="direct-speech">"Espero que vengas"</div>
+            <div class="indirect-speech">Dijo que esperaba que <strong>viniera</strong>.</div>
+          </div>
+          <p style="margin-top:12px;">El imperfecto de subjuntivo se mantiene:</p>
+          <div class="example-box">
+            <div class="direct-speech">"Quería que me ayudaras"</div>
+            <div class="indirect-speech">Dijo que quería que lo <strong>ayudara</strong>.</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>E) "Poder" en pretérito perfecto</h3>
+          <p>Atención especial con "poder":</p>
+          <div class="example-box">
+            <div class="direct-speech">"No he podido terminar"</div>
+            <div class="indirect-speech">Dijo que no <strong>había podido</strong> terminar.</div>
+          </div>
+        </div>
+
+        <div class="warning-box" style="margin-top:16px;">
+          <strong>⚠️ Error común:</strong> NO cambiar los verbos cuando el introductor está en presente:
+          <ul style="margin-top:8px;">
+            <li>❌ Juan <strong>dice</strong> que estaba cansado.</li>
+            <li>✅ Juan <strong>dice</strong> que está cansado.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- EJERCICIOS FINALES -->
+      <section class="section" id="ejercicios">
+        <h2>11. Batería de ejercicios completos</h2>
+
+        <div class="note">
+          Aquí tienes una serie completa de ejercicios para practicar todo lo aprendido. ¡Haz todos los ejercicios antes de ver las soluciones!
+        </div>
+
+        <!-- Ejercicio 8 -->
+        <div class="exercise-box">
+          <h3>📝 Ejercicio 8: Transformación mixta (20 frases)</h3>
+          <p><strong>Instrucciones:</strong> Transforma TODAS estas frases a estilo indirecto.</p>
+
+          <ol style="margin-top:12px;">
+            <li>Pedro dijo: "Estoy leyendo un libro muy interesante".</li>
+            <li>María preguntó: "¿Has visto mis llaves?".</li>
+            <li>El profesor ordenó: "Haced todos los ejercicios".</li>
+            <li>Ana comentó: "Ayer fui al cine con mis amigos".</li>
+            <li>Juan preguntó: "¿Cuándo terminarás el proyecto?".</li>
+            <li>Laura dijo: "Mañana vendré temprano".</li>
+            <li>Carlos preguntó: "¿Dónde compraste esos zapatos?".</li>
+            <li>Mi madre me dijo: "No llegues tarde a casa".</li>
+            <li>El médico me aconsejó: "Haz más ejercicio".</li>
+            <li>Sofía exclamó: "¡Qué sorpresa tan agradable!".</li>
+            <li>Luis afirmó: "He terminado todos mis deberes".</li>
+            <li>El jefe preguntó: "¿Habéis preparado la presentación?".</li>
+            <li>Elena dijo: "La semana pasada estuve enferma".</li>
+            <li>Miguel preguntó: "¿Vendrás a mi fiesta?".</li>
+            <li>Rosa comentó: "Este restaurante es el mejor de la ciudad".</li>
+            <li>Antonio prometió: "Te ayudaré con la mudanza".</li>
+            <li>Carmen preguntó: "¿Por qué no me llamaste ayer?".</li>
+            <li>El director ordenó: "No habléis durante el examen".</li>
+            <li>Pablo dijo: "Hoy he tenido un día muy difícil".</li>
+            <li>Isabel preguntó: "¿Cuánto cuesta este libro?".</li>
+          </ol>
+
+          <details>
+            <summary>📌 Ver todas las soluciones</summary>
+            <div style="margin-top:12px; padding:16px; background:#f0fdf4; border-radius:6px;">
+              <ol>
+                <li>Pedro dijo que <strong>estaba leyendo</strong> un libro muy interesante.</li>
+                <li>María preguntó <strong>si había visto</strong> sus llaves.</li>
+                <li>El profesor ordenó <strong>que hiciéramos</strong> todos los ejercicios.</li>
+                <li>Ana comentó que <strong>el día anterior había ido</strong> al cine con sus amigos.</li>
+                <li>Juan preguntó (que) <strong>cuándo terminaría</strong> el proyecto.</li>
+                <li>Laura dijo que <strong>al día siguiente vendría</strong> temprano.</li>
+                <li>Carlos preguntó (que) <strong>dónde había comprado aquellos</strong> zapatos.</li>
+                <li>Mi madre me dijo <strong>que no llegara</strong> tarde a casa.</li>
+                <li>El médico me aconsejó <strong>que hiciera</strong> más ejercicio.</li>
+                <li>Sofía exclamó <strong>que era</strong> una sorpresa muy agradable.</li>
+                <li>Luis afirmó que <strong>había terminado</strong> todos sus deberes.</li>
+                <li>El jefe preguntó <strong>si habíamos preparado</strong> la presentación.</li>
+                <li>Elena dijo que <strong>la semana anterior había estado</strong> enferma.</li>
+                <li>Miguel preguntó <strong>si iría / vendría</strong> a su fiesta.</li>
+                <li>Rosa comentó que <strong>aquel</strong> restaurante <strong>era</strong> el mejor de la ciudad.</li>
+                <li>Antonio prometió que me <strong>ayudaría</strong> con la mudanza.</li>
+                <li>Carmen preguntó (que) <strong>por qué no la había llamado el día anterior</strong>.</li>
+                <li>El director ordenó <strong>que no habláramos</strong> durante el examen.</li>
+                <li>Pablo dijo que <strong>aquel día había tenido</strong> un día muy difícil.</li>
+                <li>Isabel preguntó (que) <strong>cuánto costaba aquel</strong> libro.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <!-- Ejercicio 9 -->
+        <div class="exercise-box">
+          <h3>📝 Ejercicio 9: Textos completos</h3>
+          <p><strong>Instrucciones:</strong> Transforma estos diálogos completos a estilo indirecto formando un texto narrativo.</p>
+
+          <h4 style="margin-top:12px;">Diálogo 1:</h4>
+          <div style="background:#fafbfc; padding:12px; border-radius:6px; margin-top:8px;">
+            <p><strong>Ana:</strong> "He perdido mi cartera".</p>
+            <p><strong>Pedro:</strong> "¿Dónde la viste por última vez?".</p>
+            <p><strong>Ana:</strong> "Creo que la dejé en el restaurante ayer".</p>
+            <p><strong>Pedro:</strong> "Llama al restaurante ahora mismo".</p>
+          </div>
+
+          <details>
+            <summary>📌 Ver solución</summary>
+            <div style="margin-top:12px; padding:16px; background:#f0fdf4; border-radius:6px;">
+              <p>Ana dijo que <strong>había perdido</strong> su cartera. Pedro le preguntó (que) dónde <strong>la había visto</strong> por última vez. Ana respondió que <strong>creía</strong> que <strong>la había dejado</strong> en el restaurante <strong>el día anterior</strong>. Pedro le pidió que <strong>llamara</strong> al restaurante <strong>en aquel momento</strong>.</p>
+            </div>
+          </details>
+
+          <h4 style="margin-top:24px;">Diálogo 2:</h4>
+          <div style="background:#fafbfc; padding:12px; border-radius:6px; margin-top:8px;">
+            <p><strong>Profesor:</strong> "¿Habéis terminado los ejercicios?".</p>
+            <p><strong>Estudiantes:</strong> "Todavía no, profesor".</p>
+            <p><strong>Profesor:</strong> "Entonces, terminadlos en casa y traedlos mañana".</p>
+            <p><strong>Estudiantes:</strong> "Sí, profesor. Lo haremos".</p>
+          </div>
+
+          <details>
+            <summary>📌 Ver solución</summary>
+            <div style="margin-top:12px; padding:16px; background:#f0fdf4; border-radius:6px;">
+              <p>El profesor preguntó si <strong>habíamos terminado</strong> los ejercicios. Los estudiantes respondieron que todavía no. El profesor entonces les pidió que <strong>los terminaran</strong> en casa y que <strong>los llevaran al día siguiente</strong>. Los estudiantes le dijeron que sí y que <strong>lo harían</strong>.</p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Ejercicio 10 -->
+        <div class="exercise-box">
+          <h3>📝 Ejercicio 10: Detectar y corregir errores</h3>
+          <p><strong>Instrucciones:</strong> Estas frases en estilo indirecto contienen errores. Encuéntralos y corrígelos.</p>
+
+          <ol style="margin-top:12px;">
+            <li>María dijo que estará cansada.</li>
+            <li>Pedro preguntó que ¿dónde vivías?</li>
+            <li>El profesor pidió que estudiaremos más.</li>
+            <li>Ana comentó que mañana iría al cine.</li>
+            <li>Juan dice que estaba enfermo ayer.</li>
+            <li>Laura preguntó si había visto su bolso aquí.</li>
+            <li>Carlos dijo que este libro es muy interesante.</li>
+            <li>Mi madre me dijo que no llegues tarde.</li>
+          </ol>
+
+          <details>
+            <summary>📌 Ver errores y correcciones</summary>
+            <div style="margin-top:12px; padding:16px; background:#f0fdf4; border-radius:6px;">
+              <ol>
+                <li><strong>Error:</strong> "estará" (futuro después de verbo en pasado).<br>
+                    <strong>Corrección:</strong> María dijo que <u>estaba</u> cansada.</li>
+
+                <li><strong>Error:</strong> Mantiene signos de interrogación y "que" incorrecto.<br>
+                    <strong>Corrección:</strong> Pedro preguntó (que) dónde <u>vivía</u>.</li>
+
+                <li><strong>Error:</strong> "estudiaremos" (futuro en lugar de subjuntivo).<br>
+                    <strong>Corrección:</strong> El profesor pidió que <u>estudiáramos</u> más.</li>
+
+                <li><strong>Error:</strong> "mañana" no cambia a deíctico del pasado.<br>
+                    <strong>Corrección:</strong> Ana comentó que <u>al día siguiente</u> iría al cine.</li>
+
+                <li><strong>Error:</strong> Verbo introductor en presente pero verbo en imperfecto.<br>
+                    <strong>Corrección:</strong> Juan dice que <u>estuvo / estaba</u> enfermo ayer.</li>
+
+                <li><strong>Error:</strong> "aquí" no cambia a "allí".<br>
+                    <strong>Corrección:</strong> Laura preguntó si había visto su bolso <u>allí</u>.</li>
+
+                <li><strong>Error:</strong> "este" no cambia a "ese/aquel".<br>
+                    <strong>Corrección:</strong> Carlos dijo que <u>aquel/ese</u> libro era muy interesante.</li>
+
+                <li><strong>Error:</strong> "llegues" (presente subjuntivo en lugar de imperfecto).<br>
+                    <strong>Corrección:</strong> Mi madre me dijo que no <u>llegara</u> tarde.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+      </section>
+
+      <!-- RESUMEN FINAL -->
+      <section class="section" style="background: linear-gradient(120deg, #eef2ff, #ddd6fe); border:2px solid var(--accent);">
+        <h2>📚 Resumen de todas las reglas</h2>
+
+        <div class="grid">
+          <div class="card">
+            <h3>✅ Cambios verbales</h3>
+            <ul style="font-size:0.9em;">
+              <li>Presente → Imperfecto</li>
+              <li>Pret. perfecto → Pluscuamp.</li>
+              <li>Futuro → Condicional</li>
+              <li>Imperativo → Subjuntivo</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>✅ Deícticos temporales</h3>
+            <ul style="font-size:0.9em;">
+              <li>hoy → aquel día</li>
+              <li>ayer → el día anterior</li>
+              <li>mañana → al día siguiente</li>
+              <li>ahora → entonces</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>✅ Deícticos espaciales</h3>
+            <ul style="font-size:0.9em;">
+              <li>aquí → allí</li>
+              <li>este → ese/aquel</li>
+              <li>venir → ir</li>
+              <li>traer → llevar</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>✅ Estructuras</h3>
+            <ul style="font-size:0.9em;">
+              <li>Afirmación: que + indicativo</li>
+              <li>Pregunta sí/no: si + indic.</li>
+              <li>Pregunta abierta: interrog.</li>
+              <li>Orden: que + subjuntivo</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tip-box" style="margin-top:16px;">
+          <strong>🎯 Consejo final:</strong> La práctica constante es la clave. Intenta transformar mentalmente conversaciones que escuches a lo largo del día. ¡Es el mejor ejercicio!
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>Aula Virtual CLMABROAD · Taller de Estilo Indirecto</p>
+      <p style="margin-top:8px;"><a href="../index.html">← Volver al índice principal</a></p>
+    </footer>
+  </body>
+</html>
