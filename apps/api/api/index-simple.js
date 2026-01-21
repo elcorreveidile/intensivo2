@@ -1,5 +1,6 @@
 // Standalone CORS-enabled Express server for Vercel
 // This file is completely self-contained and doesn't require TypeScript compilation
+// Commit: 5a5e901 - dist files moved to api/api/dist/
 console.log('[SIMPLE API] Starting standalone server... Built:', new Date().toISOString());
 console.log('[SIMPLE API] Deployment timestamp:', new Date().toISOString());
 
@@ -149,7 +150,7 @@ app.get('/test-deployment', (req, res) => {
 
   res.json({
     message: 'If you see this, the latest code is deployed',
-    commit: 'b4743ae',
+    commit: '5a5e901',
     timestamp: new Date().toISOString(),
     files: {
       indexSimple: 'loaded',
