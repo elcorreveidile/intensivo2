@@ -1,0 +1,880 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sesión 5 – Español Avanzado</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --text: #1f2a44;
+        --muted: #5b667a;
+        --accent: #dc2626;
+        --border: #e3e7f2;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      header {
+        background: #ffffff;
+        border-bottom: 1px solid var(--border);
+        padding: 20px 24px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      header a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      main {
+        max-width: 960px;
+        margin: 24px auto 60px;
+        padding: 0 16px;
+      }
+      .hero {
+        background: linear-gradient(120deg, #dc2626, #ef4444);
+        color: #fff;
+        border-radius: 18px;
+        padding: 28px;
+        margin-bottom: 24px;
+      }
+      .hero h1 {
+        margin: 0 0 8px;
+      }
+      .hero p {
+        margin: 0;
+        opacity: 0.9;
+      }
+      .section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 18px;
+        box-shadow: 0 10px 24px rgba(25, 35, 70, 0.05);
+      }
+      h2 {
+        margin-top: 0;
+      }
+      h3 {
+        margin-top: 16px;
+      }
+      h4 {
+        margin-top: 12px;
+        margin-bottom: 8px;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      .tag {
+        display: inline-block;
+        background: #fee2e2;
+        color: #991b1b;
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px;
+        background: #fbfcff;
+      }
+      .note {
+        border-left: 4px solid var(--accent);
+        padding: 12px 16px;
+        background: #fef2f2;
+        border-radius: 10px;
+        color: var(--muted);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+      }
+      th, td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid var(--border);
+      }
+      th {
+        background: #f5f7fb;
+        font-weight: 600;
+      }
+      details {
+        margin-top: 12px;
+        cursor: pointer;
+      }
+      summary {
+        cursor: pointer;
+        color: var(--accent);
+        font-weight: 600;
+        padding: 8px;
+        background: #fef2f2;
+        border-radius: 6px;
+      }
+      .checklist-item {
+        padding: 8px 12px;
+        margin: 4px 0;
+        background: #f0fdf4;
+        border-left: 3px solid #10b981;
+        border-radius: 4px;
+      }
+      .template-box {
+        background: #eff6ff;
+        padding: 16px;
+        border-radius: 8px;
+        border-left: 4px solid #3b82f6;
+        margin: 12px 0;
+        font-family: "Courier New", monospace;
+        font-size: 0.95em;
+        line-height: 1.8;
+      }
+      .exam-block {
+        background: #fef3c7;
+        padding: 16px;
+        border-radius: 8px;
+        border: 2px solid #f59e0b;
+        margin: 12px 0;
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+        padding: 16px;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .score-badge {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.9em;
+        margin: 4px;
+      }
+      .score-excellent { background: #d1fae5; color: #065f46; }
+      .score-good { background: #dbeafe; color: #1e40af; }
+      .score-fair { background: #fef3c7; color: #92400e; }
+      .score-needs-work { background: #fee2e2; color: #991b1b; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="../index.html">← Volver al índice</a>
+    </header>
+
+    <main>
+      <div class="hero">
+        <h1>Sesión 5 – Producción escrita + simulacro global</h1>
+        <p>Presencial en Granada · Sesión final con evaluación completa</p>
+      </div>
+
+      <!-- OBJETIVOS -->
+      <section class="section">
+        <h2>🎯 Objetivos de la sesión</h2>
+        <ul>
+          <li>Redactar un artículo de opinión bien estructurado (200-250 palabras).</li>
+          <li>Realizar un simulacro completo del examen (comprensión auditiva, lectora y competencia lingüística).</li>
+          <li>Recibir feedback detallado con rúbrica de evaluación.</li>
+          <li>Crear un plan personal de estudio para continuar mejorando.</li>
+        </ul>
+      </section>
+
+      <!-- ESTRUCTURA -->
+      <section class="section">
+        <h2>Estructura (4 horas)</h2>
+        <ol>
+          <li><strong>Miniweb 6 – Taller de escritura (70 min)</strong>: Artículo de opinión. <a href="#taller">↓ Ver actividad</a></li>
+          <li><strong>Simulacro global (90 min)</strong>: Auditiva + lectora + lingüística. <a href="#simulacro">↓ Ver actividad</a></li>
+          <li><strong>Feedback guiado (45 min)</strong>: Corrección con rúbrica. <a href="#feedback">↓ Ver actividad</a></li>
+          <li><strong>Cierre (15 min)</strong>: Plan personal de estudio. <a href="#cierre">↓ Ver actividad</a></li>
+        </ol>
+      </section>
+
+      <!-- ===== TALLER DE ESCRITURA ===== -->
+      <section class="section" id="taller">
+        <span class="tag">70 minutos</span>
+        <h2>✍️ Miniweb 6 – Taller de escritura: Artículo de opinión</h2>
+
+        <div class="note">
+          <strong>Objetivo:</strong> Escribir un artículo de opinión bien estructurado usando las herramientas aprendidas en las sesiones anteriores.
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>📝 Fases del taller</h3>
+          <ol>
+            <li><strong>Planificación (15 min):</strong> Lee los temas, elige uno y crea un esquema.</li>
+            <li><strong>Redacción (40 min):</strong> Escribe tu artículo (200-250 palabras).</li>
+            <li><strong>Revisión (15 min):</strong> Usa el checklist para revisar y mejorar tu texto.</li>
+          </ol>
+        </div>
+
+        <!-- TEMAS PROPUESTOS -->
+        <div class="card" style="margin-top:16px; background:#eff6ff;">
+          <h3>📌 Temas propuestos (elige uno)</h3>
+
+          <div class="exam-block">
+            <h4>Opción A: Energías renovables</h4>
+            <p><strong>Pregunta:</strong> ¿Crees que los gobiernos deberían invertir más en energías renovables que en combustibles fósiles?</p>
+            <p style="font-size:0.9em; color:#666; margin-top:8px;">
+              <em>Aspectos a considerar: cambio climático, economía, empleo, viabilidad tecnológica, transición energética.</em>
+            </p>
+          </div>
+
+          <div class="exam-block">
+            <h4>Opción B: Transporte público</h4>
+            <p><strong>Pregunta:</strong> ¿Debería el transporte público ser gratuito en las ciudades para reducir la contaminación?</p>
+            <p style="font-size:0.9em; color:#666; margin-top:8px;">
+              <em>Aspectos a considerar: sostenibilidad, accesibilidad, financiación, efectividad, calidad del servicio.</em>
+            </p>
+          </div>
+
+          <div class="exam-block">
+            <h4>Opción C: Educación ambiental</h4>
+            <p><strong>Pregunta:</strong> ¿Es la educación ambiental desde la infancia la clave para combatir el cambio climático?</p>
+            <p style="font-size:0.9em; color:#666; margin-top:8px;">
+              <em>Aspectos a considerar: concienciación, cambio de hábitos, responsabilidad, políticas educativas, impacto a largo plazo.</em>
+            </p>
+          </div>
+
+          <div class="exam-block">
+            <h4>Opción D: Consumo responsable</h4>
+            <p><strong>Pregunta:</strong> ¿Tiene más impacto el consumo individual responsable o las políticas gubernamentales en la protección del medio ambiente?</p>
+            <p style="font-size:0.9em; color:#666; margin-top:8px;">
+              <em>Aspectos a considerar: responsabilidad individual vs colectiva, efectividad, escala, cambio cultural.</em>
+            </p>
+          </div>
+        </div>
+
+        <!-- ESTRUCTURA RECOMENDADA -->
+        <div class="card" style="margin-top:16px; background:#f0fdf4;">
+          <h3>🏗️ Estructura recomendada (tesis-antítesis-síntesis)</h3>
+
+          <h4>Párrafo 1: Introducción + Tesis (50-60 palabras)</h4>
+          <ul>
+            <li><strong>Contextualiza el problema:</strong> "En la actualidad, el cambio climático representa..."</li>
+            <li><strong>Presenta tu tesis (postura):</strong> "En mi opinión, los gobiernos deberían..."</li>
+            <li><strong>Adelanta tus argumentos:</strong> "Esto se debe a dos razones principales..."</li>
+          </ul>
+
+          <h4 style="margin-top:16px;">Párrafo 2: Desarrollo - Argumento 1 (50-60 palabras)</h4>
+          <ul>
+            <li><strong>Primer argumento:</strong> "En primer lugar, las energías renovables..."</li>
+            <li><strong>Datos o ejemplos:</strong> "Por ejemplo, países como Dinamarca..."</li>
+            <li><strong>Conector:</strong> Usa "además", "asimismo", "de hecho"</li>
+          </ul>
+
+          <h4 style="margin-top:16px;">Párrafo 3: Desarrollo - Argumento 2 + Contraargumento (50-60 palabras)</h4>
+          <ul>
+            <li><strong>Segundo argumento:</strong> "Por otro lado, invertir en renovables crea empleo..."</li>
+            <li><strong>Reconoce la postura contraria:</strong> "Aunque algunos argumentan que..., sin embargo..."</li>
+            <li><strong>Refuta con evidencia:</strong> "No obstante, los estudios demuestran..."</li>
+          </ul>
+
+          <h4 style="margin-top:16px;">Párrafo 4: Conclusión + Propuesta (40-50 palabras)</h4>
+          <ul>
+            <li><strong>Resume tu postura:</strong> "En conclusión, es fundamental que..."</li>
+            <li><strong>Propuesta concreta:</strong> "Por ello, propongo que los gobiernos..."</li>
+            <li><strong>Cierre con impacto:</strong> "Solo así podremos garantizar..."</li>
+          </ul>
+        </div>
+
+        <!-- PLANTILLA DE ESCRITURA -->
+        <div class="card" style="margin-top:16px;">
+          <h3>📄 Plantilla de escritura (opcional)</h3>
+          <p>Si necesitas ayuda para empezar, usa esta plantilla:</p>
+
+          <div class="template-box">
+<strong>[PÁRRAFO 1: INTRODUCCIÓN]</strong>
+En la actualidad, [problema general] representa un desafío importante para [contexto].
+En mi opinión, [tu tesis/postura clara].
+Esto se debe principalmente a [adelanto de argumentos].
+
+<strong>[PÁRRAFO 2: ARGUMENTO 1]</strong>
+En primer lugar, [primer argumento con verbo preciso].
+Por ejemplo, [dato/ejemplo concreto que apoya tu argumento].
+Además, [expansión del argumento con colocación].
+
+<strong>[PÁRRAFO 3: ARGUMENTO 2 + CONTRAARGUMENTO]</strong>
+Por otro lado, [segundo argumento].
+Aunque algunos sostienen que [contraargumento], sin embargo [refutación].
+De hecho, [evidencia que refuerza tu postura].
+
+<strong>[PÁRRAFO 4: CONCLUSIÓN]</strong>
+En conclusión, [reafirmación de tu tesis con otras palabras].
+Por ello, propongo que [propuesta concreta de acción].
+Solo así [consecuencia positiva / cierre con impacto].
+          </div>
+        </div>
+
+        <!-- CONECTORES SUGERIDOS -->
+        <div class="card" style="margin-top:16px; background:#fef3c7;">
+          <h3>🔗 Conectores sugeridos por función</h3>
+
+          <div class="grid">
+            <div>
+              <h4>Introducción</h4>
+              <ul style="font-size:0.9em;">
+                <li>En la actualidad</li>
+                <li>Hoy en día</li>
+                <li>En los últimos años</li>
+                <li>Es indudable que</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>Añadir información</h4>
+              <ul style="font-size:0.9em;">
+                <li>Además</li>
+                <li>Asimismo</li>
+                <li>De hecho</li>
+                <li>Por añadidura</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>Contraste/Concesión</h4>
+              <ul style="font-size:0.9em;">
+                <li>Aunque / Pese a que</li>
+                <li>Sin embargo</li>
+                <li>No obstante</li>
+                <li>Por el contrario</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>Conclusión</h4>
+              <ul style="font-size:0.9em;">
+                <li>En conclusión</li>
+                <li>En definitiva</li>
+                <li>Por todo ello</li>
+                <li>En resumen</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHECKLIST DE AUTOCORRECCIÓN -->
+        <div class="card" style="margin-top:16px; background:#f0f9ff;">
+          <h3>✅ Checklist de autocorrección</h3>
+          <p><strong>Antes de entregar tu artículo, verifica:</strong></p>
+
+          <div class="checklist-item">
+            ☐ <strong>Extensión:</strong> ¿Tiene entre 200-250 palabras? (Cuenta las palabras)
+          </div>
+          <div class="checklist-item">
+            ☐ <strong>Estructura:</strong> ¿Tiene introducción, desarrollo (2 argumentos) y conclusión clara?
+          </div>
+          <div class="checklist-item">
+            ☐ <strong>Tesis:</strong> ¿He expresado claramente mi postura en la introducción?
+          </div>
+          <div class="checklist-item">
+            ☐ <strong>Argumentos:</strong> ¿He desarrollado al menos 2 argumentos con ejemplos o datos?
+          </div>
+          <div class="checklist-item">
+            ☐ <strong>Contraargumento:</strong> ¿He reconocido y refutado la postura contraria?
+          </div>
+          <div class="checklist-item">
+            ☐ <strong>Conectores:</strong> ¿He usado al menos 5 conectores variados?
+          </div>
+          <div class="checklist-item">
+            ☐ <strong>Colocaciones:</strong> ¿He usado al menos 3 colocaciones medioambientales?
+          </div>
+          <div class="checklist-item">
+            ☐ <strong>Verbos precisos:</strong> ¿He usado verbos específicos (no solo "decir", "hacer", "haber")?
+          </div>
+          <div class="checklist-item">
+            ☐ <strong>Gramática:</strong> ¿He revisado concordancia, tiempos verbales y preposiciones?
+          </div>
+          <div class="checklist-item">
+            ☐ <strong>Ortografía:</strong> ¿He revisado tildes, mayúsculas y puntuación?
+          </div>
+          <div class="checklist-item">
+            ☐ <strong>Registro:</strong> ¿He mantenido un tono formal y objetivo?
+          </div>
+          <div class="checklist-item">
+            ☐ <strong>Conclusión:</strong> ¿He incluido una propuesta o reflexión final?
+          </div>
+        </div>
+
+        <div class="note" style="margin-top:16px;">
+          <strong>💡 Tip profesional:</strong> Lee tu artículo en voz alta. Si algo suena raro o poco natural, probablemente necesita revisión.
+        </div>
+      </section>
+
+      <!-- ===== SIMULACRO ===== -->
+      <section class="section" id="simulacro">
+        <span class="tag">90 minutos</span>
+        <h2>📝 Simulacro global del examen</h2>
+
+        <div class="note">
+          <strong>Objetivo:</strong> Realizar un simulacro completo en condiciones reales de examen para evaluar tu nivel actual.
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>⏱️ Distribución del tiempo</h3>
+          <table>
+            <tr>
+              <th>Bloque</th>
+              <th>Tiempo</th>
+              <th>Descripción</th>
+            </tr>
+            <tr>
+              <td><strong>Comprensión auditiva</strong></td>
+              <td>30 minutos</td>
+              <td>2 audios con preguntas de opción múltiple y completar información</td>
+            </tr>
+            <tr>
+              <td><strong>Comprensión lectora</strong></td>
+              <td>35 minutos</td>
+              <td>2 textos largos con preguntas de comprensión detallada</td>
+            </tr>
+            <tr>
+              <td><strong>Competencia lingüística</strong></td>
+              <td>25 minutos</td>
+              <td>Completar huecos, transformaciones y detección de errores</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- BLOQUE 1: COMPRENSIÓN AUDITIVA -->
+        <div class="card" style="margin-top:16px; background:#eff6ff;">
+          <h3>🎧 Bloque 1: Comprensión auditiva (30 minutos)</h3>
+
+          <h4>Audio 1: Noticia sobre cambio climático (15 min)</h4>
+          <p><strong>Instrucciones:</strong></p>
+          <ul>
+            <li>Escucharás el audio <strong>DOS veces</strong></li>
+            <li>Responde 6 preguntas de opción múltiple</li>
+            <li>NO puedes tomar notas durante la primera escucha</li>
+          </ul>
+
+          <p style="margin-top:12px;"><strong>Ejemplo de pregunta:</strong></p>
+          <p style="font-style:italic; padding:12px; background:#fff; border-radius:6px;">
+            <strong>1. Según la noticia, ¿cuál es la principal causa del aumento de temperatura?</strong><br>
+            a) La deforestación masiva<br>
+            b) Las emisiones de gases de efecto invernadero<br>
+            c) El uso excesivo de agua<br>
+            d) La contaminación del océano
+          </p>
+
+          <h4 style="margin-top:16px;">Audio 2: Entrevista a experto medioambiental (15 min)</h4>
+          <p><strong>Instrucciones:</strong></p>
+          <ul>
+            <li>Escucharás el audio <strong>DOS veces</strong></li>
+            <li>Completa 8 espacios con información específica (fechas, números, nombres)</li>
+            <li>Responde 4 preguntas de verdadero/falso con justificación</li>
+          </ul>
+
+          <div class="note" style="margin-top:12px;">
+            <strong>💡 Estrategia:</strong> Durante la primera escucha, concéntrate en la idea general. Durante la segunda, anota datos específicos.
+          </div>
+        </div>
+
+        <!-- BLOQUE 2: COMPRENSIÓN LECTORA -->
+        <div class="card" style="margin-top:16px; background:#f0fdf4;">
+          <h3>📖 Bloque 2: Comprensión lectora (35 minutos)</h3>
+
+          <h4>Texto 1: Artículo académico sobre biodiversidad (17 min)</h4>
+          <p><strong>Tipo de texto:</strong> Expositivo académico (400-500 palabras)</p>
+          <p><strong>Preguntas:</strong></p>
+          <ul>
+            <li>6 preguntas de opción múltiple sobre ideas principales</li>
+            <li>2 preguntas de "elige la frase que mejor resume el párrafo"</li>
+          </ul>
+
+          <h4 style="margin-top:16px;">Texto 2: Artículo de opinión sobre energías renovables (18 min)</h4>
+          <p><strong>Tipo de texto:</strong> Argumentativo (350-450 palabras)</p>
+          <p><strong>Preguntas:</strong></p>
+          <ul>
+            <li>5 preguntas de opción múltiple sobre argumentos y postura del autor</li>
+            <li>3 preguntas de inferencia (¿qué se puede deducir del texto?)</li>
+          </ul>
+
+          <div class="note" style="margin-top:12px;">
+            <strong>💡 Estrategia:</strong> Lee las preguntas ANTES de leer el texto completo para saber qué información buscar.
+          </div>
+        </div>
+
+        <!-- BLOQUE 3: COMPETENCIA LINGÜÍSTICA -->
+        <div class="card" style="margin-top:16px; background:#fef3c7;">
+          <h3>📝 Bloque 3: Competencia lingüística (25 minutos)</h3>
+
+          <h4>Ejercicio 1: Completar huecos (10 min)</h4>
+          <p><strong>Instrucciones:</strong> Completa el texto con la palabra adecuada (preposiciones, verbos, conectores).</p>
+          <p><strong>15 huecos en total</strong></p>
+
+          <h4 style="margin-top:16px;">Ejercicio 2: Transformaciones (10 min)</h4>
+          <p><strong>Instrucciones:</strong> Reescribe las frases usando la estructura indicada sin cambiar el significado.</p>
+          <p><strong>Ejemplo:</strong></p>
+          <p style="padding:12px; background:#fff; border-radius:6px; font-style:italic;">
+            <strong>Frase original:</strong> "No estudié y suspendí el examen."<br>
+            <strong>Transforma usando condicional tipo 3:</strong> _______________<br>
+            <strong>Respuesta:</strong> "Si hubiera estudiado, no habría suspendido el examen."
+          </p>
+          <p><strong>8 transformaciones en total</strong></p>
+
+          <h4 style="margin-top:16px;">Ejercicio 3: Detección de errores (5 min)</h4>
+          <p><strong>Instrucciones:</strong> Identifica y corrige el error en cada frase.</p>
+          <p><strong>5 frases con errores</strong></p>
+
+          <div class="note" style="margin-top:12px;">
+            <strong>💡 Estrategia:</strong> Gestiona bien el tiempo. No te quedes atascado en una pregunta. Si no sabes la respuesta, márcala y continúa.
+          </div>
+        </div>
+
+        <!-- CONDICIONES DEL SIMULACRO -->
+        <div class="card" style="margin-top:16px; background:#fee2e2;">
+          <h3>⚠️ Condiciones del simulacro</h3>
+          <ul>
+            <li><strong>SIN diccionario:</strong> No puedes consultar diccionarios ni materiales externos</li>
+            <li><strong>SIN interrupciones:</strong> Apaga el móvil y evita distracciones</li>
+            <li><strong>Cronómetro estricto:</strong> Respeta los tiempos de cada bloque</li>
+            <li><strong>NO volver atrás:</strong> Una vez terminado un bloque, NO puedes volver a él</li>
+            <li><strong>Lápiz y goma:</strong> Puedes borrar y cambiar respuestas DENTRO del tiempo del bloque</li>
+          </ul>
+
+          <p style="margin-top:12px;"><strong>🎯 Objetivo:</strong> Simular las condiciones reales del examen para identificar áreas de mejora.</p>
+        </div>
+      </section>
+
+      <!-- ===== FEEDBACK ===== -->
+      <section class="section" id="feedback">
+        <span class="tag">45 minutos</span>
+        <h2>📊 Feedback guiado con rúbrica</h2>
+
+        <div class="note">
+          <strong>Objetivo:</strong> Recibir corrección detallada de la producción escrita y resultados del simulacro con áreas de mejora identificadas.
+        </div>
+
+        <!-- RÚBRICA DE PRODUCCIÓN ESCRITA -->
+        <div class="card" style="margin-top:16px;">
+          <h3>✍️ Rúbrica: Producción escrita (artículo de opinión)</h3>
+          <table>
+            <tr>
+              <th>Criterio</th>
+              <th>Excelente (4)</th>
+              <th>Bien (3)</th>
+              <th>Suficiente (2)</th>
+              <th>Insuficiente (1)</th>
+            </tr>
+            <tr>
+              <td><strong>Coherencia</strong></td>
+              <td>Ideas muy claras, lógicas y bien organizadas</td>
+              <td>Ideas claras con buena organización</td>
+              <td>Ideas comprensibles pero algo desorganizadas</td>
+              <td>Ideas confusas o mal organizadas</td>
+            </tr>
+            <tr>
+              <td><strong>Cohesión</strong></td>
+              <td>Uso excelente de conectores variados</td>
+              <td>Buen uso de conectores</td>
+              <td>Uso básico de conectores</td>
+              <td>Conectores escasos o incorrectos</td>
+            </tr>
+            <tr>
+              <td><strong>Riqueza léxica</strong></td>
+              <td>Vocabulario preciso, variado y académico</td>
+              <td>Vocabulario adecuado y variado</td>
+              <td>Vocabulario básico pero correcto</td>
+              <td>Vocabulario limitado o repetitivo</td>
+            </tr>
+            <tr>
+              <td><strong>Gramática</strong></td>
+              <td>Sin errores significativos</td>
+              <td>Errores menores que no impiden la comprensión</td>
+              <td>Varios errores pero comprensible</td>
+              <td>Errores graves que dificultan la comprensión</td>
+            </tr>
+            <tr>
+              <td><strong>Estructura</strong></td>
+              <td>Tesis, argumentos, contraargumento y conclusión muy claros</td>
+              <td>Estructura clara con todos los elementos</td>
+              <td>Estructura básica pero incompleta</td>
+              <td>Estructura deficiente o ausente</td>
+            </tr>
+          </table>
+
+          <p style="margin-top:16px;"><strong>Puntuación total:</strong> _____ / 20 puntos</p>
+
+          <div class="grid" style="margin-top:16px;">
+            <div class="score-badge score-excellent">18-20: Excelente</div>
+            <div class="score-badge score-good">15-17: Bien</div>
+            <div class="score-badge score-fair">12-14: Suficiente</div>
+            <div class="score-badge score-needs-work">0-11: Necesita mejorar</div>
+          </div>
+        </div>
+
+        <!-- ANÁLISIS DE ERRORES COMUNES -->
+        <div class="card" style="margin-top:16px; background:#eff6ff;">
+          <h3>🔍 Análisis de errores comunes</h3>
+
+          <h4>Errores gramaticales frecuentes:</h4>
+          <ul>
+            <li><strong>Preposiciones:</strong> "Depende de", "consistir en", "insistir en"</li>
+            <li><strong>Ser/Estar:</strong> "Ser + característica permanente" vs "Estar + estado temporal"</li>
+            <li><strong>Subjuntivo/Indicativo:</strong> Después de verbos de opinión, negación, sugerencia</li>
+            <li><strong>Concordancia:</strong> Sujeto-verbo, sustantivo-adjetivo</li>
+          </ul>
+
+          <h4 style="margin-top:16px;">Errores léxicos frecuentes:</h4>
+          <ul>
+            <li><strong>Falsos amigos:</strong> "actually" ≠ "actualmente" (ahora), sino "en realidad"</li>
+            <li><strong>Colocaciones incorrectas:</strong> ❌ "hacer un error" → ✅ "cometer un error"</li>
+            <li><strong>Verbos genéricos:</strong> ❌ "hacer" → ✅ "realizar/llevar a cabo/implementar"</li>
+          </ul>
+
+          <h4 style="margin-top:16px;">Errores de estructura:</h4>
+          <ul>
+            <li><strong>Párrafos sin tema claro:</strong> Cada párrafo debe tener una idea principal</li>
+            <li><strong>Falta de ejemplos:</strong> Los argumentos necesitan evidencia o ejemplos</li>
+            <li><strong>Conclusión débil:</strong> Debe resumir y proponer, no repetir exactamente la introducción</li>
+          </ul>
+        </div>
+
+        <!-- RESULTADOS DEL SIMULACRO -->
+        <div class="card" style="margin-top:16px; background:#f0fdf4;">
+          <h3>📈 Resultados del simulacro global</h3>
+
+          <table>
+            <tr>
+              <th>Bloque</th>
+              <th>Puntuación</th>
+              <th>Porcentaje</th>
+              <th>Estado</th>
+            </tr>
+            <tr>
+              <td><strong>Comprensión auditiva</strong></td>
+              <td>_____ / 20</td>
+              <td>_____%</td>
+              <td><em>(Se completará con tus resultados)</em></td>
+            </tr>
+            <tr>
+              <td><strong>Comprensión lectora</strong></td>
+              <td>_____ / 20</td>
+              <td>_____%</td>
+              <td><em>(Se completará con tus resultados)</em></td>
+            </tr>
+            <tr>
+              <td><strong>Competencia lingüística</strong></td>
+              <td>_____ / 20</td>
+              <td>_____%</td>
+              <td><em>(Se completará con tus resultados)</em></td>
+            </tr>
+            <tr style="font-weight:600; background:#f5f7fb;">
+              <td><strong>TOTAL</strong></td>
+              <td><strong>_____ / 60</strong></td>
+              <td><strong>_____%</strong></td>
+              <td></td>
+            </tr>
+          </table>
+
+          <p style="margin-top:16px;"><strong>Interpretación de resultados:</strong></p>
+          <ul>
+            <li><span class="score-badge score-excellent">85-100%</span> Nivel muy avanzado, listo para el examen</li>
+            <li><span class="score-badge score-good">70-84%</span> Buen nivel, necesita refuerzo en áreas específicas</li>
+            <li><span class="score-badge score-fair">60-69%</span> Nivel suficiente, requiere más práctica</li>
+            <li><span class="score-badge score-needs-work">&lt;60%</span> Necesita reforzar fundamentos</li>
+          </ul>
+        </div>
+
+        <!-- ÁREAS DE MEJORA IDENTIFICADAS -->
+        <div class="card" style="margin-top:16px; background:#fef3c7;">
+          <h3>🎯 Áreas de mejora identificadas</h3>
+          <p><strong>Basado en tus resultados, estas son las áreas prioritarias para trabajar:</strong></p>
+
+          <h4>🔴 Prioridad ALTA (trabajar esta semana):</h4>
+          <ul>
+            <li>_________________________________</li>
+            <li>_________________________________</li>
+            <li>_________________________________</li>
+          </ul>
+
+          <h4 style="margin-top:16px;">🟡 Prioridad MEDIA (trabajar este mes):</h4>
+          <ul>
+            <li>_________________________________</li>
+            <li>_________________________________</li>
+          </ul>
+
+          <h4 style="margin-top:16px;">🟢 Fortalezas (mantener):</h4>
+          <ul>
+            <li>_________________________________</li>
+            <li>_________________________________</li>
+          </ul>
+        </div>
+
+        <div class="note" style="margin-top:16px;">
+          <strong>💡 Recuerda:</strong> Los errores son oportunidades de aprendizaje. Identifica patrones en tus errores y trabaja específicamente en esas áreas.
+        </div>
+      </section>
+
+      <!-- ===== CIERRE ===== -->
+      <section class="section" id="cierre">
+        <span class="tag">15 minutos</span>
+        <h2>🎓 Cierre – Plan personal de estudio</h2>
+
+        <div class="note">
+          <strong>Objetivo:</strong> Crear un plan de estudio personalizado basado en tus resultados y establecer micro-metas alcanzables.
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#eff6ff;">
+          <h3>📅 Plan de estudio personalizado (próximas 4 semanas)</h3>
+
+          <h4>Semana 1: Refuerzo intensivo</h4>
+          <div class="checklist-item">
+            ☐ Revisar y corregir el artículo de opinión (versión 2)
+          </div>
+          <div class="checklist-item">
+            ☐ Practicar 2 ejercicios de comprensión auditiva (15 min/día)
+          </div>
+          <div class="checklist-item">
+            ☐ Repasar las áreas de PRIORIDAD ALTA identificadas (30 min/día)
+          </div>
+          <div class="checklist-item">
+            ☐ Crear flashcards con colocaciones nuevas (10 min/día)
+          </div>
+
+          <h4 style="margin-top:16px;">Semana 2: Consolidación</h4>
+          <div class="checklist-item">
+            ☐ Leer 1 artículo académico y resumirlo (120-150 palabras)
+          </div>
+          <div class="checklist-item">
+            ☐ Hacer 1 simulacro de comprensión lectora completo
+          </div>
+          <div class="checklist-item">
+            ☐ Practicar transformaciones gramaticales (20 min/día)
+          </div>
+          <div class="checklist-item">
+            ☐ Grabar un audio de 2-3 minutos sobre un tema actual
+          </div>
+
+          <h4 style="margin-top:16px;">Semana 3: Práctica integrada</h4>
+          <div class="checklist-item">
+            ☐ Hacer un simulacro completo (90 minutos)
+          </div>
+          <div class="checklist-item">
+            ☐ Escribir otro artículo de opinión (tema diferente)
+          </div>
+          <div class="checklist-item">
+            ☐ Revisar todos los errores del simulacro anterior
+          </div>
+          <div class="checklist-item">
+            ☐ Practicar con un compañero (role-play, debate)
+          </div>
+
+          <h4 style="margin-top:16px;">Semana 4: Repaso final</h4>
+          <div class="checklist-item">
+            ☐ Repasar todas las listas de vocabulario y colocaciones
+          </div>
+          <div class="checklist-item">
+            ☐ Hacer otro simulacro completo y comparar resultados
+          </div>
+          <div class="checklist-item">
+            ☐ Identificar últimas dudas y consultarlas
+          </div>
+          <div class="checklist-item">
+            ☐ Descansar el día antes del examen
+          </div>
+        </div>
+
+        <!-- MICRO-METAS -->
+        <div class="card" style="margin-top:16px; background:#f0fdf4;">
+          <h3>🎯 Micro-metas semanales</h3>
+          <p><strong>Las micro-metas son objetivos pequeños y alcanzables que te mantienen motivado:</strong></p>
+
+          <h4>Esta semana me comprometo a:</h4>
+          <ol>
+            <li>_________________________________ (ejemplo: "Aprender 15 colocaciones nuevas")</li>
+            <li>_________________________________ (ejemplo: "Hacer 3 ejercicios de auditiva")</li>
+            <li>_________________________________ (ejemplo: "Escribir 1 artículo corregido")</li>
+          </ol>
+
+          <p style="margin-top:16px;"><strong>Recompensa al completar las 3 metas:</strong> _________________________________</p>
+          <p style="font-size:0.9em; color:#666;">(Ejemplo: ver una película en español, salir con amigos, comprar algo que te gusta)</p>
+        </div>
+
+        <!-- RECURSOS PARA SEGUIR PRACTICANDO -->
+        <div class="card" style="margin-top:16px; background:#fef3c7;">
+          <h3>📚 Recursos para seguir practicando</h3>
+
+          <h4>Comprensión auditiva:</h4>
+          <ul>
+            <li><a href="https://www.rtve.es/play/audios/telediario/" target="_blank">RTVE - Telediario (audio)</a></li>
+            <li><a href="https://www.bbc.com/mundo/topics/c06gq9v4xp3t" target="_blank">BBC Mundo - Podcasts</a></li>
+            <li><a href="https://www.ivoox.com/" target="_blank">Ivoox - Podcasts en español</a></li>
+          </ul>
+
+          <h4 style="margin-top:12px;">Comprensión lectora:</h4>
+          <ul>
+            <li><a href="https://elpais.com/" target="_blank">El País (periódico)</a></li>
+            <li><a href="https://www.nationalgeographic.com.es/" target="_blank">National Geographic España</a></li>
+            <li><a href="https://www.cervantes.es/lengua_y_ensenanza/aprender_espanol/biblioteca_ele.htm" target="_blank">Instituto Cervantes - Biblioteca ELE</a></li>
+          </ul>
+
+          <h4 style="margin-top:12px;">Gramática y vocabulario:</h4>
+          <ul>
+            <li><a href="https://www.rae.es/" target="_blank">RAE - Diccionario oficial</a></li>
+            <li><a href="https://www.wordreference.com/es/" target="_blank">WordReference (diccionario bilingüe)</a></li>
+            <li><a href="https://www.profedeele.es/" target="_blank">ProfeDeELE (ejercicios gratuitos)</a></li>
+          </ul>
+
+          <h4 style="margin-top:12px;">Exámenes oficiales:</h4>
+          <ul>
+            <li><a href="https://exam.instituto-cervantes.es/" target="_blank">Instituto Cervantes - Modelos de examen DELE</a></li>
+            <li><a href="https://ave.cervantes.es/" target="_blank">AVE - Aula Virtual de Español</a></li>
+          </ul>
+        </div>
+
+        <!-- MENSAJE FINAL -->
+        <div class="card" style="margin-top:16px; background:#fee2e2;">
+          <h3>🌟 Mensaje final</h3>
+          <p style="font-size:1.1em; line-height:1.8;">
+            <strong>¡Enhorabuena por completar el intensivo!</strong> Has trabajado duro durante estas 5 sesiones y has avanzado significativamente en tu dominio del español.
+          </p>
+          <p style="margin-top:12px; line-height:1.8;">
+            Recuerda que el aprendizaje de un idioma es un proceso continuo. <strong>La clave del éxito</strong> es la práctica constante, incluso si son solo 15-20 minutos al día.
+          </p>
+          <p style="margin-top:12px; line-height:1.8;">
+            Usa el plan de estudio personalizado como guía, pero <strong>adapta según tus necesidades</strong>. Si encuentras que un área requiere más tiempo, ajusta el plan.
+          </p>
+          <p style="margin-top:12px; line-height:1.8;">
+            Confía en tu preparación, mantén la calma durante el examen y <strong>¡mucha suerte!</strong>
+          </p>
+          <p style="margin-top:16px; text-align:center; font-size:1.2em; font-weight:600;">
+            ¡Ánimo y adelante! 💪🇪🇸
+          </p>
+        </div>
+
+        <div class="note" style="margin-top:16px;">
+          <strong>📧 Contacto:</strong> Si tienes dudas o necesitas apoyo adicional, no dudes en contactarnos. ¡Estamos aquí para ayudarte!
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      Aula Virtual CLMABROAD · Sesión 5 (Final) · Granada
+    </footer>
+  </body>
+</html>
