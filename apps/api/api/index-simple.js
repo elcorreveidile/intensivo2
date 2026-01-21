@@ -1,6 +1,7 @@
 // Standalone CORS-enabled Express server for Vercel
 // This file is completely self-contained and doesn't require TypeScript compilation
-console.log('[SIMPLE API] Starting standalone server...');
+console.log('[SIMPLE API] Starting standalone server... Built:', new Date().toISOString());
+console.log('[SIMPLE API] Deployment timestamp:', new Date().toISOString());
 
 const express = require('express');
 const helmet = require('helmet');
