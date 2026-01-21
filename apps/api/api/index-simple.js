@@ -81,17 +81,17 @@ try {
   console.log('[SIMPLE API] ✅ Compiled routes loaded successfully');
 } catch (error) {
   console.error('[SIMPLE API] ⚠️  Could not load compiled routes:', error.message);
-  console.error('[SIMPLE API] Loading JavaScript fallback auth routes...');
+  console.error('[SIMPLE API] Loading Firebase auth routes...');
 
-  // Load JavaScript auth handlers
-  const { register, login, getMe } = require('./auth-handlers');
+  // Load Firebase auth handlers
+  const { register, login, getMe } = require('./auth-firebase');
 
   // Register endpoints
   app.post('/api/auth/register', register);
   app.post('/api/auth/login', login);
   app.get('/api/auth/me', getMe);
 
-  console.log('[SIMPLE API] ✅ JavaScript auth routes loaded');
+  console.log('[SIMPLE API] ✅ Firebase auth routes loaded');
 }
 
 // Fallback/info routes
