@@ -111,7 +111,25 @@ app.get('/health', (req, res) => {
     message: 'Aula Virtual API',
     mode: routesLoaded ? 'full' : 'fallback',
     timestamp: new Date().toISOString(),
-    environment: process.env.NODE_ENV || 'production'
+    environment: process.env.NODE_ENV || 'production',
+    debug: {
+      commit: 'ffb54ec',
+      routesLoaded,
+      distPath: routesLoaded ? 'loaded' : 'failed'
+    }
+  });
+});
+
+// Test endpoint to verify deployment
+app.get('/test-deployment', (req, res) => {
+  res.json({
+    message: 'If you see this, the latest code is deployed',
+    commit: 'ffb54ec',
+    timestamp: new Date().toISOString(),
+    files: {
+      indexSimple: 'loaded',
+      distRoutes: routesLoaded
+    }
   });
 });
 
