@@ -1,0 +1,995 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sesión 2 – Español Avanzado</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5f7fb;
+        --card: #ffffff;
+        --text: #1f2a44;
+        --muted: #5b667a;
+        --accent: #4b6fff;
+        --border: #e3e7f2;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      header {
+        background: #ffffff;
+        border-bottom: 1px solid var(--border);
+        padding: 20px 24px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+      }
+      header a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      main {
+        max-width: 960px;
+        margin: 24px auto 60px;
+        padding: 0 16px;
+      }
+      .hero {
+        background: linear-gradient(120deg, #8b5cf6, #a78bfa);
+        color: #fff;
+        border-radius: 18px;
+        padding: 28px;
+        margin-bottom: 24px;
+      }
+      .hero h1 {
+        margin: 0 0 8px;
+      }
+      .hero p {
+        margin: 0;
+        opacity: 0.9;
+      }
+      .section {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 24px;
+        margin-bottom: 18px;
+        box-shadow: 0 10px 24px rgba(25, 35, 70, 0.05);
+      }
+      h2 {
+        margin-top: 0;
+      }
+      h3 {
+        margin-top: 16px;
+      }
+      h4 {
+        margin-top: 12px;
+        margin-bottom: 8px;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      .tag {
+        display: inline-block;
+        background: #eef2ff;
+        color: var(--accent);
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 16px;
+        background: #fbfcff;
+      }
+      .note {
+        border-left: 4px solid var(--accent);
+        padding: 12px 16px;
+        background: #f1f4ff;
+        border-radius: 10px;
+        color: var(--muted);
+      }
+      .text-box {
+        background: #fafbfc;
+        border: 2px solid #e1e4e8;
+        border-radius: 10px;
+        padding: 20px;
+        line-height: 1.8;
+        font-size: 1.05rem;
+      }
+      .glossary-term {
+        color: var(--accent);
+        font-weight: 600;
+        cursor: help;
+        border-bottom: 2px dotted var(--accent);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+      }
+      th, td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid var(--border);
+      }
+      th {
+        background: #f5f7fb;
+        font-weight: 600;
+      }
+      details {
+        margin-top: 12px;
+        cursor: pointer;
+      }
+      summary {
+        cursor: pointer;
+        color: var(--accent);
+        font-weight: 600;
+        padding: 8px;
+        background: #f8f9ff;
+        border-radius: 6px;
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+        padding: 16px;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a href="../index.html">← Volver al índice</a>
+    </header>
+
+    <main>
+      <div class="hero">
+        <h1>Sesión 2 – Comprensión lectora + léxico académico</h1>
+        <p>Textos expositivos, conectores de contraste y vocabulario académico avanzado</p>
+      </div>
+
+      <!-- OBJETIVOS -->
+      <section class="section">
+        <h2>🎯 Objetivos de la sesión</h2>
+        <ul>
+          <li>Trabajar textos expositivos largos (extraer idea principal y detalles).</li>
+          <li>Desarrollar léxico de cultura, arte y ciencia (sinónimos y matices).</li>
+          <li>Dominar conectores de contraste y concesión.</li>
+          <li>Producir resúmenes coherentes y precisos.</li>
+        </ul>
+      </section>
+
+      <!-- ESTRUCTURA -->
+      <section class="section">
+        <h2>Estructura (4 horas)</h2>
+        <ol>
+          <li><strong>Activación (15 min)</strong>: Mapa mental sobre estética romana y belleza histórica. <a href="#activacion">↓ Ver actividad</a></li>
+          <li><strong>Miniweb 3 – Texto interactivo (70 min)</strong>: Lectura con lupa. <a href="#miniweb3">↓ Ver actividad</a></li>
+          <li><strong>Gramática y léxico (45 min)</strong>: Conectores de contraste/concesión. <a href="#gramatica">↓ Ver actividad</a></li>
+          <li><strong>Ejercicios interactivos (45 min)</strong>: Ordenar argumentos y detectar conectores. <a href="#ejercicios">↓ Ver actividad</a></li>
+          <li><strong>Producción breve (35 min)</strong>: Mini-resumen (120–150 palabras). <a href="#produccion">↓ Ver actividad</a></li>
+          <li><strong>Cierre (10 min)</strong>: repaso + tareas. <a href="#cierre">↓ Ver actividad</a></li>
+        </ol>
+      </section>
+
+      <!-- ===== ACTIVACIÓN ===== -->
+      <section class="section" id="activacion">
+        <span class="tag">15 minutos</span>
+        <h2>🧠 Activación: Mapa mental sobre estética romana</h2>
+
+        <div class="note">
+          <strong>Objetivo:</strong> Activar conocimientos previos sobre arte, cultura y belleza histórica para preparar la lectura.
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>Dinámica</h3>
+          <ol>
+            <li><strong>Trabajo individual (5 min):</strong> En una hoja o herramienta digital, crea un mapa mental con la palabra central "Estética romana".</li>
+            <li><strong>Ramas principales sugeridas:</strong>
+              <ul>
+                <li>Arquitectura (columnas, arcos, templos)</li>
+                <li>Escultura (retratos, bustos, estatuas)</li>
+                <li>Belleza corporal (cánones, ideales)</li>
+                <li>Colores y materiales (mármol, oro, púrpura)</li>
+              </ul>
+            </li>
+            <li><strong>Puesta en común (10 min):</strong> Comparte tu mapa con la clase. Toma nota de vocabulario nuevo que aporten tus compañeros.</li>
+          </ol>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#fff9e6;">
+          <h3>💡 Vocabulario útil para el mapa</h3>
+          <div class="grid">
+            <div>
+              <h4>Arquitectura</h4>
+              <ul>
+                <li>Columnas dóricas/jónicas/corintias</li>
+                <li>Bóveda de cañón</li>
+                <li>Cúpula</li>
+                <li>Foro</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Arte</h4>
+              <ul>
+                <li>Fresco</li>
+                <li>Mosaico</li>
+                <li>Bajorrelieve</li>
+                <li>Proporciones armónicas</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Conceptos</h4>
+              <ul>
+                <li>Canon de belleza</li>
+                <li>Simetría</li>
+                <li>Equilibrio</li>
+                <li>Monumentalidad</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#f0f9ff;">
+          <h3>🔗 Recursos para inspirarte</h3>
+          <ul>
+            <li><a href="https://es.wikipedia.org/wiki/Arte_de_la_Antigua_Roma" target="_blank">Arte de la Antigua Roma (Wikipedia)</a></li>
+            <li><a href="https://www.nationalgeographic.com.es/temas/antigua-roma" target="_blank">National Geographic - Antigua Roma</a></li>
+            <li><a href="https://www.artehistoria.com/es/contexto/el-arte-romano" target="_blank">Artehistoria - El arte romano</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===== MINIWEB 3 ===== -->
+      <section class="section" id="miniweb3">
+        <span class="tag">70 minutos</span>
+        <h2>📖 Miniweb 3 – Lectura con lupa</h2>
+
+        <div class="note">
+          <strong>Objetivo:</strong> Comprender un texto expositivo largo, identificar ideas principales y extraer detalles específicos.
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>📝 Instrucciones de lectura</h3>
+          <ol>
+            <li><strong>Primera lectura (10 min):</strong> Lee el texto completo sin detenerte. Identifica el tema general.</li>
+            <li><strong>Segunda lectura (15 min):</strong> Lee párrafo por párrafo. Subraya las ideas principales y consulta el glosario.</li>
+            <li><strong>Preguntas (30 min):</strong> Responde las preguntas sin volver a consultar el texto (simula condiciones de examen).</li>
+            <li><strong>Verificación (15 min):</strong> Revisa tus respuestas y compara con las soluciones.</li>
+          </ol>
+        </div>
+
+        <!-- TEXTO PRINCIPAL -->
+        <div class="card" style="margin-top:16px;">
+          <h3>📄 Texto: "La belleza en la Antigua Roma: entre el ideal griego y la identidad propia"</h3>
+
+          <div class="text-box" style="margin-top:16px;">
+            <p>
+              La <span class="glossary-term" title="Forma en que se percibe y valora la belleza">estética</span> romana, lejos de ser una mera imitación del arte griego, representa una síntesis compleja que
+              refleja tanto la admiración por los <span class="glossary-term" title="Modelos o patrones ideales">cánones</span> helénicos como la necesidad de proyectar una identidad imperial propia.
+              Aunque los romanos adoptaron muchas de las formas y principios del arte griego —especialmente la búsqueda de la proporción y la armonía—,
+              introdujeron elementos distintivos que reflejan su visión pragmática del mundo y su énfasis en el realismo y la individualidad.
+            </p>
+
+            <p style="margin-top:16px;">
+              En el ámbito de la escultura, por ejemplo, los romanos se destacaron por desarrollar el <span class="glossary-term" title="Representación realista del rostro de una persona">retrato</span>
+              como género artístico autónomo. A diferencia de los griegos, que tendían a idealizar los rasgos humanos en busca de una belleza universal,
+              los escultores romanos se inclinaron por capturar las características individuales de sus modelos, incluyendo arrugas, expresiones y señales de edad.
+              Este <span class="glossary-term" title="Enfoque artístico que representa la realidad tal como es">verismo</span> no solo respondía a una preferencia estética,
+              sino que también cumplía una función política: los retratos de emperadores y patricios servían para consolidar el poder y perpetuar la memoria de las élites.
+            </p>
+
+            <p style="margin-top:16px;">
+              Pese a esta inclinación por el realismo, los romanos no renunciaron por completo al ideal de belleza griego.
+              En la arquitectura, por ejemplo, adoptaron los órdenes clásicos (dórico, jónico y corintio) y los integraron en construcciones de una escala
+              y <span class="glossary-term" title="Cualidad de ser grandioso e impresionante">monumentalidad</span> sin precedentes, como el Coliseo o el Panteón.
+              Estas estructuras no solo impresionaban por su tamaño, sino también por su sofisticación técnica:
+              el uso innovador del <span class="glossary-term" title="Mezcla de cal, arena y agua usada en construcción">hormigón</span> y de la bóveda de cañón permitió crear espacios interiores amplios y luminosos
+              que superaban las posibilidades de la arquitectura griega tradicional.
+            </p>
+
+            <p style="margin-top:16px;">
+              En cuanto al canon de belleza corporal, las representaciones romanas oscilaban entre el ideal griego del cuerpo atlético y armonioso,
+              y una valoración más pragmática que reconocía la diversidad de tipos físicos.
+              Aunque la figura del <span class="glossary-term" title="Dios del amor en la mitología romana">Cupido</span> o del joven Adonis seguían el modelo helénico de perfección,
+              muchas estatuas de ciudadanos ordinarios reflejaban una estética más cercana a la realidad cotidiana.
+              Esta dualidad revela una tensión constante en la cultura romana: el deseo de emular la grandeza cultural griega y, al mismo tiempo,
+              afirmar una identidad propia basada en valores como la fortaleza, la disciplina y la virtud cívica.
+            </p>
+
+            <p style="margin-top:16px;">
+              Finalmente, cabe destacar que la estética romana no se limitaba a las artes visuales.
+              La literatura, la oratoria y la filosofía también participaban de esta búsqueda de belleza, entendida no solo como armonía formal,
+              sino también como <span class="glossary-term" title="Adecuación perfecta entre forma y función">decoro</span> y adecuación.
+              El ideal del <em>vir bonus dicendi peritus</em> (el hombre bueno diestro en el hablar) encarnaba esta concepción integral de la belleza,
+              que vinculaba la excelencia estética con la virtud moral y el servicio a la comunidad.
+            </p>
+          </div>
+        </div>
+
+        <!-- GLOSARIO -->
+        <div class="card" style="margin-top:16px; background:#f0fff4;">
+          <h3>📚 Glosario de términos clave</h3>
+          <table>
+            <tr>
+              <th>Término</th>
+              <th>Definición</th>
+            </tr>
+            <tr>
+              <td><strong>Estética</strong></td>
+              <td>Rama de la filosofía que estudia la belleza y el arte; también, el conjunto de principios que rigen la percepción de lo bello.</td>
+            </tr>
+            <tr>
+              <td><strong>Canon</strong></td>
+              <td>Modelo o patrón ideal que establece las proporciones y características consideradas perfectas.</td>
+            </tr>
+            <tr>
+              <td><strong>Verismo</strong></td>
+              <td>Tendencia artística que busca representar la realidad con exactitud, sin idealizaciones.</td>
+            </tr>
+            <tr>
+              <td><strong>Monumentalidad</strong></td>
+              <td>Cualidad de ser grandioso, imponente e impresionante, característica de obras arquitectónicas de gran escala.</td>
+            </tr>
+            <tr>
+              <td><strong>Decoro</strong></td>
+              <td>Principio estético y moral que implica adecuación, dignidad y respeto por las convenciones sociales.</td>
+            </tr>
+            <tr>
+              <td><strong>Helénico/a</strong></td>
+              <td>Relativo a la antigua Grecia y su cultura.</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- PREGUNTAS DE COMPRENSIÓN -->
+        <div class="card" style="margin-top:16px;">
+          <h3>❓ Preguntas de comprensión (modelo DELE)</h3>
+
+          <h4>1. ¿Cuál es la idea principal del texto?</h4>
+          <ul>
+            <li>a) La estética romana era idéntica a la griega.</li>
+            <li>b) Los romanos imitaban el arte griego sin aportar elementos propios.</li>
+            <li>c) <strong>La estética romana combinaba influencias griegas con elementos distintivos que reflejaban su identidad propia.</strong></li>
+            <li>d) Los romanos rechazaban completamente el ideal de belleza griego.</li>
+          </ul>
+
+          <h4>2. Según el texto, ¿qué característica distinguía la escultura romana de la griega?</h4>
+          <ul>
+            <li>a) El uso de materiales más costosos.</li>
+            <li>b) <strong>La representación realista de rasgos individuales, incluyendo imperfecciones.</strong></li>
+            <li>c) La ausencia total de idealización.</li>
+            <li>d) El rechazo de los cánones de proporción.</li>
+          </ul>
+
+          <h4>3. ¿Qué función política cumplían los retratos romanos?</h4>
+          <ul>
+            <li>a) Decorar espacios públicos.</li>
+            <li>b) Imitar el arte griego.</li>
+            <li>c) <strong>Consolidar el poder y perpetuar la memoria de las élites.</strong></li>
+            <li>d) Enseñar anatomía a los estudiantes.</li>
+          </ul>
+
+          <h4>4. ¿Qué innovación técnica permitió a los romanos superar la arquitectura griega?</h4>
+          <ul>
+            <li>a) El uso de columnas más altas.</li>
+            <li>b) <strong>El uso del hormigón y la bóveda de cañón.</strong></li>
+            <li>c) La construcción de templos más pequeños.</li>
+            <li>d) La eliminación de los órdenes clásicos.</li>
+          </ul>
+
+          <h4>5. Según el texto, ¿cómo se manifestaba la dualidad en el canon de belleza corporal romano?</h4>
+          <ul>
+            <li>a) Rechazaban tanto el ideal griego como el realismo.</li>
+            <li>b) <strong>Oscilaban entre el ideal griego de perfección y una representación más realista de la diversidad física.</strong></li>
+            <li>c) Solo representaban cuerpos atléticos y perfectos.</li>
+            <li>d) Preferían exclusivamente representaciones de ciudadanos ordinarios.</li>
+          </ul>
+
+          <h4>6. ¿Qué frase resume mejor el segundo párrafo?</h4>
+          <ul>
+            <li>a) "Los romanos copiaban exactamente el arte griego."</li>
+            <li>b) <strong>"Los escultores romanos desarrollaron el retrato realista con función política y estética."</strong></li>
+            <li>c) "Los griegos inventaron el retrato individual."</li>
+            <li>d) "Los romanos no valoraban la belleza en el arte."</li>
+          </ul>
+
+          <h4>7. El término "decoro" en el último párrafo se refiere a:</h4>
+          <ul>
+            <li>a) Decoración visual.</li>
+            <li>b) <strong>Adecuación y dignidad estética y moral.</strong></li>
+            <li>c) Simplicidad artística.</li>
+            <li>d) Falta de ornamentación.</li>
+          </ul>
+
+          <h4>8. ¿Qué valores romanos se mencionan como distintos del ideal griego?</h4>
+          <ul>
+            <li>a) Armonía y proporción.</li>
+            <li>b) <strong>Fortaleza, disciplina y virtud cívica.</strong></li>
+            <li>c) Perfección atlética.</li>
+            <li>d) Belleza universal.</li>
+          </ul>
+
+          <details style="margin-top:16px;">
+            <summary>📌 Ver todas las respuestas correctas</summary>
+            <div style="margin-top:12px; padding:12px; background:#fff; border-radius:8px;">
+              <ol>
+                <li><strong>c)</strong> La estética romana combinaba influencias griegas con elementos distintivos que reflejaban su identidad propia.</li>
+                <li><strong>b)</strong> La representación realista de rasgos individuales, incluyendo imperfecciones.</li>
+                <li><strong>c)</strong> Consolidar el poder y perpetuar la memoria de las élites.</li>
+                <li><strong>b)</strong> El uso del hormigón y la bóveda de cañón.</li>
+                <li><strong>b)</strong> Oscilaban entre el ideal griego de perfección y una representación más realista de la diversidad física.</li>
+                <li><strong>b)</strong> "Los escultores romanos desarrollaron el retrato realista con función política y estética."</li>
+                <li><strong>b)</strong> Adecuación y dignidad estética y moral.</li>
+                <li><strong>b)</strong> Fortaleza, disciplina y virtud cívica.</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#fff9e6;">
+          <h3>🔍 Estrategias de lectura académica</h3>
+          <div class="grid">
+            <div>
+              <h4>Antes de leer</h4>
+              <ul>
+                <li>Activa conocimientos previos</li>
+                <li>Lee título y subtítulos</li>
+                <li>Anticipa el tema</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Durante la lectura</h4>
+              <ul>
+                <li>Subraya ideas principales</li>
+                <li>Anota palabras clave</li>
+                <li>Identifica conectores</li>
+              </ul>
+            </div>
+            <div>
+              <h4>Después de leer</h4>
+              <ul>
+                <li>Resume cada párrafo</li>
+                <li>Relaciona ideas</li>
+                <li>Verifica comprensión</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== GRAMÁTICA Y LÉXICO ===== -->
+      <section class="section" id="gramatica">
+        <span class="tag">45 minutos</span>
+        <h2>📚 Gramática y léxico – Conectores de contraste y concesión</h2>
+
+        <div class="note">
+          <strong>Objetivo:</strong> Dominar el uso de conectores que expresan oposición, contraste y concesión para mejorar la cohesión textual.
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>📋 Tipos de conectores</h3>
+
+          <h4 style="margin-top:16px;">1. Conectores de contraste</h4>
+          <p>Presentan dos ideas opuestas o diferentes:</p>
+          <table>
+            <tr>
+              <th>Conector</th>
+              <th>Uso</th>
+              <th>Ejemplo</th>
+            </tr>
+            <tr>
+              <td><strong>Pero</strong></td>
+              <td>Contraste simple</td>
+              <td>Me gusta el arte, <strong>pero</strong> no entiendo de arquitectura.</td>
+            </tr>
+            <tr>
+              <td><strong>Sin embargo</strong></td>
+              <td>Contraste formal (+ coma)</td>
+              <td>Los romanos admiraban el arte griego; <strong>sin embargo</strong>, desarrollaron su propio estilo.</td>
+            </tr>
+            <tr>
+              <td><strong>No obstante</strong></td>
+              <td>Contraste formal (+ coma)</td>
+              <td>El texto es complejo; <strong>no obstante</strong>, es comprensible con ayuda del glosario.</td>
+            </tr>
+            <tr>
+              <td><strong>En cambio</strong></td>
+              <td>Contraste con alternativa</td>
+              <td>Los griegos idealizaban la belleza; los romanos, <strong>en cambio</strong>, preferían el realismo.</td>
+            </tr>
+            <tr>
+              <td><strong>Por el contrario</strong></td>
+              <td>Contraste fuerte</td>
+              <td>No rechazaron el arte griego; <strong>por el contrario</strong>, lo adoptaron y transformaron.</td>
+            </tr>
+          </table>
+
+          <h4 style="margin-top:24px;">2. Conectores de concesión</h4>
+          <p>Presentan un obstáculo que no impide el cumplimiento de una acción:</p>
+          <table>
+            <tr>
+              <th>Conector</th>
+              <th>Estructura</th>
+              <th>Ejemplo</th>
+            </tr>
+            <tr>
+              <td><strong>Aunque</strong></td>
+              <td>+ indicativo / subjuntivo</td>
+              <td><strong>Aunque</strong> imitaban a los griegos, los romanos innovaron mucho.</td>
+            </tr>
+            <tr>
+              <td><strong>A pesar de que</strong></td>
+              <td>+ indicativo</td>
+              <td><strong>A pesar de que</strong> valoraban el realismo, no abandonaron el ideal griego.</td>
+            </tr>
+            <tr>
+              <td><strong>Pese a que</strong></td>
+              <td>+ indicativo</td>
+              <td><strong>Pese a que</strong> el texto es largo, se lee con interés.</td>
+            </tr>
+            <tr>
+              <td><strong>A pesar de</strong></td>
+              <td>+ sustantivo/infinitivo</td>
+              <td><strong>A pesar de</strong> la dificultad, completé la lectura.</td>
+            </tr>
+            <tr>
+              <td><strong>Pese a</strong></td>
+              <td>+ sustantivo/infinitivo</td>
+              <td><strong>Pese a</strong> su complejidad, el tema es fascinante.</td>
+            </tr>
+            <tr>
+              <td><strong>Aun cuando</strong></td>
+              <td>+ indicativo / subjuntivo</td>
+              <td><strong>Aun cuando</strong> no entiendas todo, intenta captar la idea general.</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#f0fff4;">
+          <h3>💡 Ejemplos del texto de lectura</h3>
+
+          <h4>Ejemplo 1: Concesión</h4>
+          <p><em>"<strong>Aunque</strong> los romanos adoptaron muchas de las formas y principios del arte griego, introdujeron elementos distintivos..."</em></p>
+          <p><strong>Análisis:</strong> Se reconoce la influencia griega (obstáculo), pero se afirma la originalidad romana (acción que se cumple).</p>
+
+          <h4 style="margin-top:16px;">Ejemplo 2: Contraste</h4>
+          <p><em>"A diferencia de los griegos, que tendían a idealizar los rasgos humanos, los escultores romanos se inclinaron por capturar las características individuales..."</em></p>
+          <p><strong>Análisis:</strong> Se presenta una diferencia clara entre dos enfoques artísticos.</p>
+
+          <h4 style="margin-top:16px;">Ejemplo 3: Concesión</h4>
+          <p><em>"<strong>Pese a</strong> esta inclinación por el realismo, los romanos no renunciaron por completo al ideal de belleza griego."</em></p>
+          <p><strong>Análisis:</strong> A pesar de preferir el realismo (obstáculo), mantuvieron el ideal griego (acción que se cumple).</p>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#fff9e6;">
+          <h3>⚠️ Errores comunes</h3>
+          <ul>
+            <li><strong>❌ Aunque + pero:</strong> "Aunque estudié, pero suspendí." → <strong>✅</strong> "Aunque estudié, suspendí."</li>
+            <li><strong>❌ A pesar de + que + infinitivo:</strong> "A pesar de que llover" → <strong>✅</strong> "A pesar de que llovió" / "A pesar de llover"</li>
+            <li><strong>❌ Sin embargo sin coma:</strong> "Me gustó sin embargo no lo compré" → <strong>✅</strong> "Me gustó; sin embargo, no lo compré."</li>
+            <li><strong>❌ Pese a + verbo conjugado:</strong> "Pese a estudiaba" → <strong>✅</strong> "Pese a que estudiaba" / "Pese a estudiar"</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#f0f9ff;">
+          <h3>🎯 Práctica rápida</h3>
+          <p>Completa las frases con el conector adecuado:</p>
+          <ol>
+            <li>El museo estaba cerrado; __________, pudimos ver la exposición exterior.</li>
+            <li>__________ el mal tiempo, decidimos salir a caminar.</li>
+            <li>Los estudiantes trabajaron duro; __________, no todos aprobaron.</li>
+            <li>__________ tenía dudas, decidió presentarse al examen.</li>
+            <li>Me gusta la historia, __________ prefiero el arte.</li>
+          </ol>
+
+          <details style="margin-top:12px;">
+            <summary>📌 Ver soluciones sugeridas</summary>
+            <div style="margin-top:12px; padding:12px; background:#fff; border-radius:8px;">
+              <ol>
+                <li>sin embargo / no obstante</li>
+                <li>A pesar de / Pese a</li>
+                <li>sin embargo / no obstante</li>
+                <li>Aunque / Pese a que</li>
+                <li>pero / sin embargo</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- ===== EJERCICIOS INTERACTIVOS ===== -->
+      <section class="section" id="ejercicios">
+        <span class="tag">45 minutos</span>
+        <h2>✍️ Ejercicios interactivos</h2>
+
+        <div class="note">
+          <strong>Objetivo:</strong> Practicar el uso de conectores en contextos académicos y desarrollar la cohesión textual.
+        </div>
+
+        <!-- Ejercicio 1 -->
+        <div class="card" style="margin-top:16px; background:#f0fff4;">
+          <h3>Ejercicio 1: Seleccionar el conector adecuado</h3>
+          <p><strong>Instrucciones:</strong> Elige el conector que mejor complete cada frase.</p>
+
+          <div style="background:#fff; padding:16px; border-radius:8px; border-left:4px solid #4b6fff; margin-top:12px;">
+            <ol>
+              <li>El Coliseo es una obra impresionante; __________, el Panteón es aún más innovador técnicamente.
+                <ul style="list-style:none;">
+                  <li>a) aunque</li>
+                  <li>b) sin embargo</li>
+                  <li>c) porque</li>
+                </ul>
+              </li>
+
+              <li>__________ los romanos admiraban el arte griego, desarrollaron su propio estilo.
+                <ul style="list-style:none;">
+                  <li>a) Porque</li>
+                  <li>b) Aunque</li>
+                  <li>c) Por lo tanto</li>
+                </ul>
+              </li>
+
+              <li>Los griegos idealizaban la belleza; los romanos, __________, preferían el realismo.
+                <ul style="list-style:none;">
+                  <li>a) por eso</li>
+                  <li>b) en cambio</li>
+                  <li>c) además</li>
+                </ul>
+              </li>
+
+              <li>__________ la complejidad del texto, logré comprenderlo bien.
+                <ul style="list-style:none;">
+                  <li>a) A pesar de</li>
+                  <li>b) Gracias a</li>
+                  <li>c) Debido a</li>
+                </ul>
+              </li>
+
+              <li>El museo abre a las 10; __________, llegamos a las 9:30 para evitar colas.
+                <ul style="list-style:none;">
+                  <li>a) sin embargo</li>
+                  <li>b) aunque</li>
+                  <li>c) por eso</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+
+          <details style="margin-top:16px;">
+            <summary>📌 Ver respuestas correctas</summary>
+            <div style="margin-top:12px; padding:12px; background:#fff; border-radius:8px;">
+              <ol>
+                <li><strong>b) sin embargo</strong> - Conecta dos ideas contrastantes.</li>
+                <li><strong>b) Aunque</strong> - Expresa concesión.</li>
+                <li><strong>b) en cambio</strong> - Marca un contraste entre dos enfoques.</li>
+                <li><strong>a) A pesar de</strong> - Concesión (obstáculo superado).</li>
+                <li><strong>c) por eso</strong> - Consecuencia lógica (causa-efecto).</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <!-- Ejercicio 2 -->
+        <div class="card" style="margin-top:16px; background:#fff9e6;">
+          <h3>Ejercicio 2: Ordenar argumentos con conectores</h3>
+          <p><strong>Instrucciones:</strong> Ordena las siguientes frases para formar un texto coherente. Añade conectores donde sea necesario.</p>
+
+          <div style="background:#fff; padding:16px; border-radius:8px; border-left:4px solid #ff9500; margin-top:12px;">
+            <p><strong>Frases desordenadas:</strong></p>
+            <ol style="list-style:upper-alpha;">
+              <li>Los romanos valoraban el realismo en el retrato.</li>
+              <li>El arte griego buscaba la perfección idealizada.</li>
+              <li>Esta diferencia refleja dos visiones del mundo distintas.</li>
+              <li>Los escultores romanos capturaban arrugas y expresiones individuales.</li>
+            </ol>
+          </div>
+
+          <details style="margin-top:16px;">
+            <summary>📌 Ver solución sugerida</summary>
+            <div style="margin-top:12px; padding:12px; background:#fff; border-radius:8px;">
+              <p><strong>Orden correcto: B → A → D → C</strong></p>
+              <p style="margin-top:12px;"><strong>Texto completo con conectores:</strong></p>
+              <p>
+                El arte griego buscaba la perfección idealizada. <strong>En cambio</strong>, los romanos valoraban el realismo en el retrato.
+                <strong>De hecho</strong>, los escultores romanos capturaban arrugas y expresiones individuales.
+                <strong>En definitiva</strong>, esta diferencia refleja dos visiones del mundo distintas.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <!-- Ejercicio 3 -->
+        <div class="card" style="margin-top:16px; background:#f0f9ff;">
+          <h3>Ejercicio 3: Transformar frases con conectores</h3>
+          <p><strong>Instrucciones:</strong> Reescribe las frases usando el conector indicado sin cambiar el sentido.</p>
+
+          <div style="background:#fff; padding:16px; border-radius:8px; border-left:4px solid #0099ff; margin-top:12px;">
+            <ol>
+              <li><strong>Original:</strong> "Estudié mucho, pero suspendí el examen."<br>
+                  <strong>Reescribe con "aunque":</strong> _______________</li>
+
+              <li><strong>Original:</strong> "El texto es difícil, pero lo entendí."<br>
+                  <strong>Reescribe con "a pesar de que":</strong> _______________</li>
+
+              <li><strong>Original:</strong> "Los griegos idealizaban; los romanos preferían el realismo."<br>
+                  <strong>Reescribe con "en cambio":</strong> _______________</li>
+
+              <li><strong>Original:</strong> "No tenía tiempo, pero terminé el trabajo."<br>
+                  <strong>Reescribe con "pese a":</strong> _______________</li>
+
+              <li><strong>Original:</strong> "El museo estaba cerrado, pero vimos la exposición exterior."<br>
+                  <strong>Reescribe con "sin embargo":</strong> _______________</li>
+            </ol>
+          </div>
+
+          <details style="margin-top:16px;">
+            <summary>📌 Ver soluciones sugeridas</summary>
+            <div style="margin-top:12px; padding:12px; background:#fff; border-radius:8px;">
+              <ol>
+                <li>"<strong>Aunque</strong> estudié mucho, suspendí el examen."</li>
+                <li>"<strong>A pesar de que</strong> el texto es/era difícil, lo entendí."</li>
+                <li>"Los griegos idealizaban; los romanos, <strong>en cambio</strong>, preferían el realismo."</li>
+                <li>"<strong>Pese a</strong> no tener tiempo, terminé el trabajo."</li>
+                <li>"El museo estaba cerrado; <strong>sin embargo</strong>, vimos la exposición exterior."</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <!-- Ejercicio 4 -->
+        <div class="card" style="margin-top:16px; background:#fff0f6;">
+          <h3>Ejercicio 4: Detectar y corregir errores</h3>
+          <p><strong>Instrucciones:</strong> Encuentra el error en cada frase y corrígelo.</p>
+
+          <div style="background:#fff; padding:16px; border-radius:8px; border-left:4px solid #e91e63; margin-top:12px;">
+            <ol>
+              <li>"Aunque tenía sueño, pero terminé el libro."</li>
+              <li>"A pesar de que llover, salimos a pasear."</li>
+              <li>"Me gusta el arte sin embargo no voy a museos."</li>
+              <li>"Pese a estudiaba mucho, no aprobé."</li>
+              <li>"Los romanos admiraban a los griegos, por el contrario los imitaban."</li>
+            </ol>
+          </div>
+
+          <details style="margin-top:16px;">
+            <summary>📌 Ver correcciones</summary>
+            <div style="margin-top:12px; padding:12px; background:#fff; border-radius:8px;">
+              <ol>
+                <li><strong>Error:</strong> "aunque + pero" juntos.<br>
+                    <strong>Corrección:</strong> "Aunque tenía sueño, terminé el libro." (eliminar "pero")</li>
+
+                <li><strong>Error:</strong> "a pesar de que" + infinitivo.<br>
+                    <strong>Corrección:</strong> "A pesar de que llovía, salimos a pasear." o "A pesar de llover, salimos a pasear."</li>
+
+                <li><strong>Error:</strong> Falta puntuación antes de "sin embargo".<br>
+                    <strong>Corrección:</strong> "Me gusta el arte; sin embargo, no voy a museos."</li>
+
+                <li><strong>Error:</strong> "pese a" + verbo conjugado directamente.<br>
+                    <strong>Corrección:</strong> "Pese a que estudiaba mucho, no aprobé." o "Pese a estudiar mucho, no aprobé."</li>
+
+                <li><strong>Error:</strong> "por el contrario" mal usado (indica lo opuesto, no continuidad).<br>
+                    <strong>Corrección:</strong> "Los romanos admiraban a los griegos; de hecho, los imitaban." o "Los romanos admiraban a los griegos e incluso los imitaban."</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <!-- Ejercicio 5 -->
+        <div class="card" style="margin-top:16px;">
+          <h3>Ejercicio 5: Crear frases propias</h3>
+          <p><strong>Instrucciones:</strong> Escribe una frase original usando cada conector. Tema: Arte, cultura o educación.</p>
+
+          <div style="background:#f5f7fb; padding:16px; border-radius:8px; margin-top:12px;">
+            <ol>
+              <li><strong>Aunque:</strong> _________________________________</li>
+              <li><strong>Sin embargo:</strong> _________________________________</li>
+              <li><strong>A pesar de que:</strong> _________________________________</li>
+              <li><strong>En cambio:</strong> _________________________________</li>
+              <li><strong>Pese a:</strong> _________________________________</li>
+            </ol>
+          </div>
+
+          <details style="margin-top:16px;">
+            <summary>📌 Ver ejemplos de referencia</summary>
+            <div style="margin-top:12px; padding:12px; background:#fff; border-radius:8px;">
+              <ol>
+                <li><strong>Aunque:</strong> "Aunque el museo cierra a las 6, decidí ir por la tarde."</li>
+                <li><strong>Sin embargo:</strong> "Me interesa la arquitectura; sin embargo, no he estudiado formalmente."</li>
+                <li><strong>A pesar de que:</strong> "A pesar de que el curso es intensivo, estoy aprendiendo mucho."</li>
+                <li><strong>En cambio:</strong> "Mi hermano prefiere la música clásica; yo, en cambio, prefiero el jazz."</li>
+                <li><strong>Pese a:</strong> "Pese a la dificultad del texto, disfruté la lectura."</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
+        <div class="note" style="margin-top:16px;">
+          <strong>💡 Consejo:</strong> Practica usando estos conectores en tus redacciones. La variedad de conectores enriquece tu escritura y demuestra dominio del idioma.
+        </div>
+      </section>
+
+      <!-- ===== PRODUCCIÓN BREVE ===== -->
+      <section class="section" id="produccion">
+        <span class="tag">35 minutos</span>
+        <h2>✏️ Producción breve – Mini-resumen</h2>
+
+        <div class="note">
+          <strong>Objetivo:</strong> Sintetizar las ideas principales del texto de lectura en 120-150 palabras, usando conectores adecuados.
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#fff9e6;">
+          <h3>📝 Instrucciones</h3>
+          <ol>
+            <li><strong>Planificación (10 min):</strong> Relee el texto y anota las 3-4 ideas principales.</li>
+            <li><strong>Redacción (20 min):</strong> Escribe tu resumen (120-150 palabras).</li>
+            <li><strong>Revisión (5 min):</strong> Verifica gramática, ortografía y coherencia.</li>
+          </ol>
+
+          <p style="margin-top:16px;"><strong>Requisitos del resumen:</strong></p>
+          <ul>
+            <li>✅ Extensión: 120-150 palabras (ni más ni menos)</li>
+            <li>✅ Incluir al menos <strong>2 conectores</strong> de contraste/concesión</li>
+            <li>✅ Usar vocabulario académico del texto</li>
+            <li>✅ Mantener un tono formal y objetivo</li>
+            <li>✅ NO copiar frases completas del texto original</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#f0fff4;">
+          <h3>🎯 Estructura sugerida para el resumen</h3>
+          <ol>
+            <li><strong>Frase introductoria (1-2 líneas):</strong> Presenta el tema general.
+              <ul>
+                <li><em>Ejemplo:</em> "El texto analiza la estética romana y su relación con el ideal griego..."</li>
+              </ul>
+            </li>
+            <li><strong>Ideas principales (4-6 líneas):</strong> Resume los puntos clave.
+              <ul>
+                <li>Influencia griega vs. originalidad romana</li>
+                <li>Verismo en la escultura</li>
+                <li>Innovaciones arquitectónicas</li>
+                <li>Dualidad en el canon de belleza</li>
+              </ul>
+            </li>
+            <li><strong>Conclusión (1-2 líneas):</strong> Cierra con una síntesis final.
+              <ul>
+                <li><em>Ejemplo:</em> "En definitiva, la estética romana representa una síntesis única entre tradición e innovación."</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#f0f9ff;">
+          <h3>📋 Checklist de autoevaluación</h3>
+          <p>Antes de entregar tu resumen, verifica:</p>
+          <ul>
+            <li>☐ ¿He respetado el límite de 120-150 palabras?</li>
+            <li>☐ ¿He incluido al menos 2 conectores de contraste/concesión?</li>
+            <li>☐ ¿He usado vocabulario académico (estética, canon, verismo, etc.)?</li>
+            <li>☐ ¿He parafraseado el texto sin copiar frases completas?</li>
+            <li>☐ ¿El resumen es coherente y tiene una estructura clara?</li>
+            <li>☐ ¿He revisado la gramática y ortografía?</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:16px;">
+          <h3>💡 Ejemplo de mini-resumen (142 palabras)</h3>
+          <div style="background:#fff; padding:16px; border-radius:8px; margin-top:12px; line-height:1.8;">
+            <p>
+              El texto examina la estética romana como una síntesis entre la tradición griega y la identidad imperial propia.
+              <strong>Aunque</strong> los romanos adoptaron los cánones helénicos de proporción y armonía, introdujeron elementos distintivos que reflejan su visión pragmática del mundo.
+            </p>
+            <p style="margin-top:8px;">
+              En escultura, se destacaron por el verismo, capturando rasgos individuales y expresiones realistas con función política.
+              En arquitectura, <strong>pese a</strong> usar órdenes clásicos, superaron a los griegos gracias al hormigón y la bóveda de cañón, logrando construcciones monumentales como el Panteón.
+            </p>
+            <p style="margin-top:8px;">
+              El canon de belleza corporal oscilaba entre el ideal griego de perfección atlética y representaciones más realistas.
+              Esta dualidad revela la tensión entre emular la grandeza helénica y afirmar valores romanos como la fortaleza y la virtud cívica.
+            </p>
+            <p style="margin-top:12px; font-size:0.9em; color:#666;">
+              <strong>Análisis:</strong> Este resumen usa "aunque" y "pese a" (conectores de concesión), vocabulario académico (estética, cánones, verismo, monumentales),
+              y respeta la estructura sugerida con introducción, desarrollo y cierre implícito.
+            </p>
+          </div>
+        </div>
+
+        <div class="note" style="margin-top:16px;">
+          <strong>🎓 Tip profesional:</strong> Un buen resumen no solo reduce el texto, sino que lo reorganiza de forma coherente y demuestra comprensión profunda.
+        </div>
+      </section>
+
+      <!-- ===== CIERRE Y TAREAS ===== -->
+      <section class="section" id="cierre">
+        <span class="tag">10 minutos</span>
+        <h2>🎯 Cierre – Repaso y tareas</h2>
+
+        <div class="card" style="margin-top:16px; background:#f0fff4;">
+          <h3>📌 Repaso rápido</h3>
+          <p><strong>Conceptos clave de hoy:</strong></p>
+          <ul>
+            <li>✅ Estrategias de lectura académica: anticipación, subrayado de ideas principales, verificación</li>
+            <li>✅ Comprensión de textos expositivos largos con vocabulario académico</li>
+            <li>✅ Conectores de contraste: pero, sin embargo, en cambio, por el contrario</li>
+            <li>✅ Conectores de concesión: aunque, a pesar de (que), pese a (que), aun cuando</li>
+            <li>✅ Producción de resúmenes coherentes y precisos</li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#fff9e6;">
+          <h3>📚 Tarea para casa (40-60 minutos)</h3>
+
+          <h4 style="margin-top:12px;">1. Lectura de artículo cultural (30-40 minutos)</h4>
+          <ul>
+            <li>Lee un artículo sobre arte, historia o ciencia (mínimo 500 palabras)</li>
+            <li>Responde <strong>8 preguntas de comprensión</strong> tipo DELE que tú mismo formules</li>
+            <li>Subraya todas las palabras académicas que encuentres y busca sus sinónimos</li>
+          </ul>
+          <p><strong>Recursos sugeridos:</strong></p>
+          <ul>
+            <li><a href="https://elpais.com/cultura/" target="_blank">El País - Cultura</a></li>
+            <li><a href="https://www.nationalgeographic.com.es/historia" target="_blank">National Geographic España - Historia</a></li>
+            <li><a href="https://www.bbc.com/mundo/topics/c06gq9v4xp3t" target="_blank">BBC Mundo - Cultura</a></li>
+            <li><a href="https://www.rtve.es/noticias/cultura/" target="_blank">RTVE - Cultura</a></li>
+          </ul>
+
+          <h4 style="margin-top:16px;">2. Práctica de conectores (20 minutos)</h4>
+          <ul>
+            <li>Prepara <strong>5 conectores</strong> de la sesión (elige tus favoritos)</li>
+            <li>Escribe <strong>2 ejemplos propios</strong> para cada conector</li>
+            <li>Un ejemplo debe ser sobre el tema cultural que leíste</li>
+            <li>El otro puede ser sobre tu experiencia personal o académica</li>
+          </ul>
+
+          <h4 style="margin-top:16px;">3. Vocabulario académico (10 minutos)</h4>
+          <ul>
+            <li>Crea una lista con <strong>10 palabras académicas</strong> nuevas del texto de hoy</li>
+            <li>Para cada palabra, anota:
+              <ul>
+                <li>Definición</li>
+                <li>Sinónimo</li>
+                <li>Frase ejemplo propia</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card" style="margin-top:16px; background:#f0f9ff;">
+          <h3>🔜 Próxima sesión</h3>
+          <p><strong>Tema:</strong> Expresión escrita – Textos argumentativos y estructuras complejas</p>
+          <p><strong>Prepara:</strong> Tu lista de conectores y vocabulario académico. Trae dudas sobre el artículo que leíste.</p>
+        </div>
+
+        <div class="note" style="margin-top:16px;">
+          <strong>❓ Dudas o preguntas:</strong> Envía un correo o mensaje antes de la próxima sesión. ¡Excelente trabajo hoy!
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      Aula Virtual CLMABROAD · Sesión 2
+    </footer>
+  </body>
+</html>
