@@ -64,6 +64,7 @@ console.log('[SIMPLE API] Middleware configured');
 
 // Try to load compiled routes, but continue if it fails
 let routesLoaded = false;
+let loadError = null;
 try {
   console.log('[SIMPLE API] Attempting to load compiled routes...');
 
@@ -89,6 +90,12 @@ try {
   routesLoaded = true;
   console.log('[SIMPLE API] ✅ Compiled routes loaded successfully');
 } catch (error) {
+  loadError = {
+    message: error.message,
+    stack: error.stack,
+    code: error.code,
+    path: error.path
+  };
   console.error('[SIMPLE API] ⚠️  Could not load compiled routes:', error.message);
   console.error('[SIMPLE API] Stack:', error.stack);
   console.error('[SIMPLE API] Loading Firebase auth routes...');
@@ -122,13 +129,43 @@ app.get('/health', (req, res) => {
 
 // Test endpoint to verify deployment
 app.get('/test-deployment', (req, res) => {
+  const path = require('path');
+  const fs = require('fs');
+
+  // Check if dist files exist
+  const distPath = path.join(__dirname, '../../dist/routes');
+  let distFilesExist = false;
+  let fileList = [];
+
+  try {
+    if (fs.existsSync(distPath)) {
+      const files = fs.readdirSync(distPath);
+      distFilesExist = true;
+      fileList = files.filter(f => f.endsWith('.js') && !f.endsWith('.map'));
+    }
+  } catch (e) {
+    fileList = [`Error: ${e.message}`];
+  }
+
   res.json({
     message: 'If you see this, the latest code is deployed',
-    commit: 'ffb54ec',
+    commit: 'b4743ae',
     timestamp: new Date().toISOString(),
     files: {
       indexSimple: 'loaded',
       distRoutes: routesLoaded
+    },
+    debug: {
+      __dirname,
+      distPath,
+      distFilesExist,
+      fileList,
+      routesLoaded,
+      loadError: loadError ? {
+        message: loadError.message,
+        code: loadError.code,
+        path: loadError.path
+      } : null
     }
   });
 });
