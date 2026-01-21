@@ -17,6 +17,7 @@ const isOriginAllowed = (origin) => {
   if (origin.startsWith('http://localhost:') || origin.startsWith('http://127.0.0.1:')) return true;
   if (origin.includes('aula-virtual') && origin.includes('vercel.app')) return true;
   if (origin.includes('intensivo2') && origin.includes('vercel.app')) return true;
+  if (origin === 'https://intensivo2-swart.vercel.app') return true;
   if (origin === process.env.FRONTEND_URL) return true;
   return false;
 };
@@ -80,7 +81,17 @@ try {
   console.log('[SIMPLE API] ✅ Compiled routes loaded successfully');
 } catch (error) {
   console.error('[SIMPLE API] ⚠️  Could not load compiled routes:', error.message);
-  console.error('[SIMPLE API] Will use fallback routes');
+  console.error('[SIMPLE API] Loading JavaScript fallback auth routes...');
+
+  // Load JavaScript auth handlers
+  const { register, login, getMe } = require('./auth-handlers');
+
+  // Register endpoints
+  app.post('/api/auth/register', register);
+  app.post('/api/auth/login', login);
+  app.get('/api/auth/me', getMe);
+
+  console.log('[SIMPLE API] ✅ JavaScript auth routes loaded');
 }
 
 // Fallback/info routes
@@ -98,29 +109,16 @@ app.get('/api', (req, res) => {
   res.json({
     message: 'Aula Virtual CLMABROAD API',
     version: '1.0.0',
-    mode: routesLoaded ? 'full' : 'fallback',
+    mode: routesLoaded ? 'full' : 'javascript-fallback',
     endpoints: {
-      auth: '/api/auth',
-      courses: '/api/courses',
-      assignments: '/api/assignments',
-      submissions: '/api/submissions',
-      feedback: '/api/feedback'
+      auth: {
+        register: 'POST /api/auth/register',
+        login: 'POST /api/auth/login',
+        me: 'GET /api/auth/me'
+      }
     }
   });
 });
-
-// If routes didn't load, show helpful message
-if (!routesLoaded) {
-  app.all('/api/*', (req, res) => {
-    res.status(503).json({
-      error: 'Service temporarily unavailable',
-      message: 'TypeScript compilation failed. API routes are not available.',
-      hint: 'Check Vercel build logs. CORS is working correctly though.',
-      method: req.method,
-      path: req.path
-    });
-  });
-}
 
 // 404 handler
 app.use((req, res) => {
