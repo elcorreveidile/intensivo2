@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Materiales – Español Avanzado</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4f6fb;
+        --card: #ffffff;
+        --text: #1f2a44;
+        --muted: #5b667a;
+        --accent: #4b6fff;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: "Inter", "Segoe UI", Tahoma, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+      }
+      header {
+        background: linear-gradient(120deg, #4b6fff, #6f8bff);
+        color: #fff;
+        padding: 48px 24px;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0 0 8px;
+        font-size: 2.2rem;
+      }
+      header p {
+        margin: 0;
+        font-size: 1rem;
+        opacity: 0.9;
+      }
+      main {
+        max-width: 960px;
+        margin: -32px auto 48px;
+        padding: 0 16px;
+      }
+      .card {
+        background: var(--card);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 16px 40px rgba(25, 35, 70, 0.08);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+        margin-top: 16px;
+      }
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      .session {
+        border: 1px solid #e3e7f2;
+        border-radius: 12px;
+        padding: 16px;
+        background: #fbfcff;
+      }
+      .session h3 {
+        margin: 0 0 8px;
+      }
+      .pill {
+        display: inline-block;
+        background: #eef2ff;
+        color: var(--accent);
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+      }
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+        padding: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Español Avanzado – Materiales</h1>
+      <p>Acceso rápido a las sesiones, ejercicios y tareas.</p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Sesiones disponibles</h2>
+        <p>Haz clic en cada sesión para abrir la miniweb con todos los materiales.</p>
+        <div class="grid">
+          <article class="session">
+            <span class="pill">Sesión 1</span>
+            <h3>Puesta a punto + comprensión auditiva</h3>
+            <p>Guion, explicación gramatical, ejercicios y tarea.</p>
+            <a href="sesion-1/index.html">Abrir materiales →</a>
+          </article>
+          <article class="session">
+            <span class="pill">Sesiones 2–5</span>
+            <h3>En preparación</h3>
+            <p>Se publicarán aquí a medida que estén listas.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Aula Virtual CLMABROAD · Granada
+    </footer>
+  </body>
+</html>
