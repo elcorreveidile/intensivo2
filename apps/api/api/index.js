@@ -1,13 +1,14 @@
 // ENTRY POINT FOR VERCEL
-console.log('[API] Entry point loading...');
+console.log('[API] Entry point loading... Deployed:', new Date().toISOString());
 
 try {
   // Try simple app first (best CORS implementation)
   const app = require('./index-simple');
-  console.log('[API] ✅ Simple app loaded');
+  console.log('[API] ✅ Simple app loaded at:', new Date().toISOString());
   module.exports = app;
 } catch (error) {
   console.error('[API] ❌ Failed to load simple app:', error.message);
+  console.error('[API] Error stack:', error.stack);
 
   // Last resort - inline minimal CORS server
   console.log('[API] Creating emergency inline server...');
@@ -43,7 +44,8 @@ try {
     res.json({
       status: 'emergency',
       message: 'Emergency CORS server active',
-      error: error.message
+      error: error.message,
+      timestamp: new Date().toISOString()
     });
   });
 
