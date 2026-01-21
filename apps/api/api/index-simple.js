@@ -66,12 +66,18 @@ let routesLoaded = false;
 try {
   console.log('[SIMPLE API] Attempting to load compiled routes...');
 
-  // Try loading from dist (relative to api/ folder)
-  const authRoutes = require('../../dist/routes/auth.routes').default;
-  const coursesRoutes = require('../../dist/routes/courses.routes').default;
-  const assignmentsRoutes = require('../../dist/routes/assignments.routes').default;
-  const submissionsRoutes = require('../../dist/routes/submissions.routes').default;
-  const feedbackRoutes = require('../../dist/routes/feedback.routes').default;
+  // Try loading from dist using absolute path
+  const path = require('path');
+  const distPath = path.join(__dirname, '../../dist/routes');
+
+  console.log('[SIMPLE API] Looking for routes in:', distPath);
+  console.log('[SIMPLE API] __dirname:', __dirname);
+
+  const authRoutes = require(path.join(distPath, 'auth.routes.js')).default;
+  const coursesRoutes = require(path.join(distPath, 'courses.routes.js')).default;
+  const assignmentsRoutes = require(path.join(distPath, 'assignments.routes.js')).default;
+  const submissionsRoutes = require(path.join(distPath, 'submissions.routes.js')).default;
+  const feedbackRoutes = require(path.join(distPath, 'feedback.routes.js')).default;
 
   app.use('/api/auth', authRoutes);
   app.use('/api/courses', coursesRoutes);
@@ -83,6 +89,7 @@ try {
   console.log('[SIMPLE API] ✅ Compiled routes loaded successfully');
 } catch (error) {
   console.error('[SIMPLE API] ⚠️  Could not load compiled routes:', error.message);
+  console.error('[SIMPLE API] Stack:', error.stack);
   console.error('[SIMPLE API] Loading Firebase auth routes...');
 
   // Load Firebase auth handlers
