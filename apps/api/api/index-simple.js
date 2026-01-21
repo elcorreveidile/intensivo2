@@ -70,7 +70,7 @@ try {
 
   // Try loading from dist using absolute path
   const path = require('path');
-  const distPath = path.join(__dirname, '../../dist/routes');
+  const distPath = path.join(__dirname, '../dist/routes');
 
   console.log('[SIMPLE API] Looking for routes in:', distPath);
   console.log('[SIMPLE API] __dirname:', __dirname);
@@ -133,7 +133,7 @@ app.get('/test-deployment', (req, res) => {
   const fs = require('fs');
 
   // Check if dist files exist
-  const distPath = path.join(__dirname, '../../dist/routes');
+  const distPath = path.join(__dirname, '../dist/routes');
   let distFilesExist = false;
   let fileList = [];
 
